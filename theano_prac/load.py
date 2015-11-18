@@ -1,7 +1,10 @@
 import numpy as np
 import os
 
-datasets_dir = '/media/datasets/'
+#temporarily doing this for sake of hinton
+datasets_dir = '/scratch-ssd/da368/datasets'
+#datasets_dir = os.path.dirname(__file__)
+
 
 def one_hot(x,n):
 	if type(x) == list:
