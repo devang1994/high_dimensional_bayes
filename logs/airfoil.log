@@ -1,0 +1,8 @@
+Hlayers: 10 , BatchSize: 1 , Train: 0.173687498905, Test: 0.18386704535
+Hlayers: 2  , BatchSize: 1 , Train: 0.325620448786, Test: 0.35071790484 
+Hlayers: 50 , BatchSize: 1 , Train: 0.176456538997, Test: 0.18873637730
+Hlayers: 200, BatchSize: 1 , Train: 0.114117992237, Test: 0.11839180345
+Hlayers: 200, BatchSize: 10, Train: 0.249775758531, Test: 0.26347288163
+Hlayers: 200, BatchSize: 20, Train: 0.294750583252, Test: 0.30938297884
+Hlayers: 200, BatchSize: 4 , Train: 0.195723572005, Test: 0.20470789773
+Hlayers: 200, BatchSize: 3 , Train: 0.165855326968, Test: 0.18175066454

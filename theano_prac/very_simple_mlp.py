@@ -35,7 +35,7 @@ def sgd(cost, params, lr=0.05):
     return updates
 
 
-def model(X, w_h, w_o):
+def model(X, w_h, w_o,b_h,b_o):
     h = T.nnet.relu(T.dot(X, w_h)+b_h)
     pyx = T.nnet.softmax(T.dot(h, w_o)+b_o)
     return pyx
@@ -53,7 +53,7 @@ b_o=init_bias(10)
 
 print T.pprint(b_o)
 print b_o.get_value()
-py_x = model(X, w_h, w_o)
+py_x = model(X, w_h, w_o,b_h,b_o)
 y_x = T.argmax(py_x, axis=1)
 
 cost = T.mean(T.nnet.categorical_crossentropy(py_x, Y))
