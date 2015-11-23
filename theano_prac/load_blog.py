@@ -1,6 +1,5 @@
 __author__ = 'da368'
 from sklearn import preprocessing
-from sklearn.cross_validation import train_test_split
 import numpy as np
 def load_blog():
     '''returns the airfoil dataset after preprocessing
