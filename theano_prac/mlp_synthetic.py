@@ -2,6 +2,7 @@ import theano
 from theano import tensor as T
 import numpy as np
 from load_synthetic import load_synthetic as load
+from math import sqrt
 
 
 def floatX(X):
@@ -34,6 +35,11 @@ def model(X, w_h, w_o, b_h, b_o):
     return op
 
 
+def uniform_weights(shape):
+    scale = sqrt(6. / (shape[1] + shape[0]))
+    return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
+
+
 def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     X_train, X_test, y_train, y_test = load()
 
@@ -41,8 +47,8 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     Y = T.fmatrix(name='Y')
 
     input_size = X_train.shape[1]
-    w_h = init_weights((input_size, hidden_width))
-    w_o = init_weights((hidden_width, 1))
+    w_h = uniform_weights((input_size, hidden_width))
+    w_o = uniform_weights((hidden_width, 1))
     b_h = init_bias(hidden_width)
     b_o = init_bias(1)
 
@@ -74,8 +80,8 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
     fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
     print 'Hwidth: {}, BatchSize: {}, L2reg: {},Train: {}, Test: {}'.format(hidden_width, mini_batchsize, L2reg,
-                                                                             fin_cost_train, fin_cost_test)
+                                                                            fin_cost_train, fin_cost_test)
 
 
 if __name__ == "__main__":
-    run_test(L2reg=1,hidden_width=10)
+    run_test(L2reg=1, hidden_width=10)
