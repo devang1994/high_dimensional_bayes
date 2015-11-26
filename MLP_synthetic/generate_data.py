@@ -9,11 +9,6 @@ def floatX(X):
     """convert to np array with floatX"""
     return np.asarray(X, dtype=theano.config.floatX)
 
-def model(X, w_h, w_o, b_h, b_o):
-    h = T.nnet.relu(T.dot(X, w_h) + b_h)
-    op = T.dot(h, w_o) + b_o
-    return op
-
 def init_weights(shape):
     """theano shared variable with given shape"""
     return theano.shared(floatX(np.random.randn(*shape) * 0.5))
@@ -24,6 +19,11 @@ def uniform_weights(shape, scale=0.5):
 def init_bias(n):
     """theano shared variable with given size"""
     return theano.shared(value=np.zeros((n,), dtype=theano.config.floatX))
+
+def model(X, w_h, w_o, b_h, b_o):
+    h = T.nnet.relu(T.dot(X, w_h) + b_h)
+    op = T.dot(h, w_o) + b_o
+    return op
 
 X = T.fmatrix(name='X')
 input_size = 100
