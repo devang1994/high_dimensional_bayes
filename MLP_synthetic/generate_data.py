@@ -28,11 +28,12 @@ def model(X, w_h, w_o, b_h, b_o):
 X = T.fmatrix(name='X')
 input_size = 100
 hidden_width = 10
-w_h = uniform_weights((input_size, hidden_width))
-w_o = uniform_weights((hidden_width, 1))
+#one hidden layer 100->10->1
+w_h = uniform_weights((input_size, hidden_width)) #uniform from -0.5 to 0.5
+w_o = uniform_weights((hidden_width, 1)) #uniform from -0.5 to 0.5
 
-b_h = init_bias(hidden_width)
-b_o = init_bias(1)
+b_h = init_bias(hidden_width)#zero
+b_o = init_bias(1)#zero
 
 op = model(X, w_h, w_o, b_h, b_o)
 
