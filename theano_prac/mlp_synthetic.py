@@ -3,7 +3,7 @@ from theano import tensor as T
 import numpy as np
 from load_synthetic import load_synthetic as load
 from math import sqrt
-
+from adam import Adam
 
 def floatX(X):
     """convert to np array with floatX"""
@@ -56,8 +56,8 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     params = [w_h, w_o, b_h, b_o]
 
     cost = (T.mean(T.sqr(op - Y))) + T.sum(w_h ** 2) * L2reg + T.sum(w_o ** 2) * L2reg
-    updates = sgd(cost, params)
-
+    #updates = sgd(cost, params)
+    updates = Adam(cost, params)
     train = theano.function(inputs=[X, Y], outputs=cost,
                             updates=updates, allow_input_downcast=True,
                             name='train')
