@@ -3,7 +3,10 @@ from theano import tensor as T
 import numpy as np
 from load_synthetic import load_synthetic as load
 from math import sqrt
+from adam import Adam
+import matplotlib.pyplot as plt
 
+#this is the main code base
 
 def floatX(X):
     """convert to np array with floatX"""
@@ -64,7 +67,10 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     predict = theano.function(inputs=[X], outputs=op, allow_input_downcast=True)
     fcost = theano.function(inputs=[op, Y], outputs=cost, allow_input_downcast=True)
 
-    for i in range(100):
+    test_costs=[]
+    train_costs=[]
+    epochs=100
+    for i in range(epochs):
         for start, end in zip(range(0, len(X_train), mini_batchsize),
                               range(mini_batchsize, len(X_train), mini_batchsize)):
             yd = (floatX(y_train[start:end])).reshape(mini_batchsize, 1)
@@ -72,6 +78,8 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
 
         fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
         fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
+        test_costs.append(fin_cost_test)
+        train_costs.append(fin_cost_train)
         print i, fin_cost_test, fin_cost_train
 
     print 'final b_o values'
@@ -82,6 +90,10 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     print 'Hwidth: {}, BatchSize: {}, L2reg: {},Train: {}, Test: {}'.format(hidden_width, mini_batchsize, L2reg,
                                                                             fin_cost_train, fin_cost_test)
 
+    plt.plot(range(epochs),test_costs,label='Test')
+    plt.plot(range(epochs),train_costs,label='Train')
+    plt.legend()
+    plt.show()
 
 if __name__ == "__main__":
     run_test(L2reg=1, hidden_width=10)
