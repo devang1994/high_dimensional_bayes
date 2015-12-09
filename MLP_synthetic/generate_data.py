@@ -38,17 +38,28 @@ b_o = init_bias(1)#zero
 op = model(X, w_h, w_o, b_h, b_o)
 
 create_datapoint = theano.function(inputs=[X], outputs=op, name='create_pt', allow_input_downcast=True)
-nPoints = 2500
-xp = np.random.uniform(low=-1.0, high=1.0, size=(nPoints, input_size))
+nPoints = 2000
+xTrain = np.random.uniform(low=-1.0, high=1.0, size=(nPoints, input_size))
 #xp = np.random.rand(nPoints, input_size)
-print xp.shape
-print xp[1]
-yp = create_datapoint(xp)
+print xTrain.shape
+print xTrain[1]
+yTrain = create_datapoint(xTrain)
 
-print yp[1]
+print yTrain[1]
 
-print xp.shape
-print yp.shape
+print xTrain.shape
+print yTrain.shape
 
-pickle.dump(xp, gzip.open('synthetic_X.pkl.gz', 'wb'))
-pickle.dump(yp, gzip.open('synthetic_y.pkl.gz', 'wb'))
+
+nPoints = 500
+xTest = np.random.uniform(low=-1.0, high=1.0, size=(nPoints, input_size))
+#xp = np.random.rand(nPoints, input_size)
+print xTest.shape
+print xTest[1]
+yTest = create_datapoint(xTest)
+
+
+pickle.dump(xTrain, gzip.open('synthetic_X_train.pkl.gz', 'wb'))
+pickle.dump(yTrain, gzip.open('synthetic_y_train.pkl.gz', 'wb'))
+pickle.dump(xTest, gzip.open('synthetic_X_test.pkl.gz', 'wb'))
+pickle.dump(yTest, gzip.open('synthetic_y_test.pkl.gz', 'wb'))
