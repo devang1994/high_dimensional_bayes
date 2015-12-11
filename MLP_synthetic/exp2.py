@@ -6,7 +6,7 @@ from math import sqrt
 from adam import Adam
 import matplotlib.pyplot as plt
 
-#this is the main code base
+#slight mod of mlp_synthetic to run exp2 on overfitting
 
 def floatX(X):
     """convert to np array with floatX"""
@@ -43,8 +43,13 @@ def uniform_weights(shape):
     return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
 
 
-def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
+def run_test(L2reg=10, hidden_width=10, mini_batchsize=100,numTrainPoints=2000):
     X_train, X_test, y_train, y_test = load()
+
+    #To chop off train dataset to check for overfitting
+
+    X_train=X_train[:numTrainPoints]
+    y_train=y_train[:numTrainPoints]
 
     X = T.fmatrix(name='X')
     Y = T.fmatrix(name='Y')
@@ -59,8 +64,8 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     params = [w_h, w_o, b_h, b_o]
 
     cost = (T.mean(T.sqr(op - Y))) + T.sum(w_h ** 2) * L2reg + T.sum(w_o ** 2) * L2reg
-    updates = sgd(cost, params)
-    #updates=Adam(cost,params)
+    #updates = sgd(cost, params)
+    updates=Adam(cost,params)
     train = theano.function(inputs=[X, Y], outputs=cost,
                             updates=updates, allow_input_downcast=True,
                             name='train')
@@ -95,9 +100,10 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     plt.legend()
     plt.xlabel('Epochs')
     plt.ylabel('Error')
-    plt.title('Epoch: {}, TrainCost:{}, TestCost: {}'.format(epochs,fin_cost_train, fin_cost_test))
+    plt.title('NumTrainPoints: {}, TrainCost:{}, TestCost: {}'.format(numTrainPoints,fin_cost_train, fin_cost_test))
     plt.show()
     return fin_cost_train,fin_cost_test
 
 if __name__ == "__main__":
-    fin_cost_train,fin_cost_test=run_test(L2reg=1, hidden_width=10)
+    fin_cost_train,fin_cost_test=run_test(L2reg=1, hidden_width=10,numTrainPoints=5,mini_batchsize=1)
+
