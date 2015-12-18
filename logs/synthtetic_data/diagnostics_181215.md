@@ -44,4 +44,29 @@ These values are almost identical to
 
 Hwidth: 10, BatchSize: 100, L2reg: 1,Train: 0.767793228344, Test: 0.730858657727
 
-which means that the model is not doing much better than mean prediction
+which means that the current model is not doing much better than mean prediction
+Using entire Dataset  
+Parameters:
+
+    L2reg=1, hidden_width=10, mini_batchsize=100
+   
+
+--
+
+####Hyperparameter Search
+
+Varying L2 and width of Hidden Layer , entire dataset
+
+Best value obtained
+
+    Hwidth: 50, BatchSize: 100, L2reg: 0.01,Train: 0.0310097190959, Test: 0.0734797714539
+
+In general L2reg = 0.01 gives good results
+details in exp3.log  
+
+**Use L2reg=0.01 and Hwidth = 10 and redo previous experiments**
+
+Note:L2reg>100 gives an unexpected error, possibly due to large values
+
+--
+

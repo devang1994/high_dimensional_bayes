@@ -89,8 +89,8 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
         train_costs.append(fin_cost_train)
         #print i, fin_cost_test, fin_cost_train
 
-    print 'final b_o values'
-    print b_o.get_value()
+    # print 'final b_o values'
+    # print b_o.get_value()
 
     #fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
     #fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
@@ -111,7 +111,7 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     test_cost=MSE(mean_p_test,y_test)
     train_cost=MSE(mean_p_train,y_train)
 
-    print 'MSE for mean prediction, Train:{} ,Test:{}'.format(train_cost,test_cost)
+    #print 'MSE for mean prediction, Train:{} ,Test:{}'.format(train_cost,test_cost)
 
 
     plt.plot(range(epochs),test_costs,label='Test')
@@ -128,4 +128,20 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
 
 
 if __name__ == "__main__":
-    fin_cost_train,fin_cost_test=run_test(L2reg=1, hidden_width=10)
+    best_test=10
+    bestL2=0
+    bestWi=0
+    for i in range(-6,4):
+        for j in [5,10,20,50,100,200]:
+            L2=pow(10,i)
+            try:
+                fin_cost_train,fin_cost_test=run_test(L2reg=L2, hidden_width=j)
+            except:
+                print 'some err'
+
+            if fin_cost_test < best_test:
+                best_test=fin_cost_test
+                bestL2=L2
+                bestWi=j
+                print best_test
+    print best_test,bestL2,bestWi
