@@ -43,10 +43,11 @@ def uniform_weights(shape):
     scale = sqrt(6. / (shape[1] + shape[0]))
     return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
 
-def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
+def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100,numTrainPoints=2000):
     X_train, X_test, y_train, y_test = load()
 
-
+    X_train=X_train[:numTrainPoints]
+    y_train=y_train[:numTrainPoints]
 
 
 
@@ -100,6 +101,7 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
                                                                             fin_cost_train, fin_cost_test)
 
 
+    #Calculate RMS error with simple mean prediction
     test_mean=np.mean(y_test)
     train_mean=np.mean(y_train)
 
@@ -111,37 +113,30 @@ def run_test(L2reg=10, hidden_width=10, mini_batchsize=100):
     test_cost=MSE(mean_p_test,y_test)
     train_cost=MSE(mean_p_train,y_train)
 
+    tArray=np.ones(epochs)*test_cost
     #print 'MSE for mean prediction, Train:{} ,Test:{}'.format(train_cost,test_cost)
-
 
     plt.plot(range(epochs),test_costs,label='Test')
     plt.plot(range(epochs),train_costs,label='Train')
+    plt.plot(range(epochs),tArray,label='Reference')
     plt.legend()
     plt.xlabel('Epochs')
     plt.ylabel('Error')
-    plt.title('Epoch: {}, TrainCost:{}, TestCost: {}'.format(epochs,fin_cost_train, fin_cost_test))
+    plt.title('NumTrainPoints: {}, TrainCost:{}, TestCost: {}'.format(numTrainPoints,fin_cost_train, fin_cost_test))
     #plt.show()
+    plt.savefig('logs/exp4_TP{}.png'.format(numTrainPoints))
+    plt.close()
     return fin_cost_train,fin_cost_test
 
-    #Calculate RMS error with simple mean prediction
-
-
-
 if __name__ == "__main__":
-    best_test=10
-    bestL2=0
-    bestWi=0
-    for i in range(-6,4):
-        for j in [5,10,20,50,100,200]:
-            L2=pow(10,i)
-            try:
-                fin_cost_train,fin_cost_test=run_test(L2reg=L2, hidden_width=j)
-            except:
-                print 'some err'
 
-            if fin_cost_test < best_test:
-                best_test=fin_cost_test
-                bestL2=L2
-                bestWi=j
-                print best_test
-    print best_test,bestL2,bestWi
+
+
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=10,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=20,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=30,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=50,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=100,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=500,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=2000,mini_batchsize=5)
+

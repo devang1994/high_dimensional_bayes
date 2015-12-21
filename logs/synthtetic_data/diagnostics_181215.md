@@ -66,7 +66,13 @@ details in exp3.log
 
 **Use L2reg=0.01 and Hwidth = 10 and redo previous experiments**
 
-Note:L2reg>100 gives an unexpected error, possibly due to large values
+Note:L2reg>100 gives an unexpected error, possibly due to large values of penalty term
 
 --
+
+####Exp4 
+
+**Use L2reg=0.01 and Hwidth = 10 and redo previous experiments (Exp2)**
+
+
 
