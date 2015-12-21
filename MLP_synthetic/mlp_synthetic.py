@@ -84,8 +84,8 @@ def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100,numTrainPoints=2000
         #Done this cost prediction needs to change
         #fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
         #fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
-        fin_cost_test =MSE(predict(X_train),y_train)
-        fin_cost_train = MSE(predict(X_test),y_test)
+        fin_cost_test =MSE(predict(X_test),y_test)
+        fin_cost_train = MSE(predict(X_train),y_train)
         test_costs.append(fin_cost_test)
         train_costs.append(fin_cost_train)
         #print i, fin_cost_test, fin_cost_train
