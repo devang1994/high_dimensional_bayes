@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error as MSE
 
 epochs = 1000
+refError = 0.729677179036
 
 
 # this is the main code base
@@ -47,7 +48,7 @@ def uniform_weights(shape):
     return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
 
 
-def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100, numTrainPoints=2000):
+def mlp_synthetic(L2reg=0.01, hidden_width=10, mini_batchsize=100, numTrainPoints=2000):
     X_train, X_test, y_train, y_test = load()
 
     X_train = X_train[:numTrainPoints]
@@ -99,8 +100,9 @@ def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100, numTrainPoints=200
     # fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
     fin_cost_test = MSE(predict(X_test), y_test)
     fin_cost_train = MSE(predict(X_train), y_train)
-    print 'Hwidth: {}, BatchSize: {}, L2reg: {},Train: {}, Test: {}'.format(hidden_width, mini_batchsize, L2reg,
-                                                                            fin_cost_train, fin_cost_test)
+    print 'NumTP: {}, Hwidth: {}, BatchSize: {}, L2reg: {},Train: {}, Test: {}'.format(numTrainPoints, hidden_width,
+                                                                                       mini_batchsize, L2reg,
+                                                                                       fin_cost_train, fin_cost_test)
 
 
     # Calculate RMS error with simple mean prediction
@@ -118,45 +120,37 @@ def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100, numTrainPoints=200
     tArray = np.ones(epochs) * test_cost
     # print 'MSE for mean prediction, Train:{} ,Test:{}'.format(train_cost,test_cost)
 
-    plt.plot(range(epochs), test_costs, label='DatPts:{}'.format(numTrainPoints))
+    # plt.plot(range(epochs), test_costs, label='DatPts:{}'.format(numTrainPoints))
     # plt.plot(range(epochs),train_costs,label='Train')
 
-    plt.xlabel('Epochs')
-    plt.ylabel('Error')
+    # plt.xlabel('Epochs')
+    # plt.ylabel('Error')
     # plt.title('NumTrainPoints: {}, TrainCost:{}, TestCost: {}'.format(numTrainPoints,fin_cost_train, fin_cost_test))
     # plt.show()
     # plt.close()
     return fin_cost_train, fin_cost_test
 
 
+def exp5(L2reg=0.01, hidden_width=10, mini_batchsize=5):
+    test_costs = []
+    eval_pts = [10, 20, 50, 100, 200, 300, 500, 700, 1000, 1300, 1500, 1800, 2000]
+    for numTP in eval_pts:
+        fin_cost_train, fin_cost_test = mlp_synthetic(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
+                                                      mini_batchsize=mini_batchsize)
+        test_costs.append(fin_cost_test)
+
+    plt.plot(eval_pts, test_costs, label='L2reg:{}'.format(L2reg))
+
 if __name__ == "__main__":
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=10, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=20, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=30, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=50, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=100, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=200, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=500, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=1000, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=1500, mini_batchsize=5)
-    fin_cost_train, fin_cost_test = run_test(L2reg=0.01, hidden_width=10, numTrainPoints=2000, mini_batchsize=5)
 
-    X_train, X_test, y_train, y_test = load()
+    for i in np.arange(-3, 3):
+        L2reg = pow(10, i)
+        exp5(L2reg=L2reg)
 
-    test_mean = np.mean(y_test)
-    train_mean = np.mean(y_train)
-    mean_p_test = np.ones(y_test.size) * test_mean
-    mean_p_train = np.ones(y_train.size) * train_mean
-
-
-    # test_cost=fcost(floatX(mean_p_test).reshape(len(y_test), 1), floatX(y_test).reshape(len(y_test), 1))
-    # train_cost=fcost(floatX(mean_p_train).reshape(len(y_train), 1), floatX(y_train).reshape(len(y_train), 1))
-    test_cost = MSE(mean_p_test, y_test)
-    train_cost = MSE(mean_p_train, y_train)
-    print test_cost
-
-    tArray = np.ones(epochs) * test_cost
-    plt.plot(range(epochs), tArray, label='Reference', color='black', linewidth=2.0)
+    tArray = np.ones(2000) * refError
+    plt.plot(range(2000), tArray, label='Reference', color='black', linewidth=2.0)
     plt.legend()
-    plt.savefig('logs/exp4a1.png', dpi=300)
-    # plt.show()
+    plt.xlabel('Num Training Points')
+    plt.ylabel('Error')
+    plt.savefig('logs/exp5b.png', dpi=400)
+    plt.show()

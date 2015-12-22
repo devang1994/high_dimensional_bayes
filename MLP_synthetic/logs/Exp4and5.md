@@ -13,6 +13,12 @@ Atleast a 100 training points were needed for getting performance better than th
 
 Test error after 1000 epochs, was plotted against num training points for various amounts of L2 regularisation.
 
+![Exp5 ](exp5b.png)
+
+It can be seen that for L2reg=1 and L2reg=100, performance is same as that for the reference case. 
+Moderate values of L2reg(0.01 and 0.1) give good performance in the low data regime. But very small values of L2reg(0.001) give even better performance when plentiful data is available.
+
+
 
 
 ###Appendix
