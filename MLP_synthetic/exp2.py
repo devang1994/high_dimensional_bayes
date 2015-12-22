@@ -5,9 +5,8 @@ from load_synthetic import load_synthetic as load
 from math import sqrt
 from adam import Adam
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error as MSE
 
-#this is the main code base
+#slight mod of mlp_synthetic to run exp2 on overfitting
 
 def floatX(X):
     """convert to np array with floatX"""
@@ -43,13 +42,14 @@ def uniform_weights(shape):
     scale = sqrt(6. / (shape[1] + shape[0]))
     return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
 
-def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100,numTrainPoints=2000):
+
+def run_test(L2reg=10, hidden_width=10, mini_batchsize=100,numTrainPoints=2000):
     X_train, X_test, y_train, y_test = load()
+
+    #To chop off train dataset to check for overfitting
 
     X_train=X_train[:numTrainPoints]
     y_train=y_train[:numTrainPoints]
-
-
 
     X = T.fmatrix(name='X')
     Y = T.fmatrix(name='Y')
@@ -64,8 +64,8 @@ def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100,numTrainPoints=2000
     params = [w_h, w_o, b_h, b_o]
 
     cost = (T.mean(T.sqr(op - Y))) + T.sum(w_h ** 2) * L2reg + T.sum(w_o ** 2) * L2reg
-    updates = sgd(cost, params)
-    #updates=Adam(cost,params)
+    #updates = sgd(cost, params)
+    updates=Adam(cost,params)
     train = theano.function(inputs=[X, Y], outputs=cost,
                             updates=updates, allow_input_downcast=True,
                             name='train')
@@ -81,62 +81,29 @@ def run_test(L2reg=0.01, hidden_width=10, mini_batchsize=100,numTrainPoints=2000
             yd = (floatX(y_train[start:end])).reshape(mini_batchsize, 1)
             cost_v = train(X_train[start:end], yd)
 
-        #Done this cost prediction needs to change
-        #fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
-        #fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
-        fin_cost_test =MSE(predict(X_test),y_test)
-        fin_cost_train = MSE(predict(X_train),y_train)
+        fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
+        fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
         test_costs.append(fin_cost_test)
         train_costs.append(fin_cost_train)
-        #print i, fin_cost_test, fin_cost_train
+        print i, fin_cost_test, fin_cost_train
 
-    # print 'final b_o values'
-    # print b_o.get_value()
+    print 'final b_o values'
+    print b_o.get_value()
 
-    #fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
-    #fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
-    fin_cost_test=MSE(predict(X_test),y_test)
-    fin_cost_train=MSE(predict(X_train),y_train)
+    fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
+    fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
     print 'Hwidth: {}, BatchSize: {}, L2reg: {},Train: {}, Test: {}'.format(hidden_width, mini_batchsize, L2reg,
                                                                             fin_cost_train, fin_cost_test)
 
-
-    #Calculate RMS error with simple mean prediction
-    test_mean=np.mean(y_test)
-    train_mean=np.mean(y_train)
-
-    mean_p_test=np.ones(y_test.size)*test_mean
-    mean_p_train=np.ones(y_train.size)*train_mean
-
-    #test_cost=fcost(floatX(mean_p_test).reshape(len(y_test), 1), floatX(y_test).reshape(len(y_test), 1))
-    #train_cost=fcost(floatX(mean_p_train).reshape(len(y_train), 1), floatX(y_train).reshape(len(y_train), 1))
-    test_cost=MSE(mean_p_test,y_test)
-    train_cost=MSE(mean_p_train,y_train)
-
-    tArray=np.ones(epochs)*test_cost
-    #print 'MSE for mean prediction, Train:{} ,Test:{}'.format(train_cost,test_cost)
-
     plt.plot(range(epochs),test_costs,label='Test')
     plt.plot(range(epochs),train_costs,label='Train')
-    plt.plot(range(epochs),tArray,label='Reference')
     plt.legend()
     plt.xlabel('Epochs')
     plt.ylabel('Error')
     plt.title('NumTrainPoints: {}, TrainCost:{}, TestCost: {}'.format(numTrainPoints,fin_cost_train, fin_cost_test))
-    #plt.show()
-    plt.savefig('logs/exp4_TP{}.png'.format(numTrainPoints))
-    plt.close()
+    plt.show()
     return fin_cost_train,fin_cost_test
 
 if __name__ == "__main__":
-
-
-
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=10,mini_batchsize=5)
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=20,mini_batchsize=5)
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=30,mini_batchsize=5)
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=50,mini_batchsize=5)
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=100,mini_batchsize=5)
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=500,mini_batchsize=5)
-    fin_cost_train,fin_cost_test=run_test(L2reg=0.01, hidden_width=10,numTrainPoints=2000,mini_batchsize=5)
+    fin_cost_train,fin_cost_test=run_test(L2reg=1, hidden_width=10,numTrainPoints=5,mini_batchsize=1)
 

@@ -1,0 +1,69 @@
+Hwidth: 5, BatchSize: 100, L2reg: 1e-06,Train: 0.11459575931, Test: 0.158516038919
+0.158516038919
+Hwidth: 10, BatchSize: 100, L2reg: 1e-06,Train: 0.0681864756524, Test: 0.164761076764
+Hwidth: 20, BatchSize: 100, L2reg: 1e-06,Train: 0.0567302544706, Test: 0.150699619189
+0.150699619189
+Hwidth: 50, BatchSize: 100, L2reg: 1e-06,Train: 0.0325954603982, Test: 0.179631803322
+Hwidth: 100, BatchSize: 100, L2reg: 1e-06,Train: 0.0203420851378, Test: 0.215357517597
+Hwidth: 200, BatchSize: 100, L2reg: 1e-06,Train: 0.0152697064117, Test: 0.219016958824
+Hwidth: 5, BatchSize: 100, L2reg: 1e-05,Train: 0.107671062076, Test: 0.168932246409
+Hwidth: 10, BatchSize: 100, L2reg: 1e-05,Train: 0.0845147820556, Test: 0.152742626773
+Hwidth: 20, BatchSize: 100, L2reg: 1e-05,Train: 0.0526736085291, Test: 0.141069265895
+0.141069265895
+Hwidth: 50, BatchSize: 100, L2reg: 1e-05,Train: 0.0319714448248, Test: 0.235746466471
+Hwidth: 100, BatchSize: 100, L2reg: 1e-05,Train: 0.0196557121626, Test: 0.217664711917
+Hwidth: 200, BatchSize: 100, L2reg: 1e-05,Train: 0.013800511764, Test: 0.229337245377
+Hwidth: 5, BatchSize: 100, L2reg: 0.0001,Train: 0.0935935156772, Test: 0.132169381809
+0.132169381809
+Hwidth: 10, BatchSize: 100, L2reg: 0.0001,Train: 0.0735776073086, Test: 0.127812959813
+0.127812959813
+Hwidth: 20, BatchSize: 100, L2reg: 0.0001,Train: 0.0548710695293, Test: 0.159355613591
+Hwidth: 50, BatchSize: 100, L2reg: 0.0001,Train: 0.0309839856126, Test: 0.225970027833
+Hwidth: 100, BatchSize: 100, L2reg: 0.0001,Train: 0.0188823954497, Test: 0.21609085107
+Hwidth: 200, BatchSize: 100, L2reg: 0.0001,Train: 0.0132889926792, Test: 0.214393020283
+Hwidth: 5, BatchSize: 100, L2reg: 0.001,Train: 0.104500118897, Test: 0.148338971617
+Hwidth: 10, BatchSize: 100, L2reg: 0.001,Train: 0.0653646559968, Test: 0.139226844534
+Hwidth: 20, BatchSize: 100, L2reg: 0.001,Train: 0.0438896579011, Test: 0.136753720826
+Hwidth: 50, BatchSize: 100, L2reg: 0.001,Train: 0.0303824688269, Test: 0.169624596444
+Hwidth: 100, BatchSize: 100, L2reg: 0.001,Train: 0.0184029395139, Test: 0.180077730659
+Hwidth: 200, BatchSize: 100, L2reg: 0.001,Train: 0.013275648175, Test: 0.190697411452
+Hwidth: 5, BatchSize: 100, L2reg: 0.01,Train: 0.0649141749108, Test: 0.0935148794126
+0.0935148794126
+Hwidth: 10, BatchSize: 100, L2reg: 0.01,Train: 0.0466255248418, Test: 0.0778691974879
+0.0778691974879
+Hwidth: 20, BatchSize: 100, L2reg: 0.01,Train: 0.0336381857094, Test: 0.0619704705647
+0.0619704705647
+Hwidth: 50, BatchSize: 100, L2reg: 0.01,Train: 0.036066060097, Test: 0.0850566160375
+Hwidth: 100, BatchSize: 100, L2reg: 0.01,Train: 0.0288949236484, Test: 0.0789304915554
+Hwidth: 200, BatchSize: 100, L2reg: 0.01,Train: 0.0272827483758, Test: 0.0828050524573
+Hwidth: 5, BatchSize: 100, L2reg: 0.1,Train: 0.232302378095, Test: 0.227888317872
+Hwidth: 10, BatchSize: 100, L2reg: 0.1,Train: 0.231032071169, Test: 0.22679715609
+Hwidth: 20, BatchSize: 100, L2reg: 0.1,Train: 0.230923912961, Test: 0.226735397308
+Hwidth: 50, BatchSize: 100, L2reg: 0.1,Train: 0.230955816893, Test: 0.22676981067
+Hwidth: 100, BatchSize: 100, L2reg: 0.1,Train: 0.230945466101, Test: 0.226765417945
+Hwidth: 200, BatchSize: 100, L2reg: 0.1,Train: 0.230965479351, Test: 0.226775846948
+Hwidth: 5, BatchSize: 100, L2reg: 1,Train: 0.767793225722, Test: 0.730858705263
+Hwidth: 10, BatchSize: 100, L2reg: 1,Train: 0.767793232985, Test: 0.730858573602
+Hwidth: 20, BatchSize: 100, L2reg: 1,Train: 0.767793229927, Test: 0.730858629021
+Hwidth: 50, BatchSize: 100, L2reg: 1,Train: 0.767793234835, Test: 0.73085854009
+Hwidth: 100, BatchSize: 100, L2reg: 1,Train: 0.767793229766, Test: 0.73085863194
+Hwidth: 200, BatchSize: 100, L2reg: 1,Train: 0.767793230781, Test: 0.730858613552
+Hwidth: 5, BatchSize: 100, L2reg: 10,Train: 0.767793220518, Test: 0.730858799688
+Hwidth: 10, BatchSize: 100, L2reg: 10,Train: 0.767793220563, Test: 0.730858798879
+Hwidth: 20, BatchSize: 100, L2reg: 10,Train: 0.767793220565, Test: 0.730858798849
+Hwidth: 50, BatchSize: 100, L2reg: 10,Train: 0.767793220709, Test: 0.730858796232
+Hwidth: 100, BatchSize: 100, L2reg: 10,Train: 0.767793220621, Test: 0.730858797833
+Hwidth: 200, BatchSize: 100, L2reg: 10,Train: 0.767793220608, Test: 0.730858798067
+Hwidth: 5, BatchSize: 100, L2reg: 100,Train: 0.767793220503, Test: 0.730858799973
+Hwidth: 10, BatchSize: 100, L2reg: 100,Train: 0.767793220507, Test: 0.730858799892
+Hwidth: 20, BatchSize: 100, L2reg: 100,Train: 0.767793220521, Test: 0.730858799644
+Hwidth: 50, BatchSize: 100, L2reg: 100,Train: 0.767793220517, Test: 0.730858799707
+Hwidth: 100, BatchSize: 100, L2reg: 100,Train: 0.767793220527, Test: 0.730858799541
+Hwidth: 200, BatchSize: 100, L2reg: 100,Train: 0.767793220521, Test: 0.730858799635
+some err
+some err
+some err
+some err
+some err
+some err
+0.0619704705647 0.01 20
