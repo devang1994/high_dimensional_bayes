@@ -19,7 +19,7 @@ It can be seen that for L2reg=1 and L2reg=100, performance is same as that for t
 Moderate values of L2reg(0.01 and 0.1) give good performance in the low data regime. But very small values of L2reg(0.001) give even better performance when plentiful data is available.
 
 
-
+Edit: Note: 500 test points are used. Some curves simply disappear into the reference plot
 
 ###Appendix
 

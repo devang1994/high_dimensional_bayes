@@ -6,6 +6,7 @@ from math import sqrt
 from adam import Adam
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error as MSE
+np.random.seed(42)
 
 epochs = 1000
 refError = 0.729677179036
@@ -47,12 +48,22 @@ def uniform_weights(shape):
     scale = sqrt(6. / (shape[1] + shape[0]))
     return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
 
+def proj_matrix(shape):
+    scale = sqrt(6. / (shape[1] + shape[0]))
+    return floatX(np.random.uniform(low=-scale, high=scale, size=shape))
 
-def mlp_synthetic(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=2000):
+def mlp_synthetic_proj(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=2000,proj_width=50):
     X_train, X_test, y_train, y_test = load()
 
     X_train = X_train[:numTrainPoints]
     y_train = y_train[:numTrainPoints]
+    print X_train.shape
+    #random projection
+    proj_mat=proj_matrix((100,proj_width))
+    X_train=np.dot(X_train,proj_mat)
+    X_test=np.dot(X_test,proj_mat)
+
+    print X_train.shape
 
     X = T.fmatrix(name='X')
     Y = T.fmatrix(name='Y')
@@ -133,7 +144,7 @@ def mlp_synthetic(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=
 
 def exp5(L2reg=0.01, hidden_width=10, mini_batchsize=5):
     test_costs = []
-    eval_pts = [10, 20, 50, 100, 200, 300, 500, 700, 1000, 1300, 1500, 1800, 2000]
+    eval_pts = [200, 300, 500, 700, 1000, 1300, 1500, 1800, 2000]
     for numTP in eval_pts:
         fin_cost_train, fin_cost_test = mlp_synthetic(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
                                                       mini_batchsize=mini_batchsize)
@@ -154,4 +165,5 @@ if __name__ == "__main__":
     # plt.ylabel('Error')
     # plt.savefig('logs/exp5b.png', dpi=400)
     # plt.show()
-    mlp_synthetic(L2reg=0.0001, numTrainPoints=2000,mini_batchsize=5)
+
+    mlp_synthetic_proj(L2reg=0.0001, numTrainPoints=2000,proj_width=100,mini_batchsize=5)
