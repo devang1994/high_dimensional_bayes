@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f9ce706-6275-473e-84e4-afaaa89545ea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exp6_temp.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exp6_temp1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exp6_temp2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mlp_rand_proj.py" afterPath="$PROJECT_DIR$/mlp_rand_proj.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rand_proj.md" afterPath="$PROJECT_DIR$/logs/rand_proj.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MLP_synthetic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +62,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exp6_temp1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exp6_temp1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exp6_temp1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69863015">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="67" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+              <folding>
+                <element signature="e#21#65#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exp6_temp2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exp6_temp2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46575344">
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <element signature="e#21#65#0" expanded="true" />
               </folding>
@@ -140,6 +148,7 @@
         <option value="$PROJECT_DIR$/mlp_rand_proj.py" />
         <option value="$PROJECT_DIR$/exp6_temp.py" />
         <option value="$PROJECT_DIR$/exp6_temp1.py" />
+        <option value="$PROJECT_DIR$/exp6_temp2.py" />
       </list>
     </option>
   </component>
@@ -544,16 +553,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mlp_synthetic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="23" selection-start-line="153" selection-start-column="23" selection-end-line="153" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/Exp4and5.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -996,8 +995,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exp6_temp1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69863015">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="67" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+          <folding>
+            <element signature="e#21#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exp6_temp2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46575344">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
           <folding>
             <element signature="e#21#65#0" expanded="true" />
           </folding>
