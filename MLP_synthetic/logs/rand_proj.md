@@ -9,7 +9,7 @@ return floatX(np.random.uniform(low=-scale, high=scale, size=shape))
 ```
 each element of random projection matrix chosen randomly from uniform distribution
 
-Simple check
+**Simple check**
 
 Without random projection
 
@@ -26,6 +26,42 @@ With Random Projection, of same width 100->100
 
 
 
+The performance after random projection is expected to be the same but is in practise much worse
 
-    
+
+--
+
+Exp5 was repeated with a random projection 100->50 
+
+![Exp6](rand_proj1.png)
+
+
+The performance is much worse than before, there is some hope with very low L2 reg
+
+--
+
+Repeat of last experiment with lower L2 regs and higher epochs
+
+![Exp6](exp6b.png)
+
+This showed much worse performance than before
+
+
+--
+
+Repeat with projection 100->80
+
+
+
+
+
+--
+
+Repeat with 100->30
+
+--
+
+Repeat of exp4 with evolution of graphs over epochs 
+
+
     
