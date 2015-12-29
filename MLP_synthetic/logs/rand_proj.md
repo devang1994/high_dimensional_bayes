@@ -40,28 +40,38 @@ The performance is much worse than before, there is some hope with very low L2 r
 
 --
 
-Repeat of last experiment with lower L2 regs and higher epochs
+Repeat of last experiment with lower L2 regs and higher epochs epochs =10000
 
-![Exp6](exp6b.png)
+![Exp6](exp6b50.png)
 
 This showed much worse performance than before
 
 
 --
 
-Repeat with projection 100->80
+Repeat with projection 100->80. Epochs 10000
 
+![Exp6](exp6b80.png)
 
 
 
 
 --
 
-Repeat with 100->30
+Repeat with 100->30. Epochs 10000
+
+![Exp6](exp6b30.png)
+
+
+
 
 --
 
 Repeat of exp4 with evolution of graphs over epochs 
 
+L2reg=0.001
+
+Having more than 1000 epochs does not give any benefit and can often lead to loss of performance 
+![Exp6](exp6_evolution.png)
 
     
