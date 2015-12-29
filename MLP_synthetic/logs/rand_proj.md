@@ -4,10 +4,15 @@
 
 ```python
 def proj_matrix(shape):
-scale = sqrt(6. / (shape[1] + shape[0]))
-return floatX(np.random.uniform(low=-scale, high=scale, size=shape))
+	scale = sqrt(6. / (shape[1] + shape[0]))
+	return floatX(np.random.uniform(low=-scale, high=scale, size=shape))
+	
+proj_mat=proj_matrix((100,proj_width))
+X_train=np.dot(X_train,proj_mat)
+X_test=np.dot(X_test,proj_mat)
 ```
 each element of random projection matrix chosen randomly from uniform distribution
+
 
 **Simple check**
 
