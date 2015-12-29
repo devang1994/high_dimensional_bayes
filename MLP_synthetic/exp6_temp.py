@@ -1,7 +1,10 @@
 __author__ = 'da368'
-from mlp_rand_proj import mlp_synthetic_proj
+
 import matplotlib as mpl
 mpl.use('Agg')
+
+from mlp_rand_proj import mlp_synthetic_proj
+
 import matplotlib.pyplot as plt
 import numpy as np
 np.random.seed(42)
