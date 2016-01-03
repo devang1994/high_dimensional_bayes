@@ -6,6 +6,9 @@ from math import sqrt
 from adam import Adam
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error as MSE
+import cPickle as pickle
+rand_seed=20
+np.random.seed(rand_seed)
 
 epochs = 1000
 refError = 0.729677179036
@@ -100,8 +103,8 @@ def mlp_synthetic(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=
     # fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
     fin_cost_test = MSE(predict(X_test), y_test)
     fin_cost_train = MSE(predict(X_train), y_train)
-    print 'NumTP: {}, Hwidth: {}, BatchSize: {}, L2reg: {},Train: {}, Test: {}'.format(numTrainPoints, hidden_width,
-                                                                                       mini_batchsize, L2reg,
+    print 'NumTP: {}, Hwidth: {}, BatchSize: {}, L2reg: {}, Seed {},Train: {}, Test: {}'.format(numTrainPoints, hidden_width,
+                                                                                       mini_batchsize, L2reg,rand_seed,
                                                                                        fin_cost_train, fin_cost_test)
 
 
@@ -154,4 +157,18 @@ if __name__ == "__main__":
     # plt.ylabel('Error')
     # plt.savefig('logs/exp5b.png', dpi=400)
     # plt.show()
-    mlp_synthetic(L2reg=0.0001, numTrainPoints=2000,mini_batchsize=5)
+    train_costs=[]
+    test_costs=[]
+    for rand_seed in range(20):
+        np.random.seed(rand_seed)
+        fin_cost_train, fin_cost_test=mlp_synthetic(L2reg=0.0001, numTrainPoints=2000,mini_batchsize=5)
+        train_costs.append(fin_cost_train)
+        test_costs.append(fin_cost_test)
+        #print 'Seed:{}, train:{}, test:{}'.format(rand_seed,fin_cost_train,fin_cost_test)
+
+    print 'train mean', np.mean(train_costs)
+    print 'train std', np.std(train_costs)
+    print 'train mean', np.mean(test_costs)
+    print 'train std', np.std(test_costs)
+    with open("exp7.pickle", "wb") as f:
+        pickle.dump((train_costs,test_costs), f)

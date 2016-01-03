@@ -79,4 +79,15 @@ L2reg=0.001
 Having more than 1000 epochs does not give any benefit and can often lead to loss of performance 
 ![Exp6](exp6_evolution.png)
 
-    
+
+--
+Checking variability with Random seeds
+
+
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.00669897739224, Test: 0.0413146919675, seed 30
+
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 100,Train: 0.0037263116016, Test: 0.0184587812897
+
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 20,Train: 0.00208339830211, Test: 0.00696060507061
+
+

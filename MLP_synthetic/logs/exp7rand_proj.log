@@ -1,0 +1,64 @@
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.261318567858, Test: 0.51590597885
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.284811285121, Test: 0.642493531017
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.303766481978, Test: 0.756280424815
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.281627760188, Test: 0.646032366803
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.262002171248, Test: 0.576001569617
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.285048636834, Test: 0.594017361988
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.302632766518, Test: 0.669844842075
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.278663968068, Test: 0.631613667598
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.321157792306, Test: 0.695502811522
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.261717940759, Test: 0.595426498708
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.296983572246, Test: 0.660268798479
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.248984401162, Test: 0.680062773159
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.303502900624, Test: 0.756399580883
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.268313270343, Test: 0.669361013856
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.252004032013, Test: 0.567570515724
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.290684951887, Test: 0.740166794865
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.253827546523, Test: 0.615851314955
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.293179286431, Test: 0.625828896188
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.254152885931, Test: 0.630751454684
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001,Train: 0.273201685993, Test: 0.618416798876
+train mean 0.278879095202
+train std 0.0202687507241
+train mean 0.644389849733
+train std 0.0607691570807

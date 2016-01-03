@@ -1,0 +1,24 @@
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 0,Train: 0.00207015643771, Test: 0.00768235589338
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 1,Train: 0.00601349737343, Test: 0.0311700351442
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 2,Train: 0.0015221373086, Test: 0.00524519993501
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 3,Train: 0.00172259074469, Test: 0.00634912894217
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 4,Train: 0.00188589193051, Test: 0.00615067941218
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 5,Train: 0.00179461268425, Test: 0.00521016207046
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 6,Train: 0.00185044717554, Test: 0.0061503739328
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 7,Train: 0.00125960419515, Test: 0.00389794397696
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 8,Train: 0.00189907570994, Test: 0.00659292456994
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 9,Train: 0.00557730876875, Test: 0.0321906370086
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 10,Train: 0.00187059423757, Test: 0.00598732035493
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 11,Train: 0.00208001090378, Test: 0.00854978828478
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 12,Train: 0.00221871031396, Test: 0.0052119699496
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 13,Train: 0.00745274616297, Test: 0.0461988144329
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 14,Train: 0.00566915550847, Test: 0.0346836233475
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 15,Train: 0.00140191869677, Test: 0.00624511858366
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 16,Train: 0.00895110614543, Test: 0.0465390370637
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 17,Train: 0.0175646932998, Test: 0.111450200117
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 18,Train: 0.00190470913432, Test: 0.0061197506093
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.0001, Seed 19,Train: 0.00136284663994, Test: 0.00450081158318
+train mean 0.00380359066858
+train var 1.49704555449e-05
+train mean 0.00380359066858
+train var 1.49704555449e-05
