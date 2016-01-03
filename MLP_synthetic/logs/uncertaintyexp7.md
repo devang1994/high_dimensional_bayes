@@ -28,7 +28,9 @@ train std 0.0607691570807
 
 
 
-
 exp7.log and exp7_randProj.log has raw data 
+Pickle files with individual errors also have similar names exp7.pickle and exp7_randProj.pickle
+
+
 
     
