@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error as MSE
 import cPickle as pickle
 
-#np.random.seed(30)
+# np.random.seed(30)
 
 epochs = 1000
 refError = 0.729677179036
@@ -40,8 +40,10 @@ def sgd(cost, params, lr=0.005):
     return updates
 
 
-def model(X, w_h, w_o, b_h, b_o):
-    h = T.nnet.relu(T.dot(X, w_h) + b_h)
+def model(X,w_p, w_h, w_o, b_h, b_o):
+
+    h1=T.dot(X,w_p) #randomly projected , w_p is not learnt
+    h = T.nnet.relu(T.dot(h1, w_h) + b_h)
     op = T.dot(h, w_o) + b_o
     return op
 
@@ -50,35 +52,33 @@ def uniform_weights(shape):
     scale = sqrt(6. / (shape[1] + shape[0]))
     return theano.shared(floatX(np.random.uniform(low=-scale, high=scale, size=shape)))
 
+
 def proj_matrix(shape):
     scale = sqrt(6. / (shape[1] + shape[0]))
-    #scale = 1
+    # scale = 1
     return floatX(np.random.uniform(low=-scale, high=scale, size=shape))
 
-def mlp_synthetic_proj(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=2000,proj_width=50):
+
+def mlp_synthetic_proj(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=2000, proj_width=50):
     X_train, X_test, y_train, y_test = load()
 
     X_train = X_train[:numTrainPoints]
     y_train = y_train[:numTrainPoints]
-    print X_train.shape
-    #random projection
-    proj_mat=proj_matrix((100,proj_width))
-    X_train=np.dot(X_train,proj_mat)
-    X_test=np.dot(X_test,proj_mat)
 
-    print X_train.shape
 
     X = T.fmatrix(name='X')
     Y = T.fmatrix(name='Y')
 
     input_size = X_train.shape[1]
-    w_h = uniform_weights((input_size, hidden_width))
+
+    w_p = uniform_weights((input_size,proj_width)) #projection matrix
+    w_h = uniform_weights((proj_width, hidden_width))
     w_o = uniform_weights((hidden_width, 1))
     b_h = init_bias(hidden_width)
     b_o = init_bias(1)
 
-    op = model(X, w_h, w_o, b_h, b_o)
-    params = [w_h, w_o, b_h, b_o]
+    op = model(X,w_p, w_h, w_o, b_h, b_o)
+    params = [w_h, w_o, b_h, b_o]#projection matrix is intentionally not included
 
     cost = (T.mean(T.sqr(op - Y))) + T.sum(w_h ** 2) * L2reg + T.sum(w_o ** 2) * L2reg
     updates = sgd(cost, params)
@@ -145,35 +145,35 @@ def mlp_synthetic_proj(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPo
     return fin_cost_train, fin_cost_test
 
 
-def exp5_innerloop(L2reg=0.01, hidden_width=10, mini_batchsize=5):
+def exp5_innerloop(L2reg=0.01, hidden_width=10, mini_batchsize=5,proj_width=50):
     test_costs = []
-    eval_pts = [100, 200, 300,400,500, 700, 1000, 2000]
+    eval_pts = [100, 200, 300, 400, 500, 700, 1000, 2000]
     for numTP in eval_pts:
         fin_cost_train, fin_cost_test = mlp_synthetic_proj(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
-                                                      mini_batchsize=mini_batchsize)
+                                                           mini_batchsize=mini_batchsize,proj_width=proj_width)
         test_costs.append(fin_cost_test)
 
     plt.plot(eval_pts, test_costs, label='L2reg:{}'.format(L2reg))
 
-def exp5():
-    #this is exp5 code
+
+def exp5(proj_width=50):
+    # this is exp5 code
     for i in np.arange(-3, 0):
         L2reg = pow(10, i)
-        exp5_innerloop(L2reg=L2reg)
+        exp5_innerloop(L2reg=L2reg,proj_width=proj_width)
 
     tArray = np.ones(2000) * refError
     plt.plot(range(2000), tArray, label='Reference', color='black', linewidth=2.0)
     plt.legend()
     plt.xlabel('Num Training Points')
     plt.ylabel('Error')
-    plt.savefig('logs/exp8aRandProj1.png', dpi=400)
-    plt.show()
-
+    plt.savefig('logs/exp11aPwidth{}.png'.format(proj_width), dpi=400)
+    #plt.show()
+    #exp 11 uses the new implementation of Rand_proj
 
 if __name__ == "__main__":
-
-
-    exp5()
+    exp5(proj_width=50)
+    exp5(proj_width=90)
 
     # hidden_width=10
     # mini_batchsize=5
@@ -198,7 +198,7 @@ if __name__ == "__main__":
     # plt.savefig('logs/exp6b.png', dpi=400)
     # plt.show()
 
-    #mlp_synthetic_proj(L2reg=0.0001, numTrainPoints=2000, proj_width=100, mini_batchsize=5)
+    # mlp_synthetic_proj(L2reg=0.0001, numTrainPoints=2000, proj_width=100, mini_batchsize=5)
     # train_costs=[]
     # test_costs=[]
     # for rand_seed in range(20):
@@ -214,5 +214,3 @@ if __name__ == "__main__":
     # print 'test std', np.std(test_costs)
     # with open("exp7rand_proj.pickle", "wb") as f:
     #     pickle.dump((train_costs,test_costs), f)
-
-
