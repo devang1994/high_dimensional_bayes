@@ -17,9 +17,9 @@ if __name__ == "__main__":
     hidden_width=10
     mini_batchsize=5
     #proj_width=50
-    eval_pts = [10,20,50,100,200, 300, 500, 700, 1000, 1300, 1500, 1800, 2000]
-    for proj_width in [30,50,80]:
-        for i in range(-5,1):
+    eval_pts = [10,20,50,100,200, 300, 500, 1000, 1500, 2000]
+    for proj_width in [80]:
+        for i in range(-5,0):
             L2reg=pow(10,i)
             test_costs = []
             for numTP in eval_pts:
