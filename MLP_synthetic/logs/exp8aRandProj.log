@@ -1,0 +1,144 @@
+(100, 100)
+(100, 50)
+NumTP: 100, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0201744971679, Test: 0.984916692844
+(200, 100)
+(200, 50)
+NumTP: 200, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0620017703879, Test: 1.20206712659
+(250, 100)
+(250, 50)
+NumTP: 250, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0300725696246, Test: 1.20902971609
+(300, 100)
+(300, 50)
+NumTP: 300, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.020958756673, Test: 1.27119017369
+(350, 100)
+(350, 50)
+NumTP: 350, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0163226145431, Test: 1.07136615501
+(400, 100)
+(400, 50)
+NumTP: 400, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0172447414899, Test: 1.43093321502
+(450, 100)
+(450, 50)
+NumTP: 450, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0146947758119, Test: 1.18243090818
+(500, 100)
+(500, 50)
+NumTP: 500, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0271090191795, Test: 1.40036286798
+(700, 100)
+(700, 50)
+NumTP: 700, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.0678191630318, Test: 1.06904316673
+(1000, 100)
+(1000, 50)
+NumTP: 1000, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.177937771069, Test: 1.04418923531
+(1500, 100)
+(1500, 50)
+NumTP: 1500, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.226943631705, Test: 0.629006146633
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.001,Train: 0.293862571251, Test: 0.643218795089
+(100, 100)
+(100, 50)
+NumTP: 100, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0827370635367, Test: 0.848765963796
+(200, 100)
+(200, 50)
+NumTP: 200, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0357802410892, Test: 0.763681688997
+(250, 100)
+(250, 50)
+NumTP: 250, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0373376775135, Test: 0.675780963675
+(300, 100)
+(300, 50)
+NumTP: 300, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0412032446748, Test: 0.881981032314
+(350, 100)
+(350, 50)
+NumTP: 350, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0443002980346, Test: 0.70544637359
+(400, 100)
+(400, 50)
+NumTP: 400, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0637419762387, Test: 0.617271780147
+(450, 100)
+(450, 50)
+NumTP: 450, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0627613235581, Test: 0.610803748745
+(500, 100)
+(500, 50)
+NumTP: 500, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.0829846980468, Test: 0.572931794268
+(700, 100)
+(700, 50)
+NumTP: 700, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.167957109011, Test: 0.757154109309
+(1000, 100)
+(1000, 50)
+NumTP: 1000, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.235134882285, Test: 0.560922986666
+(1500, 100)
+(1500, 50)
+NumTP: 1500, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.319326461527, Test: 0.579164010814
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.01,Train: 0.306080369783, Test: 0.449397630127
+(100, 100)
+(100, 50)
+NumTP: 100, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.201543536069, Test: 0.591755766044
+(200, 100)
+(200, 50)
+NumTP: 200, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.378237677478, Test: 0.589328752309
+(250, 100)
+(250, 50)
+NumTP: 250, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.40813258325, Test: 0.5499840507
+(300, 100)
+(300, 50)
+NumTP: 300, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.439762858176, Test: 0.571523893809
+(350, 100)
+(350, 50)
+NumTP: 350, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.449833683101, Test: 0.549229401299
+(400, 100)
+(400, 50)
+NumTP: 400, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.486153990648, Test: 0.567316152213
+(450, 100)
+(450, 50)
+NumTP: 450, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.524664610671, Test: 0.618530949076
+(500, 100)
+(500, 50)
+NumTP: 500, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.511099987185, Test: 0.565148571889
+(700, 100)
+(700, 50)
+NumTP: 700, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.444031100432, Test: 0.448759637046
+(1000, 100)
+(1000, 50)
+NumTP: 1000, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.51348946446, Test: 0.494873938426
+(1500, 100)
+(1500, 50)
+NumTP: 1500, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.538851148605, Test: 0.554550589593
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 0.1,Train: 0.56284539801, Test: 0.540037907392
+(100, 100)
+(100, 50)
+NumTP: 100, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.659770322454, Test: 0.731945897618
+(200, 100)
+(200, 50)
+NumTP: 200, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.714453496201, Test: 0.735629271181
+(250, 100)
+(250, 50)
+NumTP: 250, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.672048687532, Test: 0.737883374843
+(300, 100)
+(300, 50)
+NumTP: 300, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.660655675199, Test: 0.731742844606
+(350, 100)
+(350, 50)
+NumTP: 350, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.654971223178, Test: 0.732699363571
+(400, 100)
+(400, 50)
+NumTP: 400, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.685591605645, Test: 0.735373710692
+(450, 100)
+(450, 50)
+NumTP: 450, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.7063484709, Test: 0.732987852816
+(500, 100)
+(500, 50)
+NumTP: 500, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.711538170996, Test: 0.734000887808
+(700, 100)
+(700, 50)
+NumTP: 700, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.738356849882, Test: 0.730004016127
+(1000, 100)
+(1000, 50)
+NumTP: 1000, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.746627207897, Test: 0.729678833097
+(1500, 100)
+(1500, 50)
+NumTP: 1500, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.755713051653, Test: 0.731193331076
+(2000, 100)
+(2000, 50)
+NumTP: 2000, Hwidth: 10, BatchSize: 5, L2reg: 1,Train: 0.767810558534, Test: 0.731345588301

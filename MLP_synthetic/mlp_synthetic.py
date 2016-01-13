@@ -134,15 +134,78 @@ def mlp_synthetic(L2reg=0.01, hidden_width=10, mini_batchsize=5, numTrainPoints=
     return fin_cost_train, fin_cost_test
 
 
-def exp5(L2reg=0.01, hidden_width=10, mini_batchsize=5):
+def exp5_innerloop(L2reg=0.01, hidden_width=10, mini_batchsize=5):
     test_costs = []
-    eval_pts = [10, 20, 50, 100, 200, 300, 500, 700, 1000, 1300, 1500, 1800, 2000]
+    eval_pts = [100, 200,250, 300,350,400, 450,500, 700, 1000, 1500, 2000]
     for numTP in eval_pts:
         fin_cost_train, fin_cost_test = mlp_synthetic(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
                                                       mini_batchsize=mini_batchsize)
         test_costs.append(fin_cost_test)
 
     plt.plot(eval_pts, test_costs, label='L2reg:{}'.format(L2reg))
+
+
+def exp9(hidden_width=10, mini_batchsize=5):
+
+    #like exp5 but with averaging
+    eval_pts = [100, 200, 300,400,500,1000, 1500, 2000]
+    for i in np.arange(-3,0):
+        L2reg = pow(10, i)
+        test_costs = []
+        for numTP in eval_pts:
+            temp=[]
+            for k in range(5):
+                fin_cost_train, fin_cost_test = mlp_synthetic(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
+                                                      mini_batchsize=mini_batchsize)
+                temp.append(fin_cost_test)
+            test_costs.append(np.mean(temp))#saving the mean of 5 tests as the new test cost
+
+        plt.plot(eval_pts, test_costs, label='L2reg:{}'.format(L2reg))
+    tArray = np.ones(2000) * refError
+    plt.plot(range(2000), tArray, label='Reference', color='black', linewidth=2.0)
+    plt.legend()
+    plt.xlabel('Num Training Points')
+    plt.ylabel('Error')
+    plt.savefig('logs/exp9a.png', dpi=400)
+    plt.show()
+
+def exp10(L2reg=0.01,mini_batchsize=5):
+    #for fixed L2 reg explore width of hidden network
+    #savefig with amount of L2
+
+    eval_pts = [100, 200, 300,400,500,1000, 1500, 2000]
+    for hidden_width in [2,5,7,10,20]:
+        test_costs = []
+        for numTP in eval_pts:
+
+            fin_cost_train, fin_cost_test = mlp_synthetic(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
+                                                  mini_batchsize=mini_batchsize)
+
+            test_costs.append(fin_cost_test)#saving the mean of 5 tests as the new test cost
+
+        plt.plot(eval_pts, test_costs, label='Hwidth:{}'.format(hidden_width))
+    tArray = np.ones(2000) * refError
+    plt.plot(range(2000), tArray, label='Reference', color='black', linewidth=2.0)
+    plt.legend()
+    plt.xlabel('Num Training Points')
+    plt.ylabel('Error')
+    plt.savefig('logs/exp10aL2reg{}.png'.format(L2reg), dpi=400)
+    plt.show()
+
+def exp5():
+    #this is exp5 code
+    for i in np.arange(-3, 1):
+        L2reg = pow(10, i)
+        exp5_innerloop(L2reg=L2reg)
+
+    tArray = np.ones(2000) * refError
+    plt.plot(range(2000), tArray, label='Reference', color='black', linewidth=2.0)
+    plt.legend()
+    plt.xlabel('Num Training Points')
+    plt.ylabel('Error')
+    plt.savefig('logs/exp8a.png', dpi=400)
+    #plt.show()
+
 
 if __name__ == "__main__":
 
@@ -157,18 +220,21 @@ if __name__ == "__main__":
     # plt.ylabel('Error')
     # plt.savefig('logs/exp5b.png', dpi=400)
     # plt.show()
-    train_costs=[]
-    test_costs=[]
-    for rand_seed in range(20):
-        np.random.seed(rand_seed)
-        fin_cost_train, fin_cost_test=mlp_synthetic(L2reg=0.0001, numTrainPoints=2000,mini_batchsize=5)
-        train_costs.append(fin_cost_train)
-        test_costs.append(fin_cost_test)
-        #print 'Seed:{}, train:{}, test:{}'.format(rand_seed,fin_cost_train,fin_cost_test)
-
-    print 'train mean', np.mean(train_costs)
-    print 'train std', np.std(train_costs)
-    print 'train mean', np.mean(test_costs)
-    print 'train std', np.std(test_costs)
-    with open("exp7.pickle", "wb") as f:
-        pickle.dump((train_costs,test_costs), f)
+    # train_costs=[]
+    # test_costs=[]
+    # for rand_seed in range(20):
+    #     np.random.seed(rand_seed)
+    #     fin_cost_train, fin_cost_test=mlp_synthetic(L2reg=0.0001, numTrainPoints=2000,mini_batchsize=5)
+    #     train_costs.append(fin_cost_train)
+    #     test_costs.append(fin_cost_test)
+    #     #print 'Seed:{}, train:{}, test:{}'.format(rand_seed,fin_cost_train,fin_cost_test)
+    #
+    # print 'train mean', np.mean(train_costs)
+    # print 'train std', np.std(train_costs)
+    # print 'train mean', np.mean(test_costs)
+    # print 'train std', np.std(test_costs)
+    # with open("exp7.pickle", "wb") as f:
+    #     pickle.dump((train_costs,test_costs), f)
+    exp10(L2reg=0.01)
+    exp10(L2reg=0.001)
+    exp10(L2reg=0.1)
