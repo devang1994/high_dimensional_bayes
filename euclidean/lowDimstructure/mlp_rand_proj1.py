@@ -172,7 +172,7 @@ def exp5(proj_width=50):
     plt.xlabel('Num Training Points')
     plt.ylabel('Error')
     plt.title('exp13aPwidth{}.png'.format(proj_width))
-    plt.savefig('logs/exp13aPwidth{}.png'.format(proj_width), dpi=400)
+    plt.savefig('logs/exp15aPwidth{}.png'.format(proj_width), dpi=400)
     plt.close()
     #plt.show()
     #exp 11 uses the new implementation of Rand_proj
