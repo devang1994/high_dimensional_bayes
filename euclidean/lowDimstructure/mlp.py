@@ -176,7 +176,7 @@ def exp10(L2reg=0.01,mini_batchsize=5):
     #savefig with amount of L2
 
     eval_pts = [100, 200, 300,400,500,1000, 1500, 2000]
-    for hidden_width in [10]:
+    for hidden_width in [2,5,10,20]:
         test_costs = []
         for numTP in eval_pts:
 
