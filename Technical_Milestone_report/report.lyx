@@ -1,0 +1,1122 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.2cm
+\topmargin 2.5cm
+\rightmargin 2.2cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+High Dimensional Bayesian Optimization with Neural Networks
+\begin_inset Newline newline
+\end_inset
+
+Technical Milestone Report 
+\end_layout
+
+\begin_layout Author
+Devang Agrawal, Queens College
+\end_layout
+
+\begin_layout Abstract
+Bayesian Optimization is used for global optimization of functions which
+ are typically expensive to evaluate.
+ Despite the many successes of Bayesian Optimization in low dimensions,
+ scaling it to high dimensions has proven to be notoriously hard.
+ Existing literature on this topic make very restrictive assumptions.
+ In this project we aim to develop a novel high dimensional Bayesian Optimizatio
+n framework by using neural networks to find a low dimensional (nonlinear)
+ manifold to describe the function.
+ The manifold can then be used for Bayesian Optimization.
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+In many applications we are tasked with the zeroth order optimization of
+ an expensive to evaluate function 
+\emph on
+f
+\emph default
+.
+ Some examples are hyper parameter tuning in expensive machine learning
+ algorithms, experiment design, optimizing control strategies in complex
+ systems, and scientific simulation based studies.
+ Bayesian optimization finds the optimum of 
+\emph on
+f
+\emph default
+ is found by using as few queries as possible by managing exploration and
+ exploitation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mockus1978application"
+
+\end_inset
+
+.
+ Scaling Bayesian Optimization to high dimensions for practical problems
+ has been very challenging.
+ Existing methods solve the problem only under very restrictive assumptions
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2013bayesian,Kandasamy:2015aa"
+
+\end_inset
+
+.
+ The aim of this project is to develop a novel framework for high dimensional
+ Bayesian Optimization which can be used for a much more expressive and
+ richer class of functions, than existing methods.
+\end_layout
+
+\begin_layout Standard
+Neural networks have previously been used for dimensionality reduction and
+ representational learning
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hinton2006reducing"
+
+\end_inset
+
+.
+ This project aims to use neural networks to learn a low dimensional representat
+ion of the data which can then be used to perform Bayesian Optimization.
+\end_layout
+
+\begin_layout Section
+Background and Related work
+\end_layout
+
+\begin_layout Subsection
+Neural Networks
+\end_layout
+
+\begin_layout Standard
+Neural Networks use multiple non-linear transforms to map from an input
+ to an output.
+ This gives them excellent feature extraction properties and they define
+ the current state of the art in object recognition and in natural language
+ processing
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bengio-et-al-2015-Book"
+
+\end_inset
+
+.
+ Neural networks have also been used to learn low-dimensional codes from
+ high-dimensional data
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hinton2006reducing"
+
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename example_network.png
+	width 45text%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Illustration of a Neural Network with one hidden layer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Bayesian Neural Networks
+\end_layout
+
+\begin_layout Standard
+Bayesian methods have often been applied to neural networks
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mackay1992practical"
+
+\end_inset
+
+.
+ The goal of Bayesian neural networks is to uncover the full posterior distribut
+ion over the network weights in order to capture uncertainty, to act as
+ a regularizer, and to provide a framework for model comparison.
+ The full posterior is often intractable for most forms of neural networks,
+ however it can be possible to use full or approximate Bayesian inference
+ for small pieces of the overall architecture
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hinton2008using"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Bayesian Optimization
+\end_layout
+
+\begin_layout Standard
+Bayesian Optimization(BO) is a well-established strategy for global optimization
+ of noisy expensive black-box functions
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mockus1978application"
+
+\end_inset
+
+.
+ Bayesian optimization relies on the construction of a probabilistic model
+ that defines a distribution over objective functions from the input space
+ to the objective of interest.
+ The promise of every new experiment is quantified using an acquisition
+ function, which, applied to the posterior mean and variance, expresses
+ a trade-off between exploration and exploitation.
+ Bayesian optimization proceeds by performing a proxy optimization over
+ this acquisition to determine the next input to evaluate.
+ 
+\end_layout
+
+\begin_layout Subsection
+High Dimensional Bayesian Optimization
+\end_layout
+
+\begin_layout Standard
+Bayesian Optimization(BO) has been successfully applied to many applications
+ such as tuning hyperparameters in learning algorithms
+\begin_inset CommandInset citation
+LatexCommand cite
+key "snoek2012practical"
+
+\end_inset
+
+, robotics
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lizotte2007automatic"
+
+\end_inset
+
+, and object tracking
+\begin_inset CommandInset citation
+LatexCommand cite
+key "denil2012learning"
+
+\end_inset
+
+.
+ However all such successes have been primarily limited to low (typically
+ < 10) dimensions
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2013bayesian"
+
+\end_inset
+
+.
+ However scaling BO to high dimensions for practical problems has been challengi
+ng.
+ Currently only two methods exist for doing BO in high dimensions under
+ strong assumptions, which severely limit their applicability to practical
+ problems.
+\end_layout
+
+\begin_layout Standard
+Wang et al.
+ 2013
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2013bayesian"
+
+\end_inset
+
+ perform regular BO on a low dimensional subspace.
+ The assumption is that most dimensions do not change the objective function
+ significantly and can be ignored.
+ Their algorithm projects the high dimensional space down to a random low-dimens
+ional space and performs BO there.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:wang"
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Untitled 2.png
+	lyxscale 20
+	width 85text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+This function in D=2 dimensions only has d=1 effective dimension: the vertical
+ axis indicated with the word important on the right hand side figure.
+ Hence, the 1-dimensional embedding includes the 2-dimensional function’s
+ optimizer.
+ It is more efficient to search for the optimum along the 1-dimensional
+ random embedding than in the original 2-dimensional space.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2013bayesian"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:wang"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ illustrates this idea by using a D=2 dimensional function where only d=1
+ dimension is important.
+ This method works very well only when its assumptions hold, however that
+ makes it unsuitable for general high dimensional BO.
+\end_layout
+
+\begin_layout Standard
+Kandasamy et al.
+ 2013 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kandasamy:2015aa"
+
+\end_inset
+
+ perform high dimensional BO by treating the function 
+\emph on
+f 
+\emph default
+as an additive function of mutually exclusive lower dimensionality components
+ (Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:additive"
+
+\end_inset
+
+).
+ This method shows excellent performance when the function is indeed additive
+ but does not work as well when it is not.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(x)=f^{(1)}(x^{(1)})+f^{(2)}(x^{(2)})+\dots+f^{(M)}(x^{(M)})\label{eq:additive}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposed Method
+\end_layout
+
+\begin_layout Standard
+The project aims to develop a novel framework for performing BO in high
+ dimensions.
+ For this a hybrid network is used, we add a Gaussian Process(GP) or a Bayesian
+ Linear Regressor(BLR) to the last hidden layer of a deep neural network.
+ The neural network reduces the dimensionality of the data by finding a
+ low-dimensional non-linear manifold to represent it.
+ The low dimensional representation can be then used by the GP or BLR to
+ probabilistically model the function.
+ The neural network can also potentially represent interesting features
+ of the data in its hidden layers which can aid the GP/BLR in better modeling
+ the function.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:An-illustration-hybrid"
+
+\end_inset
+
+ shows an illustration of the hybrid network.
+ To train the hybrid network, we first train the Neural Network from X to
+ Y using back-propagation.
+ Then we fix the network and train a GP or a BLR from the last hidden layer
+ of the network (H) to Y2.
+ The GP/BLR provides a probabilistic model of the target function, the uncertain
+ty estimates from it allow us to manage exploration and exploitation for
+ Bayesian Optimization.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename simple_network1.png
+	lyxscale 30
+	width 48text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simple Neural Network used in experiments
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simple-Neural-Network"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename hybrid_network.png
+	lyxscale 30
+	width 48text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An illustration of the hybrid network
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:An-illustration-hybrid"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Neural Network Architectures used
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Current Work
+\end_layout
+
+\begin_layout Standard
+Theano
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bergstra2010theano,Bastien-Theano-2012"
+
+\end_inset
+
+ is an open-source numerical computation library for python.
+ It performs symbolic differentiation and can easily run on GPUs allowing
+ fast training of deep neural networks.
+ It is extensively used by the Neural Network communities and has extensive
+ documentation available.
+ All experiments for this project were written in Theano.
+ 
+\end_layout
+
+\begin_layout Standard
+Bayesian Optimization aims to optimize expensive functions with minimum
+ number of function evaluations, hence only a small number of data-points
+ are available to train the neural network.
+ This poses a challenge for neural networks which are generally used in
+ scenarios with abundant data
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bengio-et-al-2015-Book"
+
+\end_inset
+
+.
+ The performance of neural networks with very limited data-points is investigate
+d in this report.
+ 
+\end_layout
+
+\begin_layout Standard
+A synthetic dataset was created using a fixed neural network with randomly
+ initialized weights.
+ The neural network uses ReLU non linearity
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bengio-et-al-2015-Book"
+
+\end_inset
+
+.
+ It takes a 100 dimensional input and gives a one dimensional output, it
+ has one hidden layer with 10 hidden units in it.
+ The architecture is illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simple-Neural-Network"
+
+\end_inset
+
+.
+ Input data points 
+\begin_inset Formula $\mathbf{X}\text{∈}R^{100}$
+\end_inset
+
+ ,
+\begin_inset Formula $X=[x_{1}\dots,x_{100}]$
+\end_inset
+
+ where 
+\begin_inset Formula $x_{i}\sim unif[-1,1]\ \text{∀}\ i\text{\thinspace∈\thinspace}[1,100]$
+\end_inset
+
+ , the dataset was then generated by applying the neural networks to them
+ to get the output points.
+ 
+\end_layout
+
+\begin_layout Standard
+A neural network with the same architecture as Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simple-Neural-Network"
+
+\end_inset
+
+ was then trained on the synthetic data set.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Evolution-err-epoch"
+
+\end_inset
+
+ shows the evolution of test error with epochs for different number of training
+ points, all the errors converge after 1000 epochs.
+ All subsequent experiments used 1000 epochs.
+ To better understand the performance of the neural networks with very small
+ number of data-points, only a portion of the training data set is used
+ to train the networks.
+ In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-hiddenWidth"
+
+\end_inset
+
+ we plot the error versus the size of the portion of the data-set that was
+ used to perform the training, separate curves are obtained by varying the
+ amount of L2 regularization of the weights of the neural networks.
+ A reference error was found by using simple mean prediction on the test
+ data set, this was then added to the figures to aid in assessing model
+ performance.
+ As can be seen from the figure, with aggressive L2 regularization
+\begin_inset Formula $(\sim0.01)$
+\end_inset
+
+ , the test error with 200 data-points is 0.31, which is significantly better
+ than the reference error (0.73).
+ 
+\end_layout
+
+\begin_layout Standard
+The effect of the width of the hidden layer on the performance of the neural
+ networks was explored.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Error-hiddenWidth"
+
+\end_inset
+
+ shows that the curves obtained for different values of 
+\family typewriter
+hiddenWidth
+\family default
+ (width of hidden layer) are very similar.
+ The curves for 
+\family typewriter
+hiddenWidth=20 and hiddenWidth=10 
+\family default
+are almost identical.
+ The width of the hidden layer is chosen to be 10 for the rest of the experiment
+s.
+\end_layout
+
+\begin_layout Standard
+When training models on very small datasets, overfitting is a major concern
+ and hence regularization becomes very important
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bengio-et-al-2015-Book"
+
+\end_inset
+
+.
+ Apart from the L2 regularization of network weights, we also investigate
+ random projections as a method of regularization.
+ The 100 dimensional input space is projected down to a 50 dimensional subspace
+ using a fixed, random linear transform.
+ The learning is then done in the 50 dimensional sub-space.
+ This approach did not show very good results as can be see in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:randprof"
+
+\end_inset
+
+.
+ One possible explanation for such performance is the complexity of the
+ synthetic dataset which might have strong dependencies on all the input
+ dimensions and hence can not tolerate an arbitrary random projection.
+ More tests are proposed with different datasets to better understand the
+ efficacy of random projections.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/da368/high_dimensional_bayes/MLP_synthetic/logs/exp4a.png
+	lyxscale 20
+	width 48text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Evolution of test error with epochs, for different number of training data
+ points
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Evolution-err-epoch"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/da368/high_dimensional_bayes/MLP_synthetic/logs/exp9a.png
+	lyxscale 25
+	width 48text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Error for different number of Training points for different amounts of L2
+ regularization
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-for-numTP"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/da368/high_dimensional_bayes/MLP_synthetic/logs/exp10aL2reg0.01.png
+	lyxscale 20
+	width 48text%
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Error for different number of Training points for different widths of the
+ hidden layer
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Error-hiddenWidth"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/da368/high_dimensional_bayes/MLP_synthetic/logs/rand_proj1.png
+	lyxscale 20
+	width 48text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The input space was first linearly projected down to a 50 dimensional sub-space
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:randprof"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Investigating Neural Networks on Small Datasets
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Future Work
+\end_layout
+
+\begin_layout Standard
+For the ultimate success of the project in developing a novel high-dimensional
+ Bayesian optimization framework, the following work needs to be completed.
+ 
+\end_layout
+
+\begin_layout Standard
+The neural network's ability to model the function and to reduce its dimensional
+ity needs to be further improved.
+ We have observed reasonable results in our current work, but experiments
+ with various neural network architectures and training methods needs to
+ be explored to further improve our performance.
+ We believe that using deeper neural network architectures might help improve
+ our performance, however we need to tread cautiously since deeper networks
+ can have many more parameters and can substantially increase the risk of
+ overfitting on small datasets such as ours.
+ Different optimization strategies such as Stochastic Gradient Descent with
+ momentum
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bengio-et-al-2015-Book"
+
+\end_inset
+
+, ADA-DELTA
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zeiler2012adadelta"
+
+\end_inset
+
+ , ADAM
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kingma2014adam"
+
+\end_inset
+
+ etc.
+ might be able to give better performance in training the networks and need
+ to be explored.
+\end_layout
+
+\begin_layout Standard
+The performance of the neural network on a 
+\begin_inset Quotes eld
+\end_inset
+
+real world
+\begin_inset Quotes erd
+\end_inset
+
+ data set also needs to be evaluated.
+ Real-world datasets can often be 
+\begin_inset Quotes eld
+\end_inset
+
+well behaved
+\begin_inset Quotes erd
+\end_inset
+
+ which can make the task of modeling them much easier than the highly non-linear
+ and arbitrary synthetic data set used in current experiments.
+\end_layout
+
+\begin_layout Standard
+Once the neural network's performance is acceptable, the hybrid network
+ and the Bayesian optimization needs to be implemented.
+ The model then needs to be benchmarked on some popular high dimensional
+ functions so that its performance can be compared to some existing high
+ dimensional BO algorithms such as REMBO
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wang2013bayesian"
+
+\end_inset
+
+ and Add-GP-UCB
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kandasamy:2015aa"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+In the work so far, very simple neural network based models have shown promising
+ performance on a very complex synthetic dataset.
+ Future work will try to improve this performance by using more varied network
+ architectures and will validate it on 
+\begin_inset Quotes eld
+\end_inset
+
+real-world
+\begin_inset Quotes erd
+\end_inset
+
+ datasets.
+ A Gaussian process will then be implemented, with the last hidden layer
+ of the Neural Network as the input, to model the target function.
+ The uncertainty estimates from the Gaussian process should enable us to
+ do Bayesian Optimization on the target function.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "bibliography"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

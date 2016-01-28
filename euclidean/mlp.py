@@ -4,6 +4,8 @@ import numpy as np
 from load_data import load_data as load
 from math import sqrt
 from adam import Adam
+import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error as MSE
 import cPickle as pickle
@@ -190,7 +192,8 @@ def exp10(L2reg=0.01,mini_batchsize=5):
     plt.xlabel('Num Training Points')
     plt.ylabel('Error')
     plt.savefig('logs/exp12aL2reg{}.png'.format(L2reg), dpi=400)
-    plt.show()
+    #plt.show()
+    plt.close()
 
 def exp5():
     #this is exp5 code
