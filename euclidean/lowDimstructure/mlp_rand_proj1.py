@@ -13,7 +13,7 @@ import cPickle as pickle
 # np.random.seed(30)
 
 epochs = 1000
-refError = 0.0638835188641
+refError = 2.50280193981
 
 
 # this is the main code base

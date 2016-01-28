@@ -13,7 +13,7 @@ rand_seed=20
 np.random.seed(rand_seed)
 
 epochs = 1000
-refError = 0.0638835188641
+refError = 2.50280193981
 
 
 # this is the main code base
