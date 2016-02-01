@@ -1,0 +1,10 @@
+##Evolving and adapting robots
+
+###Map-Elites
+
+Map from HighD parameter space to LowD "behaviour space". 
+
+Use Evolutionary Algorithms for random variations in parameter space, save map from behaviour space to performance. 
+
+Many points in parameter space - map to same point in "behaviour space" . Only save the point with best performance. 
+
