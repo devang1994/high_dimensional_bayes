@@ -22,12 +22,6 @@ def floatX(X):
     """convert to np array with floatX"""
     return np.asarray(X, dtype=theano.config.floatX)
 
-
-def init_weights(shape):
-    """theano shared variable with given shape"""
-    return theano.shared(floatX(np.random.randn(*shape) * 0.01))
-
-
 def init_bias(n):
     """theano shared variable with given size"""
     return theano.shared(value=np.zeros((n,), dtype=theano.config.floatX))

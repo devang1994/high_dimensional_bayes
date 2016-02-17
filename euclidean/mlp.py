@@ -147,7 +147,7 @@ def exp5_innerloop(L2reg=0.01, hidden_width=10, mini_batchsize=5):
     plt.plot(eval_pts, test_costs, label='L2reg:{}'.format(L2reg))
 
 
-def exp9(hidden_width=10, mini_batchsize=5):
+def exp9(hidden_width=20, mini_batchsize=5):
 
     #like exp5 but with averaging
     eval_pts = [100, 200, 300,400,500,1000, 1500, 2000]
@@ -156,7 +156,7 @@ def exp9(hidden_width=10, mini_batchsize=5):
         test_costs = []
         for numTP in eval_pts:
             temp=[]
-            for k in range(5):
+            for k in range(2):
                 fin_cost_train, fin_cost_test = mlp_synthetic(L2reg=L2reg, hidden_width=hidden_width, numTrainPoints=numTP,
                                                       mini_batchsize=mini_batchsize)
                 temp.append(fin_cost_test)
@@ -168,7 +168,7 @@ def exp9(hidden_width=10, mini_batchsize=5):
     plt.legend()
     plt.xlabel('Num Training Points')
     plt.ylabel('Error')
-    plt.savefig('logs/exp9a.png', dpi=400)
+    plt.savefig('logs/expLowDimHwidth20.png', dpi=400)
     plt.show()
 
 def exp10(L2reg=0.01,mini_batchsize=5):
@@ -197,7 +197,7 @@ def exp10(L2reg=0.01,mini_batchsize=5):
 
 def exp5():
     #this is exp5 code
-    for i in np.arange(-3, 1):
+    for i in np.arange(-3, 0):
         L2reg = pow(10, i)
         exp5_innerloop(L2reg=L2reg)
 
@@ -206,7 +206,7 @@ def exp5():
     plt.legend()
     plt.xlabel('Num Training Points')
     plt.ylabel('Error')
-    plt.savefig('logs/exp8a.png', dpi=400)
+    plt.savefig('logs/expLowDimHwidth10.png', dpi=400)
     #plt.show()
 
 
@@ -238,7 +238,8 @@ if __name__ == "__main__":
     # print 'train std', np.std(test_costs)
     # with open("exp7.pickle", "wb") as f:
     #     pickle.dump((train_costs,test_costs), f)
-    exp10(L2reg=0.0001)
+    #exp10(L2reg=0.0001)
     # exp10(L2reg=0.001)
     # exp10(L2reg=0.1)
+    exp5()
     # mlp_synthetic(0.01,hidden_width=10)
