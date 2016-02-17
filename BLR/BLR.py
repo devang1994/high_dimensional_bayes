@@ -283,16 +283,16 @@ def prob_model():
     mu = mu.reshape(len(mu), 1)  # temp measure remove
 
 
-    # plt.plot(xtest_, mu, color='r', label='posterior')
-    # plt.plot(xtest_, mu - s, color='blue', label='credible')
-    # plt.plot(xtest_, mu + s, color='blue', label='interval')
-    # plt.plot(xtest_, objective(xtest_), color='black')
-    # plt.plot(xtrain_, ytrain_, 'ro')
-    # #
-    # # plt.title('Bayesian linear regression with learned features')
-    # plt.legend()
-    # plt.savefig('abc.png')
-    # plt.show()
+    plt.plot(xtest_, mu, color='r', label='posterior')
+    plt.plot(xtest_, mu - s, color='blue', label='credible')
+    plt.plot(xtest_, mu + s, color='blue', label='interval')
+    plt.plot(xtest_, objective(xtest_), color='black')
+    plt.plot(xtrain_, ytrain_, 'ro')
+    #
+    plt.title('Bayesian linear regression with learned features')
+    plt.legend()
+    plt.savefig('abc.png')
+    plt.show()
 
 def diag_test():
 
@@ -332,5 +332,5 @@ def diag_test():
 
 
 if __name__ == '__main__':
-    #prob_model()
-    diag_test()
+    prob_model()
+    #diag_test()

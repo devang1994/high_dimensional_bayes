@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d3f7573-5252-4fed-b83d-80bf6e7e055b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../BLR/FTRL.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../BLR/sandbox.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BLR/abc.png" afterPath="$PROJECT_DIR$/../BLR/abc.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BLR/BLR.py" afterPath="$PROJECT_DIR$/../BLR/BLR.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mlp.py" afterPath="$PROJECT_DIR$/mlp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lowDimstructure/mlp.py" afterPath="$PROJECT_DIR$/lowDimstructure/mlp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BLR/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../BLR/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../BLR/logs/Diagnostics.md" afterPath="$PROJECT_DIR$/../BLR/logs/Diagnostics.md" />
     </list>
     <ignored path="euclidean.iws" />
     <ignored path=".idea/workspace.xml" />
