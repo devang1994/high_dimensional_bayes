@@ -1,8 +1,12 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as pl
 from theano import tensor as T
 import theano
 from math import sqrt
+from sklearn import gaussian_process
+
+
+import GPy
 from theano.misc.pkl_utils import StripPickler
 def floatX(X):
     """convert to np array with floatX"""
@@ -108,17 +112,54 @@ def exp1():
     plt.show()
 
 
+def play_gpy(ntrain=10):
+
+
+    xtrain_ = np.random.uniform(low=-1.0, high=2.0, size=ntrain)
+    X_train = xtrain_.reshape(len(xtrain_), 1)
+
+    y_train = objective(X_train)
+
+    x_test = np.linspace(-1, 2, 1000)
+    gp = gaussian_process.GaussianProcess(theta0=1e-2, thetaL=1e-4, thetaU=1e-1)
+    gp.fit(X_train, y_train)
+    y_pred, sigma2_pred = gp.predict(x_test, eval_MSE=True)
+    sigma = np.sqrt(sigma2_pred)
+
+    fig = pl.figure()
+    pl.plot(x_test, f(x_test), 'r:', label=u'$f(x) = x\,\sin(x)$')
+    pl.plot(X_train, y_train, 'r.', markersize=10, label=u'Observations')
+    pl.plot(x_test, y_pred, 'b-', label=u'Prediction')
+    pl.fill(np.concatenate([x_test, x_test[::-1]]),
+            np.concatenate([y_pred - 1.9600 * sigma,
+                           (y_pred + 1.9600 * sigma)[::-1]]),
+            alpha=.5, fc='b', ec='None', label='95% confidence interval')
+    pl.xlabel('$x$')
+    pl.ylabel('$f(x)$')
+    pl.ylim(-10, 20)
+    pl.legend(loc='upper left')
+    pl.show()
+def f(x):
+    return x * np.sin(x)
+
+def objective(x):
+    return (np.sin(x * 7) + np.cos(x * 17))
+
+
+
 if __name__== '__main__':
 
-    X = T.fmatrix(name='X')
+    play_gpy()
 
-    a= np.ones((2,2))
-    print a
-    w_h1 = uniform_weights((2,2))
-    k=T.dot(w_h1,X)
-    predict = theano.function(inputs=[X], outputs=k, allow_input_downcast=True)
-
-    print predict(a)
+    # X = T.fmatrix(name='X')
+    #
+    # a= np.ones((2,2))
+    # print a
+    # w_h1 = uniform_weights((2,2))
+    # k=T.dot(w_h1,X)
+    # predict = theano.function(inputs=[X], outputs=k, allow_input_downcast=True)
+    #
+    # print predict(a)
     # dest_pkl = 'my_test.pkl'
     # f = open(dest_pkl, 'wb')
     # strip_pickler = StripPickler(f, protocol=-1)

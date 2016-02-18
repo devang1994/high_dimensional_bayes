@@ -19,11 +19,42 @@ Neural Net used
 tanh non linearity 
 
 
----
+--
 
 
 ###Performance of BLR
 
 The bayesian linear regressor takes the activations of the NN as inputs to probabilistically model the function
 
+With 50 train points
 ![fig](figure_2.png)
+
+
+With 20 train points
+
+![fig](abc.png)
+
+
+-- 
+
+Training points spread around 
+
+![fig](figure_3.png)
+
+
+![fig](figure_4.png)
+
+![fig](figure_6.png)
+
+
+--
+
+Simple GP
+150 train points
+![fig](simple_GP.png)
+
+
+
+
+--
+

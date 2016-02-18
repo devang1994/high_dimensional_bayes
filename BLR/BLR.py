@@ -243,17 +243,17 @@ def MSE_reference(y_test):
 
     return MSE(y_test,mean_arr)
 
-def prob_model():
+def prob_model(ntrain = 50):
 
     noise = 0.2
-    ntrain = 50
+
     ntest = 1000
     nperbatch = 20
 
 
     # -- generate training data and fix test inputs
     # -- the trailing underscore indicates that these are flattened arrays
-    xtrain_ = np.random.uniform(low=0.0, high=1.0, size=ntrain)
+    xtrain_ = np.random.uniform(low=-1.0, high=2.0, size=ntrain)
     ytrain_ = objective(xtrain_) + np.random.randn(ntrain) * noise
     xtest_ = np.linspace(-1., 2., ntest)
     ytest_ = objective(xtest_)
@@ -289,7 +289,7 @@ def prob_model():
     plt.plot(xtest_, objective(xtest_), color='black')
     plt.plot(xtrain_, ytrain_, 'ro')
     #
-    plt.title('Bayesian linear regression with learned features')
+    plt.title('BLR with learned features ,ntrain:{}'.format(ntrain))
     plt.legend()
     plt.savefig('abc.png')
     plt.show()
@@ -332,5 +332,5 @@ def diag_test():
 
 
 if __name__ == '__main__':
-    prob_model()
+    prob_model(ntrain=150)
     #diag_test()
