@@ -58,3 +58,19 @@ Simple GP
 
 --
 
+For this particular objective function it would not really make sense to use give the GP a 50D input.
+
+--
+
+##BayesOPt
+
+Using GP-UCB
+
+```
+def acquisition_UCB(m, s, k):
+    a = m - k * s
+    return a
+```
+
+
+

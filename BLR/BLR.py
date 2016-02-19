@@ -8,7 +8,6 @@ from theano.misc.pkl_utils import StripPickler
 
 from sklearn.metrics import mean_squared_error as MSE
 
-
 epochs = 4000
 
 
@@ -121,7 +120,7 @@ def exp1():
 
 
 def MSE_reg(Y, op, params, L2reg):
-    #defines the cost function
+    # defines the cost function
     cost = (T.mean(T.sqr(op - Y)))
     # penalizing all params
     for i in params:
@@ -144,7 +143,7 @@ def mlp_synthetic(X_train, X_test, y_train, y_test, L2reg=0.01, hidden_width=50,
     b_h3 = init_bias(hidden_width)
 
     w_o = uniform_weights((hidden_width, 1))
-    #b_h = init_bias(hidden_width)
+    # b_h = init_bias(hidden_width)
     b_o = init_bias(1)
 
     op = model(X, w_h1, w_h2, w_h3, w_o, b_h1, b_h2, b_h3, b_o)
@@ -171,8 +170,11 @@ def mlp_synthetic(X_train, X_test, y_train, y_test, L2reg=0.01, hidden_width=50,
         # Done this cost prediction needs to change
         # fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
         # fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
+        y_predicted=predict(X_train)
+
         fin_cost_test = MSE(predict(X_test), y_test)
         fin_cost_train = MSE(predict(X_train), y_train)
+
         test_costs.append(fin_cost_test)
         train_costs.append(fin_cost_train)
         # print i, fin_cost_test, fin_cost_train
@@ -206,7 +208,7 @@ def mlp_synthetic(X_train, X_test, y_train, y_test, L2reg=0.01, hidden_width=50,
 
     tArray = np.ones(epochs) * test_cost
     # print 'MSE for mean prediction, Train:{} ,Test:{}'.format(train_cost,test_cost)
-    ref_err=MSE_reference(y_test)
+    ref_err = MSE_reference(y_test)
 
     # ref_arr=ref_err*np.ones(epochs)
     # plt.plot(range(epochs), test_costs, label='Test')
@@ -233,27 +235,26 @@ def mlp_synthetic(X_train, X_test, y_train, y_test, L2reg=0.01, hidden_width=50,
     train_transformed = transform(X_train)
     test_predictions = predict(X_test)
     # returns the transformed test data, ie the activations from the third hidden layer
-    return fin_cost_train, fin_cost_test, train_transformed, test_transformed , test_predictions
+    return fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions
+
 
 def MSE_reference(y_test):
+    mean_pred = np.mean(y_test)
+    mean_arr = np.ones(y_test.shape) * mean_pred
+
+    return MSE(y_test, mean_arr)
 
 
-    mean_pred=np.mean(y_test)
-    mean_arr=np.ones(y_test.shape)*mean_pred
-
-    return MSE(y_test,mean_arr)
-
-def prob_model(ntrain = 50):
-
+def prob_model(ntrain=50):
     noise = 0.2
 
     ntest = 1000
-    nperbatch = 20
+
 
 
     # -- generate training data and fix test inputs
     # -- the trailing underscore indicates that these are flattened arrays
-    xtrain_ = np.random.uniform(low=-1.0, high=2.0, size=ntrain)
+    xtrain_ = np.random.uniform(low=-1.0, high=1.0, size=ntrain)
     ytrain_ = objective(xtrain_) + np.random.randn(ntrain) * noise
     xtest_ = np.linspace(-1., 2., ntest)
     ytest_ = objective(xtest_)
@@ -263,13 +264,17 @@ def prob_model(ntrain = 50):
     y_test = ytest_
     X_test = xtest_.reshape(len(xtest_), 1)
 
-    ref_err=MSE_reference(y_test)
+    ref_err = MSE_reference(y_test)
     print 'ref err: {}'.format(ref_err)
 
-    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(X_train, X_test, y_train, y_test,
-                                                                                       L2reg=0.0, hidden_width=50,
-                                                                                       mini_batchsize=5)
-    print 'train {}, test {}'.format(fin_cost_train,fin_cost_test)
+    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(X_train,
+                                                                                                         X_test,
+                                                                                                         y_train,
+                                                                                                         y_test,
+                                                                                                         L2reg=0.0,
+                                                                                                         hidden_width=50,
+                                                                                                         mini_batchsize=5)
+    print 'train {}, test {}'.format(fin_cost_train, fin_cost_test)
 
     phi_train = train_transformed
     y_train = ytrain_
@@ -279,23 +284,28 @@ def prob_model(ntrain = 50):
     mu, s2 = BLR(0.2, 4, phi_train, phi_test, y_train)
 
     print s2.shape, mu.shape
-    s = np.sqrt(s2) * 2
+    s = np.sqrt(s2) * 2  # 2 standard deviations
     mu = mu.reshape(len(mu), 1)  # temp measure remove
-
-
+    alpha=acquisition_UCB(mu,s/2.0,0.2)
     plt.plot(xtest_, mu, color='r', label='posterior')
     plt.plot(xtest_, mu - s, color='blue', label='credible')
     plt.plot(xtest_, mu + s, color='blue', label='interval')
     plt.plot(xtest_, objective(xtest_), color='black')
     plt.plot(xtrain_, ytrain_, 'ro')
+    plt.plot(xtest_,alpha,label='acquistion func',color='green')
     #
     plt.title('BLR with learned features ,ntrain:{}'.format(ntrain))
     plt.legend()
-    plt.savefig('abc.png')
+    #plt.savefig('abc.png')
     plt.show()
 
-def diag_test():
 
+def acquisition_UCB(m, s, k=0.2):
+    a = m - k * s
+    return a
+
+
+def diag_test():
     noise = 0.2
     ntrain = 50
     ntest = 1000
@@ -314,23 +324,85 @@ def diag_test():
     y_test = ytest_
     X_test = xtest_.reshape(len(xtest_), 1)
 
-
-    ref_err=MSE_reference(y_test)
+    ref_err = MSE_reference(y_test)
     print 'ref err: {}'.format(ref_err)
 
-    plt.plot(X_test,y_test, label = 'Objective')
-    plt.plot(X_train,y_train,'ro', label='Train Data')
+    plt.plot(X_test, y_test, label='Objective')
+    plt.plot(X_train, y_train, 'ro', label='Train Data')
 
-
-    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(X_train, X_test, y_train, y_test,
-                                                                                       L2reg=0.0, hidden_width=50,
-                                                                                       mini_batchsize=5)
-    plt.plot(X_test,test_predictions,label='Predictions')
+    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(X_train,
+                                                                                                         X_test,
+                                                                                                         y_train,
+                                                                                                         y_test,
+                                                                                                         L2reg=0.0,
+                                                                                                         hidden_width=50,
+                                                                                                         mini_batchsize=5)
+    plt.plot(X_test, test_predictions, label='Predictions')
     plt.legend()
     plt.show()
 
 
+def bayes_opt(func,initial_random=2):
+    '''function to do bayesOpt on and number of initial random evals
+    noise is artificially added to objective function calls when training
+    '''
+    noise=0.2
+    ntest=1000
+    ntrain=initial_random #number of initial random function evals
+    xtrain=np.random.uniform(low=-1.0, high=1.0, size=(ntrain,1))
+    print xtrain.shape
+    ytrain = objective(xtrain) + np.random.randn(ntrain,1) * noise
+    print ytrain.shape
+    xtest = np.linspace(-1., 2., ntest)
+    xtest=  xtest.reshape(ntest,1)
+    ytest = objective(xtest)
+    plt.figure(1)                # the first figure
+
+    plt.plot(xtest, objective(xtest), color='black')
+    plt.plot(xtrain, ytrain, 'ro')
+
+
+    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(xtrain,
+                                                                                                         xtest,
+                                                                                                         ytrain,
+                                                                                                         ytest,
+                                                                                                         L2reg=0.0,
+                                                                                                         hidden_width=50,
+                                                                                                         mini_batchsize=5)
+
+    mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
+
+    alpha=acquisition_UCB(mu, np.sqrt(s2))
+
+    index=np.argmin(alpha)
+    plt.plot(xtest,alpha)
+    next_query=xtest[index]
+    print xtrain
+    print next_query
+    next_y=objective(next_query) + np.random.randn(1,1) * noise
+    print next_y
+
+    xtrain=np.vstack((xtrain,next_query))
+    ytrain=np.vstack((ytrain,next_y))
+
+    plt.figure(2)                # the first figure
+    s = np.sqrt(s2) * 2  # 2 standard deviations
+
+
+    plt.plot(xtest, objective(xtest), color='black')
+    plt.plot(xtrain, ytrain, 'ro')
+    plt.plot(xtest, mu, color='r', label='posterior')
+    plt.plot(xtest, mu - s, color='blue', label='credible')
+    plt.plot(xtest, mu + s, color='blue', label='interval')
+    plt.plot(xtest, objective(xtest), color='black')
+    plt.plot(xtrain, ytrain, 'ro')
+    plt.plot(xtest,alpha,label='acquistion func',color='green')
+    #
+    plt.title('BLR with learned features ,ntrain:{}'.format(ntrain))
+    plt.legend()
+
+    plt.show()
 
 if __name__ == '__main__':
-    prob_model(ntrain=150)
-    #diag_test()
+    bayes_opt(objective)
+    # diag_test()
