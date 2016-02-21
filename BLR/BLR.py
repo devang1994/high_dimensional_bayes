@@ -10,6 +10,7 @@ from sklearn.metrics import mean_squared_error as MSE
 
 epochs = 4000
 
+np.random.seed(42)
 
 def floatX(X):
     """convert to np array with floatX"""
@@ -222,11 +223,11 @@ def mlp_synthetic(X_train, X_test, y_train, y_test, L2reg=0.01, hidden_width=50,
     # plt.close()
 
 
-    dest_pkl = 'my_test.pkl'
-    f = open(dest_pkl, 'wb')
-    strip_pickler = StripPickler(f, protocol=-1)
-    strip_pickler.dump(params)
-    f.close()
+    # dest_pkl = 'my_test.pkl'
+    # f = open(dest_pkl, 'wb')
+    # strip_pickler = StripPickler(f, protocol=-1)
+    # strip_pickler.dump(params)
+    # f.close()
 
     h3 = model_act(X, w_h1, w_h2, w_h3, w_o, b_h1, b_h2, b_h3, b_o)
     transform = theano.function(inputs=[X], outputs=h3, allow_input_downcast=True)
@@ -243,7 +244,6 @@ def MSE_reference(y_test):
     mean_arr = np.ones(y_test.shape) * mean_pred
 
     return MSE(y_test, mean_arr)
-
 
 def prob_model(ntrain=50):
     noise = 0.2
@@ -294,7 +294,7 @@ def prob_model(ntrain=50):
     plt.plot(xtrain_, ytrain_, 'ro')
     plt.plot(xtest_,alpha,label='acquistion func',color='green')
     #
-    plt.title('BLR with learned features ,ntrain:{}'.format(ntrain))
+    plt.title('BLR with learned features ,ntrain:{}'.format(len(xtrain_)))
     plt.legend()
     #plt.savefig('abc.png')
     plt.show()
@@ -342,7 +342,7 @@ def diag_test():
     plt.show()
 
 
-def bayes_opt(func,initial_random=2):
+def bayes_opt(func,initial_random=2,k=0.2):
     '''function to do bayesOpt on and number of initial random evals
     noise is artificially added to objective function calls when training
     '''
@@ -361,48 +361,59 @@ def bayes_opt(func,initial_random=2):
     plt.plot(xtest, objective(xtest), color='black')
     plt.plot(xtrain, ytrain, 'ro')
 
+    for i in range(50):
+        print 'it:{}'.format(i)
+        fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(xtrain,
+                                                                                                             xtest,
+                                                                                                             ytrain,
+                                                                                                             ytest,
+                                                                                                             L2reg=0.0,
+                                                                                                             hidden_width=50,
+                                                                                                             mini_batchsize=5)
 
-    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(xtrain,
-                                                                                                         xtest,
-                                                                                                         ytrain,
-                                                                                                         ytest,
-                                                                                                         L2reg=0.0,
-                                                                                                         hidden_width=50,
-                                                                                                         mini_batchsize=5)
+        mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
 
-    mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
+        alpha=acquisition_UCB(mu, np.sqrt(s2),k=k)
 
-    alpha=acquisition_UCB(mu, np.sqrt(s2))
-
-    index=np.argmin(alpha)
-    plt.plot(xtest,alpha)
-    next_query=xtest[index]
-    print xtrain
-    print next_query
-    next_y=objective(next_query) + np.random.randn(1,1) * noise
-    print next_y
-
-    xtrain=np.vstack((xtrain,next_query))
-    ytrain=np.vstack((ytrain,next_y))
-
-    plt.figure(2)                # the first figure
-    s = np.sqrt(s2) * 2  # 2 standard deviations
+        index=np.argmin(alpha)
+        next_query=xtest[index]
+        next_y=objective(next_query) + np.random.randn(1,1) * noise
 
 
-    plt.plot(xtest, objective(xtest), color='black')
-    plt.plot(xtrain, ytrain, 'ro')
-    plt.plot(xtest, mu, color='r', label='posterior')
-    plt.plot(xtest, mu - s, color='blue', label='credible')
-    plt.plot(xtest, mu + s, color='blue', label='interval')
-    plt.plot(xtest, objective(xtest), color='black')
-    plt.plot(xtrain, ytrain, 'ro')
-    plt.plot(xtest,alpha,label='acquistion func',color='green')
-    #
-    plt.title('BLR with learned features ,ntrain:{}'.format(ntrain))
-    plt.legend()
 
-    plt.show()
+        plt.figure(i+2)                # the first figure
+        s = np.sqrt(s2)  #  standard deviations
+
+
+        # plt.plot(xtest, objective(xtest), color='black',label='objective')
+        # plt.plot(xtrain, ytrain, 'ro')
+        # plt.plot(xtest, mu, color='r', label='posterior')
+        # plt.plot(xtest, mu - s, color='blue', label='credible')
+        # plt.plot(xtest, mu + s, color='blue', label='interval')
+        # plt.plot(xtest,alpha,label='acquistion func',color='green')
+        # plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
+        # plt.legend()
+        # plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+        # xtrain=np.vstack((xtrain,next_query))
+        # ytrain=np.vstack((ytrain,next_y))
+
+        if(i%5==0):
+            plt.plot(xtest, objective(xtest), color='black',label='objective', linewidth=2.0)
+            plt.plot(xtrain, ytrain, 'ro')
+            plt.plot(xtest, mu, color='r', label='posterior')
+            # plt.plot(xtest, mu - s, color='blue', label='credible')
+            # plt.plot(xtest, mu + s, color='blue', label='interval')
+            plt.plot(xtest,alpha,label='acquistion func',color='green')
+            # plt.plot(xtest,np.zeros(ntest),color='black')
+            plt.plot(xtest,s+2,label='sigma+2',color='blue')
+            plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
+            plt.legend(fontsize = 'x-small')
+            plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+            
+        xtrain=np.vstack((xtrain,next_query))
+        ytrain=np.vstack((ytrain,next_y))
+
 
 if __name__ == '__main__':
-    bayes_opt(objective)
+    bayes_opt(objective,k=2.51,initial_random=10)
     # diag_test()

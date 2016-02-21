@@ -72,5 +72,19 @@ def acquisition_UCB(m, s, k):
     return a
 ```
 
+BLR+NN does not seem to model uncertainties very well. Its ok but not as accurate as a GP
+
+This makes BO challenging 
+
+The magnitude of S.D was shifted and plotted separately. Standard deviation does not accurately describe our beliefs about the uncertainty in the function
+
+
+![fig](bayesOptNtrain35k2.51init10.png)
+
+
+For comparison , GP's show more accurate reflection of our beliefs 
+
+![fig](bayesOptGPNtrain34k1.5init10.png)
+
 
 
