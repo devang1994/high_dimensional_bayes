@@ -6,9 +6,7 @@ Objective func
 
 f(x) = sin(7x) +cos(17x)
 
-Trained with 50 data points 
-
-Figure below simply observes the performance of the NN on the data
+Trained with 50 data points .Figure below simply observes the performance of the NN on the data
 
 ![fig](figure_1.png)
 
@@ -55,11 +53,6 @@ Simple GP
 
 
 
-
---
-
-For this particular objective function it would not really make sense to use give the GP a 50D input.
-
 --
 
 ##BayesOPt
@@ -82,9 +75,16 @@ The magnitude of S.D was shifted and plotted separately. Standard deviation does
 ![fig](bayesOptNtrain35k2.51init10.png)
 
 
-For comparison , GP's show more accurate reflection of our beliefs 
+For comparison , GP's show more accurate reflection of our beliefs about uncertainty 
 
 ![fig](bayesOptGPNtrain34k1.5init10.png)
 
+
+##Uncertainties
+
+Using same dataset on GP and NN+BLR
+
+![f](diag_uncert_GPNtrain10k2.0init10.png)
+![f](diag_uncert_Ntrain10k2.0init10.png)
 
 

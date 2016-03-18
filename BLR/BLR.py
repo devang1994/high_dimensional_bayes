@@ -1,3 +1,5 @@
+import GPy
+
 __author__ = 'da368'
 import numpy as np
 import matplotlib.pyplot as plt
@@ -342,6 +344,69 @@ def diag_test():
     plt.show()
 
 
+def diag_uncert(func,initial_random=20,k=2.0):
+    '''Comparing uncertainties from the 2 methods'''
+
+    noise=0.2
+    ntest=1000
+    ntrain=initial_random #number of initial random function evals
+    xtrain=np.random.uniform(low=-1.0, high=1.0, size=(ntrain,1))
+    print xtrain.shape
+    ytrain = objective(xtrain) + np.random.randn(ntrain,1) * noise
+    print ytrain.shape
+    xtest = np.linspace(-1., 2., ntest)
+    xtest=  xtest.reshape(ntest,1)
+    ytest = objective(xtest)
+    fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(xtrain,
+                                                                                                             xtest,
+                                                                                                             ytrain,
+                                                                                                             ytest,
+                                                                                                             L2reg=0.0,
+                                                                                                             hidden_width=50,
+                                                                                                             mini_batchsize=5)
+
+    mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
+    s = np.sqrt(s2)
+    plt.figure(1)
+    plt.plot(xtest, objective(xtest), color='black',label='objective', linewidth=2.0)
+    plt.plot(xtrain, ytrain, 'ro')
+    plt.plot(xtest, mu, color='r', label='posterior')
+    # plt.plot(xtest, mu - s, color='blue', label='credible')
+    # plt.plot(xtest, mu + s, color='blue', label='interval')
+    # plt.plot(xtest,alpha,label='acquistion func',color='green')
+    # plt.plot(xtest,np.zeros(ntest),color='black')
+    plt.plot(xtest,s+2,label='sigma+2',color='blue')
+    plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
+    plt.legend(fontsize = 'x-small')
+    plt.savefig('diag_uncert_Ntrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+    plt.figure(2)
+
+
+    kernel = GPy.kern.RBF(input_dim=1, variance=1., lengthscale=1.)
+    m = GPy.models.GPRegression(xtrain,ytrain,kernel)
+
+    m.optimize_restarts(num_restarts = 10)
+
+
+    mu, s2 = m.predict(xtest)
+    s = np.sqrt(s2)
+
+    plt.plot(xtest, objective(xtest), color='black',label='objective', linewidth=2.0)
+    plt.plot(xtrain, ytrain, 'ro')
+    plt.plot(xtest, mu, color='r', label='posterior')
+    # plt.plot(xtest, mu - s, color='blue', label='credible')
+    # plt.plot(xtest, mu + s, color='blue', label='interval')
+    # plt.plot(xtest,alpha,label='acquistion func',color='green')
+    # plt.plot(xtest,np.zeros(ntest),color='black')
+    plt.plot(xtest,s+2,label='sigma+2',color='blue')
+    plt.title('Gaussian Process ,ntrain:{}'.format(xtrain.shape[0]))
+    plt.legend(fontsize = 'x-small')
+    plt.savefig('diag_uncert_GPNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+
+
+
+
+    plt.show()
 def bayes_opt(func,initial_random=2,k=0.2):
     '''function to do bayesOpt on and number of initial random evals
     noise is artificially added to objective function calls when training
@@ -409,11 +474,12 @@ def bayes_opt(func,initial_random=2,k=0.2):
             plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
             plt.legend(fontsize = 'x-small')
             plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
-            
+
         xtrain=np.vstack((xtrain,next_query))
         ytrain=np.vstack((ytrain,next_y))
 
 
 if __name__ == '__main__':
-    bayes_opt(objective,k=2.51,initial_random=10)
+    # bayes_opt(objective,k=2.51,initial_random=10)
     # diag_test()
+    diag_uncert(objective,initial_random=10)

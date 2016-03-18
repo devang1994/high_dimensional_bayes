@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bayesOptGP.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_test.pkl" afterPath="$PROJECT_DIR$/my_test.pkl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BLR.py" afterPath="$PROJECT_DIR$/BLR.py" />
@@ -33,15 +31,15 @@
       <file leaf-file-name="BLR.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BLR.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52">
-              <caret line="411" column="12" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.59386283">
+              <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
               <folding>
-                <element signature="e#21#39#0" expanded="true" />
-                <element signature="e#2295#3397#0" expanded="false" />
-                <element signature="e#8455#8565#0" expanded="false" />
-                <element signature="e#8598#10876#0" expanded="false" />
-                <element signature="e#10967#12587#0" expanded="false" />
-                <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+                <element signature="e#2307#3409#0" expanded="false" />
+                <element signature="e#8467#8577#0" expanded="false" />
+                <element signature="e#8610#10888#0" expanded="false" />
+                <element signature="e#10979#12599#0" expanded="false" />
+                <element signature="e#15683#19161#0" expanded="false" />
+                <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -51,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding>
                 <element signature="e#22#40#0" expanded="true" />
               </folding>
@@ -65,18 +63,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sandbox1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sandbox1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +112,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -137,30 +123,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BLR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BLR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BLR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -472,9 +435,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24939467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22921711" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41580757" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3051724" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3051724" sideWeight="0.50605327" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281787" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -482,9 +443,11 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3051724" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -505,17 +468,55 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sandbox1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="481" column="26" selection-start-line="481" selection-start-column="26" selection-end-line="481" selection-end-column="26" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="33" selection-start-line="68" selection-start-column="8" selection-end-line="74" selection-end-column="33" />
+          <folding>
+            <element signature="e#22#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/gp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -525,12 +526,113 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="33" selection-start-line="68" selection-start-column="8" selection-end-line="74" selection-end-column="33" />
+          <folding>
+            <element signature="e#22#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/gp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BLR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="479" column="0" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
+          <folding>
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="33" selection-start-line="68" selection-start-column="8" selection-end-line="74" selection-end-column="33" />
+          <folding>
+            <element signature="e#22#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/gp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BLR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BLR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -557,12 +659,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -589,12 +691,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -621,12 +723,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="331" column="0" selection-start-line="331" selection-start-column="0" selection-end-line="331" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -653,12 +755,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -675,12 +777,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="334" column="16" selection-start-line="334" selection-start-column="16" selection-end-line="334" selection-end-column="16" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -697,12 +799,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="334" column="16" selection-start-line="334" selection-start-column="16" selection-end-line="334" selection-end-column="16" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -719,12 +821,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -741,12 +843,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -830,22 +932,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sandbox1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/util/multioutput.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24368231">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="false" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -861,7 +960,7 @@
     <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="e#22#40#0" expanded="true" />
           </folding>
@@ -870,15 +969,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52">
-          <caret line="411" column="12" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.59386283">
+          <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
           <folding>
-            <element signature="e#21#39#0" expanded="true" />
-            <element signature="e#2295#3397#0" expanded="false" />
-            <element signature="e#8455#8565#0" expanded="false" />
-            <element signature="e#8598#10876#0" expanded="false" />
-            <element signature="e#10967#12587#0" expanded="false" />
-            <marker date="1456069528000" expanded="true" signature="3713:8366" placeholder="..." />
+            <element signature="e#2307#3409#0" expanded="false" />
+            <element signature="e#8467#8577#0" expanded="false" />
+            <element signature="e#8610#10888#0" expanded="false" />
+            <element signature="e#10979#12599#0" expanded="false" />
+            <element signature="e#15683#19161#0" expanded="false" />
+            <marker date="1456080110000" expanded="true" signature="3725:8378" placeholder="..." />
           </folding>
         </state>
       </provider>
