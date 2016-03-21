@@ -14,6 +14,7 @@ epochs = 4000
 
 np.random.seed(42)
 
+
 def floatX(X):
     """convert to np array with floatX"""
     return np.asarray(X, dtype=theano.config.floatX)
@@ -173,7 +174,7 @@ def mlp_synthetic(X_train, X_test, y_train, y_test, L2reg=0.01, hidden_width=50,
         # Done this cost prediction needs to change
         # fin_cost_test = fcost(predict(X_test), floatX(y_test).reshape(len(y_test), 1))
         # fin_cost_train = fcost(predict(X_train), floatX(y_train).reshape(len(y_train), 1))
-        y_predicted=predict(X_train)
+        y_predicted = predict(X_train)
 
         fin_cost_test = MSE(predict(X_test), y_test)
         fin_cost_train = MSE(predict(X_train), y_train)
@@ -247,6 +248,7 @@ def MSE_reference(y_test):
 
     return MSE(y_test, mean_arr)
 
+
 def prob_model(ntrain=50):
     noise = 0.2
 
@@ -288,17 +290,17 @@ def prob_model(ntrain=50):
     print s2.shape, mu.shape
     s = np.sqrt(s2) * 2  # 2 standard deviations
     mu = mu.reshape(len(mu), 1)  # temp measure remove
-    alpha=acquisition_UCB(mu,s/2.0,0.2)
+    alpha = acquisition_UCB(mu, s / 2.0, 0.2)
     plt.plot(xtest_, mu, color='r', label='posterior')
     plt.plot(xtest_, mu - s, color='blue', label='credible')
     plt.plot(xtest_, mu + s, color='blue', label='interval')
     plt.plot(xtest_, objective(xtest_), color='black')
     plt.plot(xtrain_, ytrain_, 'ro')
-    plt.plot(xtest_,alpha,label='acquistion func',color='green')
+    plt.plot(xtest_, alpha, label='acquistion func', color='green')
     #
     plt.title('BLR with learned features ,ntrain:{}'.format(len(xtrain_)))
     plt.legend()
-    #plt.savefig('abc.png')
+    # plt.savefig('abc.png')
     plt.show()
 
 
@@ -344,84 +346,87 @@ def diag_test():
     plt.show()
 
 
-def diag_uncert(func,initial_random=20,k=2.0):
-    '''Comparing uncertainties from the 2 methods'''
+def diag_uncert(func, initial_random=20, BLR_alpha=0.2,BLR_beta=4):
+    '''Comparing uncertainties from the 2 methods
+    diagnosing uncertianity values
+    k doesnt matter, it is the parameter for the GP-UCB acquisition func'''
 
-    noise=0.2
-    ntest=1000
-    ntrain=initial_random #number of initial random function evals
-    xtrain=np.random.uniform(low=-1.0, high=1.0, size=(ntrain,1))
+    gen_noise = 0.2  # noise added during generation
+    ntest = 1000
+    ntrain = initial_random  # number of initial random function evals
+    xtrain = np.random.uniform(low=-1.0, high=1.0, size=(ntrain, 1))
     print xtrain.shape
-    ytrain = objective(xtrain) + np.random.randn(ntrain,1) * noise
+    ytrain = objective(xtrain) + np.random.randn(ntrain, 1) * gen_noise
     print ytrain.shape
     xtest = np.linspace(-1., 2., ntest)
-    xtest=  xtest.reshape(ntest,1)
+    xtest = xtest.reshape(ntest, 1)
     ytest = objective(xtest)
     fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(xtrain,
-                                                                                                             xtest,
-                                                                                                             ytrain,
-                                                                                                             ytest,
-                                                                                                             L2reg=0.0,
-                                                                                                             hidden_width=50,
-                                                                                                             mini_batchsize=5)
+                                                                                                         xtest,
+                                                                                                         ytrain,
+                                                                                                         ytest,
+                                                                                                         L2reg=0.0,
+                                                                                                         hidden_width=50,
+                                                                                                         mini_batchsize=5)
 
-    mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
+
+
+    mu, s2 = BLR(BLR_alpha, BLR_beta, train_transformed, test_transformed, ytrain)
     s = np.sqrt(s2)
     plt.figure(1)
-    plt.plot(xtest, objective(xtest), color='black',label='objective', linewidth=2.0)
+    plt.plot(xtest, objective(xtest), color='black', label='objective', linewidth=2.0)
     plt.plot(xtrain, ytrain, 'ro')
     plt.plot(xtest, mu, color='r', label='posterior')
     # plt.plot(xtest, mu - s, color='blue', label='credible')
     # plt.plot(xtest, mu + s, color='blue', label='interval')
     # plt.plot(xtest,alpha,label='acquistion func',color='green')
     # plt.plot(xtest,np.zeros(ntest),color='black')
-    plt.plot(xtest,s+2,label='sigma+2',color='blue')
-    plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
-    plt.legend(fontsize = 'x-small')
-    plt.savefig('diag_uncert_Ntrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+    plt.plot(xtest, s + 2, label='sigma+2', color='blue')
+    plt.title('BLR with learned features ,ntrain:{}, alpha:{}, beta:{}'.format(xtrain.shape[0],BLR_alpha,BLR_beta))
+    plt.legend(fontsize='x-small')
+    plt.savefig('temp/diag_uncert_Ntrain{}init{}alpha{}beta{}.png'.format(xtrain.shape[0], ntrain,BLR_alpha,BLR_beta), dpi=300)
+    plt.clf()
     plt.figure(2)
 
-
     kernel = GPy.kern.RBF(input_dim=1, variance=1., lengthscale=1.)
-    m = GPy.models.GPRegression(xtrain,ytrain,kernel)
+    m = GPy.models.GPRegression(xtrain, ytrain, kernel)
 
-    m.optimize_restarts(num_restarts = 10)
-
+    m.optimize_restarts(num_restarts=10)
 
     mu, s2 = m.predict(xtest)
     s = np.sqrt(s2)
 
-    plt.plot(xtest, objective(xtest), color='black',label='objective', linewidth=2.0)
+    plt.plot(xtest, objective(xtest), color='black', label='objective', linewidth=2.0)
     plt.plot(xtrain, ytrain, 'ro')
     plt.plot(xtest, mu, color='r', label='posterior')
     # plt.plot(xtest, mu - s, color='blue', label='credible')
     # plt.plot(xtest, mu + s, color='blue', label='interval')
     # plt.plot(xtest,alpha,label='acquistion func',color='green')
     # plt.plot(xtest,np.zeros(ntest),color='black')
-    plt.plot(xtest,s+2,label='sigma+2',color='blue')
+    plt.plot(xtest, s + 2, label='sigma+2', color='blue')
     plt.title('Gaussian Process ,ntrain:{}'.format(xtrain.shape[0]))
-    plt.legend(fontsize = 'x-small')
-    plt.savefig('diag_uncert_GPNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+    plt.legend(fontsize='x-small')
+    plt.savefig('temp/diag_uncert_GPNtrain{}init{}.png'.format(xtrain.shape[0], ntrain), dpi=300)
+    plt.clf()
+    plt.close()
+    # plt.show()
 
 
-
-
-    plt.show()
-def bayes_opt(func,initial_random=2,k=0.2):
+def bayes_opt(func, initial_random=2, k=0.2):
     '''function to do bayesOpt on and number of initial random evals
     noise is artificially added to objective function calls when training
     '''
-    noise=0.2
-    ntest=1000
-    ntrain=initial_random #number of initial random function evals
-    xtrain=np.random.uniform(low=-1.0, high=1.0, size=(ntrain,1))
+    noise = 0.2
+    ntest = 1000
+    ntrain = initial_random  # number of initial random function evals
+    xtrain = np.random.uniform(low=-1.0, high=1.0, size=(ntrain, 1))
     print xtrain.shape
-    ytrain = objective(xtrain) + np.random.randn(ntrain,1) * noise
+    ytrain = objective(xtrain) + np.random.randn(ntrain, 1) * noise
     print ytrain.shape
     xtest = np.linspace(-1., 2., ntest)
-    xtest=  xtest.reshape(ntest,1)
+    xtest = xtest.reshape(ntest, 1)
     ytest = objective(xtest)
-    plt.figure(1)                # the first figure
+    plt.figure(1)  # the first figure
 
     plt.plot(xtest, objective(xtest), color='black')
     plt.plot(xtrain, ytrain, 'ro')
@@ -438,16 +443,14 @@ def bayes_opt(func,initial_random=2,k=0.2):
 
         mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
 
-        alpha=acquisition_UCB(mu, np.sqrt(s2),k=k)
+        alpha = acquisition_UCB(mu, np.sqrt(s2), k=k)
 
-        index=np.argmin(alpha)
-        next_query=xtest[index]
-        next_y=objective(next_query) + np.random.randn(1,1) * noise
+        index = np.argmin(alpha)
+        next_query = xtest[index]
+        next_y = objective(next_query) + np.random.randn(1, 1) * noise
 
-
-
-        plt.figure(i+2)                # the first figure
-        s = np.sqrt(s2)  #  standard deviations
+        plt.figure(i + 2)  # the first figure
+        s = np.sqrt(s2)  # standard deviations
 
 
         # plt.plot(xtest, objective(xtest), color='black',label='objective')
@@ -462,24 +465,26 @@ def bayes_opt(func,initial_random=2,k=0.2):
         # xtrain=np.vstack((xtrain,next_query))
         # ytrain=np.vstack((ytrain,next_y))
 
-        if(i%5==0):
-            plt.plot(xtest, objective(xtest), color='black',label='objective', linewidth=2.0)
+        if (i % 5 == 0):
+            plt.plot(xtest, objective(xtest), color='black', label='objective', linewidth=2.0)
             plt.plot(xtrain, ytrain, 'ro')
             plt.plot(xtest, mu, color='r', label='posterior')
             # plt.plot(xtest, mu - s, color='blue', label='credible')
             # plt.plot(xtest, mu + s, color='blue', label='interval')
-            plt.plot(xtest,alpha,label='acquistion func',color='green')
+            plt.plot(xtest, alpha, label='acquistion func', color='green')
             # plt.plot(xtest,np.zeros(ntest),color='black')
-            plt.plot(xtest,s+2,label='sigma+2',color='blue')
+            plt.plot(xtest, s + 2, label='sigma+2', color='blue')
             plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
-            plt.legend(fontsize = 'x-small')
-            plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+            plt.legend(fontsize='x-small')
+            plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0], k, ntrain), dpi=300)
 
-        xtrain=np.vstack((xtrain,next_query))
-        ytrain=np.vstack((ytrain,next_y))
+        xtrain = np.vstack((xtrain, next_query))
+        ytrain = np.vstack((ytrain, next_y))
 
 
 if __name__ == '__main__':
     # bayes_opt(objective,k=2.51,initial_random=10)
     # diag_test()
-    diag_uncert(objective,initial_random=10)
+
+    for i in [0.001,0.003,0.01,0.03,0.1]:
+        diag_uncert(objective, initial_random=10,BLR_alpha=i,BLR_beta=4)
