@@ -223,8 +223,8 @@ def test_hmc():
     print X_train.shape
     y_train =  objective(X_train) + np.random.randn(ntrain,1) * sqrt(noise_var)
     print y_train.shape
-    sampler = sampler_on_BayesNN(burnin=1000, n_samples=1000,v1=10,vy=100,
-                                 hidden_width=100,X_train=X_train,y_train=y_train)
+    sampler = sampler_on_BayesNN(burnin=1000, n_samples=1000,v1=10,vy=500,
+                                 hidden_width=50,X_train=X_train,y_train=y_train)
 
 test_hmc()
 

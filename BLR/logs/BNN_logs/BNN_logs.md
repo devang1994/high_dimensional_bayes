@@ -24,4 +24,13 @@ hWidth=100
 ![abc](BNNv110vy100hW100.png)
 
 
+
+---
+
+The noise var in the output was decreased 
+
+![abc](BNNv110vy500hW50.png)
+
+
+
     
