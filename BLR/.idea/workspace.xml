@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diag_uncert_GPNtrain10k2.0init10.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diag_uncert_Ntrain10k2.0init10.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bnn_map.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bnn_mfsvi.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bnn_ssvi.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hmc.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/try_hmc.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FTRL.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rec_bin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../final_report/report_outline.pages" afterPath="$PROJECT_DIR$/../final_report/report_outline.pages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BLR.py" afterPath="$PROJECT_DIR$/BLR.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayesNN_HMC_simple.py" afterPath="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bnn_mfsvi.py" afterPath="$PROJECT_DIR$/bnn_mfsvi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/try_hmc.py" afterPath="$PROJECT_DIR$/try_hmc.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BLR.iws" />
@@ -37,13 +35,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bnn_mfsvi.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bnn_mfsvi.py">
+      <file leaf-file-name="bayesNN_HMC_simple.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bayesNN_HMC_simple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44285715">
-              <caret line="246" column="16" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.76863754">
+              <caret line="235" column="19" selection-start-line="235" selection-start-column="19" selection-end-line="235" selection-end-column="19" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#333#423#0" expanded="false" />
+                <element signature="e#455#565#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -52,19 +52,14 @@
       <file leaf-file-name="BLR.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BLR.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="85" selection-end-column="43" />
+            <state vertical-scroll-proportion="-3.7407408">
+              <caret line="113" column="12" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="12" />
               <folding>
                 <element signature="e#309#399#0" expanded="false" />
                 <element signature="e#431#541#0" expanded="false" />
-                <element signature="e#725#936#0" expanded="false" />
                 <element signature="e#1003#1161#0" expanded="false" />
-                <element signature="e#1474#1602#0" expanded="false" />
-                <element signature="e#2308#3410#0" expanded="false" />
                 <element signature="e#3452#3624#0" expanded="false" />
                 <element signature="e#8470#8580#0" expanded="false" />
-                <element signature="e#8614#10902#0" expanded="false" />
-                <element signature="e#15997#19490#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -91,11 +86,12 @@
         <option value="$PROJECT_DIR$/sandbox1.py" />
         <option value="$PROJECT_DIR$/sand2.py" />
         <option value="$PROJECT_DIR$/bayesOptGP.py" />
-        <option value="$PROJECT_DIR$/BLR.py" />
         <option value="$PROJECT_DIR$/test_hmc.py" />
-        <option value="$PROJECT_DIR$/try_hmc.py" />
-        <option value="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
         <option value="$PROJECT_DIR$/bnn_mfsvi.py" />
+        <option value="$PROJECT_DIR$/rec_bin.py" />
+        <option value="$PROJECT_DIR$/try_hmc.py" />
+        <option value="$PROJECT_DIR$/BLR.py" />
+        <option value="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
       </list>
     </option>
   </component>
@@ -131,7 +127,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -153,6 +148,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,47 +175,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="last_opened_file_path" value="$USER_HOME$/octo-dubstep/BNN_copied/src" />
   </component>
-  <component name="RunManager" selected="Python.bnn_mfsvi">
-    <configuration default="false" name="bayesOptGP" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BLR" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bayesOptGP.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittest test_hmc" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BLR" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/try_hmc.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="test_hmc" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_FUNCTION" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.bayesNN_HMC_simple">
     <configuration default="false" name="hmc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -272,6 +228,46 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bnn_mfsvi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="bayesNN_HMC_simple" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BLR" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittest test_hmc" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BLR" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/try_hmc.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="test_hmc" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_FUNCTION" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -464,19 +460,19 @@
       <item index="0" class="java.lang.String" itemvalue="Python.BLR" />
       <item index="1" class="java.lang.String" itemvalue="Python.Unnamed" />
       <item index="2" class="java.lang.String" itemvalue="Python.sandbox" />
-      <item index="3" class="java.lang.String" itemvalue="Python.bayesOptGP" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest test_hmc" />
-      <item index="5" class="java.lang.String" itemvalue="Python.hmc" />
-      <item index="6" class="java.lang.String" itemvalue="Python.try_hmc" />
-      <item index="7" class="java.lang.String" itemvalue="Python.bnn_mfsvi" />
+      <item index="3" class="java.lang.String" itemvalue="Python.hmc" />
+      <item index="4" class="java.lang.String" itemvalue="Python.try_hmc" />
+      <item index="5" class="java.lang.String" itemvalue="Python.bnn_mfsvi" />
+      <item index="6" class="java.lang.String" itemvalue="Python.bayesNN_HMC_simple" />
+      <item index="7" class="java.lang.String" itemvalue="Python tests.Unittest test_hmc" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.bnn_mfsvi" />
+        <item index="0" class="java.lang.String" itemvalue="Python.bayesNN_HMC_simple" />
         <item index="1" class="java.lang.String" itemvalue="Python.try_hmc" />
-        <item index="2" class="java.lang.String" itemvalue="Python.hmc" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest test_hmc" />
-        <item index="4" class="java.lang.String" itemvalue="Python.bayesOptGP" />
+        <item index="2" class="java.lang.String" itemvalue="Python.bnn_mfsvi" />
+        <item index="3" class="java.lang.String" itemvalue="Python.hmc" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest test_hmc" />
       </list>
     </recent_temporary>
   </component>
@@ -491,6 +487,13 @@
       <option name="number" value="Default" />
       <updated>1454167507584</updated>
     </task>
+    <task id="LOCAL-00001" summary="added thangs BNN code&#10;">
+      <created>1458566873260</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1458566873260</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -512,18 +515,19 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22921711" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.087628864" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3041237" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3419244" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28350514" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3051724" sideWeight="0.50605327" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281787" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275862" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -537,73 +541,20 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added thangs BNN code&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added thangs BNN code&#10;" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BLR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="33" selection-start-line="68" selection-start-column="8" selection-end-line="74" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/gp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sandbox1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BLR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="479" column="0" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -633,14 +584,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -652,14 +598,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -685,14 +626,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -718,14 +654,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -751,14 +682,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,14 +710,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -810,14 +731,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,14 +752,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -862,14 +773,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -888,14 +794,9 @@
           <folding>
             <element signature="e#309#399#0" expanded="false" />
             <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
             <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
             <element signature="e#3452#3624#0" expanded="false" />
             <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,14 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1996" column="4" selection-start-line="1996" selection-start-column="4" selection-end-line="1996" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1009,62 +902,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bayesNN_HMC_simple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/try_hmc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hmc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.12">
-          <caret line="417" column="0" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bnn_map.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="139" column="37" selection-start-line="139" selection-start-column="37" selection-end-line="139" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BLR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="85" selection-end-column="43" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#725#936#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#1474#1602#0" expanded="false" />
-            <element signature="e#2308#3410#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-            <element signature="e#8614#10902#0" expanded="false" />
-            <element signature="e#15997#19490#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bnn_mfsvi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44285715">
-          <caret line="246" column="16" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="16" />
+        <state vertical-scroll-proportion="-6.2222223">
+          <caret line="279" column="16" selection-start-line="279" selection-start-column="16" selection-end-line="279" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2357" column="0" selection-start-line="2357" selection-start-column="0" selection-end-line="2357" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/random/mtrand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1996" column="4" selection-start-line="1996" selection-start-column="4" selection-end-line="1996" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rec_bin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/try_hmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27108434">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="415" column="0" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/basic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1506023">
+          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BLR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7407408">
+          <caret line="113" column="12" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="12" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#309#399#0" expanded="false" />
+            <element signature="e#431#541#0" expanded="false" />
+            <element signature="e#1003#1161#0" expanded="false" />
+            <element signature="e#3452#3624#0" expanded="false" />
+            <element signature="e#8470#8580#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2880" column="4" selection-start-line="2880" selection-start-column="4" selection-end-line="2880" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bayesNN_HMC_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76863754">
+          <caret line="235" column="19" selection-start-line="235" selection-start-column="19" selection-end-line="235" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#333#423#0" expanded="false" />
+            <element signature="e#455#565#0" expanded="false" />
           </folding>
         </state>
       </provider>

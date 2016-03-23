@@ -4,7 +4,6 @@ from theano import function, shared
 from theano import tensor as TT
 import theano
 from hmc import HMC_sampler
-from sklearn.metrics import mean_squared_error as MSE
 
 
 

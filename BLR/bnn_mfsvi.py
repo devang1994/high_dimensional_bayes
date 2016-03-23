@@ -184,7 +184,7 @@ def fit_nn_reg(X, y, hidden_layer_sizes, batch_size, epochs, X_test, y_test, no_
     elbo_vec = []
     for epoch in range(epochs):
         permutation = np.random.choice(range(X.shape[ 0 ]), X.shape[ 0 ], replace = False)
-        print_perf(epoch, w)
+        # print_perf(epoch, w)
         for idxs in batch_idxs:
             t += 1
             eb = elbo(w, weight_prior_std**2, X[ permutation[ idxs ] ], y[ permutation[ idxs ] ], N_train, num_samples=no_samples)
@@ -198,6 +198,7 @@ def fit_nn_reg(X, y, hidden_layer_sizes, batch_size, epochs, X_test, y_test, no_
             w -= alpha * m1_hat / (np.sqrt(m2_hat) + epsilon)
             t += 1
 
+    print_perf(epochs-1, w)
     return w, get_error_and_ll, prediction_test, unpack_params, elbo_vec
 
 
@@ -243,10 +244,10 @@ if __name__ == '__main__':
     y_train = targets[permutation[:N_data/2], :]
     X_test = inputs[permutation[N_data/2:], :]
     y_test = targets[permutation[N_data/2:], :]
-    n_hiddens = [100]
+    n_hiddens = [50,50,50]
     mb_size = 20
     weight_prior_std=1.0
-    noise_var=0.1
+    noise_var=0.01
 
     no_epochs_map = 50
     w_map, log_prob_vec = bnn_map.fit_nn_reg(X_train, y_train, n_hiddens, mb_size, no_epochs_map, X_test, y_test,

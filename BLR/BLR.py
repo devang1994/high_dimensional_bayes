@@ -358,9 +358,10 @@ def diag_uncert(func, initial_random=20, BLR_alpha=0.2,BLR_beta=4):
     print xtrain.shape
     ytrain = objective(xtrain) + np.random.randn(ntrain, 1) * gen_noise
     print ytrain.shape
-    xtest = np.linspace(-1., 2., ntest)
+    xtest = (np.linspace(-1., 2., ntest))
     xtest = xtest.reshape(ntest, 1)
     ytest = objective(xtest)
+    print ytest.shape
     fin_cost_train, fin_cost_test, train_transformed, test_transformed, test_predictions = mlp_synthetic(xtrain,
                                                                                                          xtest,
                                                                                                          ytrain,
@@ -441,7 +442,7 @@ def bayes_opt(func, initial_random=2, k=0.2):
                                                                                                              hidden_width=50,
                                                                                                              mini_batchsize=5)
 
-        mu, s2 = BLR(0.2, 4, train_transformed, test_transformed, ytrain)
+        mu, s2 = BLR(noise, 4, train_transformed, test_transformed, ytrain)
 
         alpha = acquisition_UCB(mu, np.sqrt(s2), k=k)
 
