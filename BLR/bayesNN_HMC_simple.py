@@ -211,6 +211,8 @@ def sampler_on_BayesNN(burnin, n_samples,v1,vy,hidden_width,X_train,y_train):
 
     # plt.plot(X_train,y_pred)
     plt.legend()
+
+    plt.savefig('logs/BNN_logs/BNNv1{}vy{}hW{}'.format(v1,vy,hidden_width),dpi=300)
     plt.show()
     #
 
@@ -222,7 +224,7 @@ def test_hmc():
     y_train =  objective(X_train) + np.random.randn(ntrain,1) * sqrt(noise_var)
     print y_train.shape
     sampler = sampler_on_BayesNN(burnin=1000, n_samples=1000,v1=10,vy=100,
-                                 hidden_width=20,X_train=X_train,y_train=y_train)
+                                 hidden_width=100,X_train=X_train,y_train=y_train)
 
 test_hmc()
 
