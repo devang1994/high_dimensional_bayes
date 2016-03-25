@@ -32,5 +32,8 @@ The noise var in the output was decreased
 ![abc](BNNv110vy500hW50.png)
 
 
+--
 
-    
+More Complicated NN using 1->50->50->50->1
+
+![abc](BNNv2[10, 7, 7, 10]vy100hW[50, 50, 50].png)
