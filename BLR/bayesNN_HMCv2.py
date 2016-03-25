@@ -254,18 +254,18 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     # print y_pred_test[0:40]
 
-    plt.plot(X_test, y_test, linewidth=2, color='black', label='Objective')
-    plt.plot(X_train, y_train, 'ro', label='Data')
-    plt.plot(X_test, y_pred_test + 2 * y_sd_test, label='Credible', color='blue')
-    plt.plot(X_test, y_pred_test - 2 * y_sd_test, label='Interval', color='blue')
-    plt.plot(X_test, y_pred_test, label='Prediction', color='green')
-
-    # plt.plot(X_train,y_pred)
-    plt.legend()
-
-    plt.savefig('logs/BNN_logs/BNNv2{}vy{}hW{}.png'.format(precisions, vy, hWidths), dpi=300)
-
-    plt.clf()
+    # plt.plot(X_test, y_test, linewidth=2, color='black', label='Objective')
+    # plt.plot(X_train, y_train, 'ro', label='Data')
+    # plt.plot(X_test, y_pred_test + 2 * y_sd_test, label='Credible', color='blue')
+    # plt.plot(X_test, y_pred_test - 2 * y_sd_test, label='Interval', color='blue')
+    # plt.plot(X_test, y_pred_test, label='Prediction', color='green')
+    #
+    # # plt.plot(X_train,y_pred)
+    # plt.legend()
+    #
+    # plt.savefig('logs/BNN_logs/BNNv2{}vy{}hW{}.png'.format(precisions, vy, hWidths), dpi=300)
+    #
+    # plt.clf()
     # plt.show()
 
 
@@ -286,7 +286,9 @@ def test_hmc():
 
     trains={}
     tests={}
-    for c in [0.01,0.1,1,10,100]:
+    vyVals=[1,10,30,70,100,150,300]
+    cvals=[0.01,0.1,1,10,100]
+    for c in cvals:
 
 
         precisions=[7,10,10,7]
@@ -295,7 +297,7 @@ def test_hmc():
         plt.figure()
         temp=[]
         temp1=[]
-        vyVals=[1,10,30,70,100,150,300]
+
         for vy in vyVals:
             train_err,test_err = sampler_on_BayesNN(burnin=1000, n_samples=1000, precisions=precisions,
                                  vy=vy,X_train=X_train, y_train=y_train,hWidths=[50,50,50])
@@ -304,24 +306,43 @@ def test_hmc():
             temp.append(train_err)
             temp1.append(test_err)
             trains[(c,vy)]=train_err
-            tests[c,vy]=test_err
+            tests[(c,vy)]=test_err
 
 
-        pickle.dump(tests, open( "logs/BNN_logs/tests.p", "wb" ))
+
         plt.plot(vyVals,temp,label='Train')
         plt.plot(vyVals,temp1,label='Test')
         plt.semilogx()
         plt.semilogy()
-
+        plt.legend()
         plt.title('c={}'.format(c))
 
 
+    v=0.1
+    plt.figure()
+    for c in cvals:
+        train_err=trains[(c,v)]
+        test_err=tests[(c,v)]
+        temp.append(train_err)
+        temp1.append(test_err)
+
+        plt.plot(cvals,temp,label='Train')
+        plt.plot(cvals,temp1,label='Test')
+        plt.semilogx()
+        plt.semilogy()
+        plt.legend()
+        plt.title('v={}'.format(v))
+
+
+    pickle.dump(tests, open( "logs/BNN_logs/tests.p", "wb" ))
+    pickle.dump(trains, open( "logs/BNN_logs/trains.p", "wb" ))
     plt.show()
 
 
 
+if __name__=='__main__':
 
-test_hmc()
+    test_hmc()
 
 
 # xtrain_ = np.random.uniform(low=-1.0, high=1.0, size=ntrain)
