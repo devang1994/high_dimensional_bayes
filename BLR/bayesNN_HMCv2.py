@@ -100,6 +100,9 @@ def find_dim_theta(hWidths,input_size,output_size):
     pass
 
 
+# TODO edit to accept initial position
+# TODO edit to output actual samples
+# TODO make func to do combined Gibbs sampling
 
 def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_train):
     """
@@ -187,7 +190,7 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     # Flatten to [n_samples * batchsize, dim]
     # print len(_samples)
     samples = _samples.T.reshape(dim, -1).T
-    _samples.T
+    # _samples.T
     # print type(samples)
     # print samples.shape
 
@@ -317,8 +320,10 @@ def test_hmc():
         plt.legend()
         plt.title('c={}'.format(c))
 
+    v = 100
 
-    v=0.1
+    temp = []
+    temp1=[]
     plt.figure()
     for c in cvals:
         train_err=trains[(c,v)]
@@ -326,12 +331,12 @@ def test_hmc():
         temp.append(train_err)
         temp1.append(test_err)
 
-        plt.plot(cvals,temp,label='Train')
-        plt.plot(cvals,temp1,label='Test')
-        plt.semilogx()
-        plt.semilogy()
-        plt.legend()
-        plt.title('v={}'.format(v))
+    plt.plot(cvals, temp, label='Train')
+    plt.plot(cvals, temp1, label='Test')
+    plt.semilogx()
+    plt.semilogy()
+    plt.legend()
+    plt.title('v={}'.format(v))
 
 
     pickle.dump(tests, open( "logs/BNN_logs/tests.p", "wb" ))
@@ -343,12 +348,3 @@ def test_hmc():
 if __name__=='__main__':
 
     test_hmc()
-
-
-# xtrain_ = np.random.uniform(low=-1.0, high=1.0, size=ntrain)
-# ytrain_ = objective(xtrain_) + np.random.randn(ntrain) * noise
-# xtest_ = np.linspace(-1., 2., ntest)
-# ytest_ = objective(xtest_)
-#
-# X_train = xtrain_.reshape(len(xtrain_), 1)
-# y_train = ytrain_

@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_bayesNNv2Paraller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
@@ -31,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.4074073">
-              <caret line="289" column="29" selection-start-line="288" selection-start-column="4" selection-end-line="289" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.6292776">
+              <caret line="345" column="14" selection-start-line="345" selection-start-column="14" selection-end-line="345" selection-end-column="14" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
               </folding>
@@ -43,39 +42,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_bayesNNv2Paraller.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_bayesNNv2Paraller.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_bayesNNv2Paraller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.40625">
-              <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="e#21#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sand2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sand2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BLR.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BLR.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#309#399#0" expanded="false" />
-                <element signature="e#431#541#0" expanded="false" />
-                <element signature="e#1003#1161#0" expanded="false" />
-                <element signature="e#3452#3624#0" expanded="false" />
-                <element signature="e#8470#8580#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -108,8 +81,8 @@
         <option value="$PROJECT_DIR$/BLR.py" />
         <option value="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
         <option value="$PROJECT_DIR$/sand2.py" />
-        <option value="$PROJECT_DIR$/bayesNN_HMCv2.py" />
         <option value="$PROJECT_DIR$/test_bayesNNv2Paraller.py" />
+        <option value="$PROJECT_DIR$/bayesNN_HMCv2.py" />
       </list>
     </option>
   </component>
@@ -145,7 +118,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -167,6 +139,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -513,7 +486,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458927174758</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="chalo">
+      <created>1458932935489</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1458932935489</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -529,15 +508,12 @@
     <frame x="20" y="23" width="1260" height="672" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34115523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23826715" sideWeight="0.49717513" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1614205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22921711" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31588447" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37184116" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3051724" sideWeight="0.50605327" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267148" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -545,9 +521,12 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4440433" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -584,7 +563,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added thangs BNN code&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added thangs BNN code&#10;" />
+    <MESSAGE value="chalo" />
+    <option name="LAST_COMMIT_MESSAGE" value="chalo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -607,13 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -635,13 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,13 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="331" column="0" selection-start-line="331" selection-start-column="0" selection-end-line="331" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,13 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -712,13 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="334" column="16" selection-start-line="334" selection-start-column="16" selection-end-line="334" selection-end-column="16" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -733,13 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="334" column="16" selection-start-line="334" selection-start-column="16" selection-end-line="334" selection-end-column="16" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,13 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -775,13 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -845,7 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9404332">
           <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="264" column="11" selection-start-line="264" selection-start-column="11" selection-end-line="264" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,14 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2357" column="0" selection-start-line="2357" selection-start-column="0" selection-end-line="2357" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="1996" column="4" selection-start-line="1996" selection-start-column="4" selection-end-line="1996" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -941,7 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9147286">
           <caret line="399" column="0" selection-start-line="399" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,7 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33150685">
           <caret line="660" column="4" selection-start-line="660" selection-start-column="4" selection-end-line="660" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -985,21 +897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#309#399#0" expanded="false" />
-            <element signature="e#431#541#0" expanded="false" />
-            <element signature="e#1003#1161#0" expanded="false" />
-            <element signature="e#3452#3624#0" expanded="false" />
-            <element signature="e#8470#8580#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sand2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,26 +904,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sand2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.625">
+          <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_bayesNNv2Paraller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="e#21#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/random/mtrand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3041825">
+          <caret line="2487" column="4" selection-start-line="2487" selection-start-column="4" selection-end-line="2487" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4074073">
-          <caret line="289" column="29" selection-start-line="288" selection-start-column="4" selection-end-line="289" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.6292776">
+          <caret line="345" column="14" selection-start-line="345" selection-start-column="14" selection-end-line="345" selection-end-column="14" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_bayesNNv2Paraller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.40625">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <element signature="e#21#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
