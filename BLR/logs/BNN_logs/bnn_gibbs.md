@@ -12,4 +12,9 @@ for i in range(len(weights)):
 				#scales[i] has the param for gamma distr belonging to weights of the current layer
             gamma_samples[i]=np.random.gamma(shapes[i],scales[i])
 
+```
+
+The problem is that the parameter theta of the gamma distribution , very quickly becomes very small. 
+
+I should have more thorough tests soon
             

@@ -452,7 +452,7 @@ def test_combinedGibbs():
     # print X_train.shape
     y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
 
-    f_samples,train_errs,test_errs=combinedGibbsHMC_BayesNN(50,[50,50,50],X_train,y_train,[10,10,10,10,10],[1,1,1,1,1])
+    f_samples,train_errs,test_errs=combinedGibbsHMC_BayesNN(500,[50,50,50],X_train,y_train,[10,10,10,10,10],[1,1,1,1,1])
 
 
     plt.plot(train_errs,label='train')

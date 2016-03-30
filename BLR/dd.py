@@ -71,3 +71,5 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales,shapes
 
         train_err,test_err,samples,train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10, precisions=gamma_samples[0:(len(hWidths)+1)],
                                  vy=gamma_samples[len(hWidths)+1],X_train=X_train, y_train=y_train,hWidths=hWidths)
+
+
