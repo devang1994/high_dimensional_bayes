@@ -17,7 +17,7 @@ def objective(x):
 
 
 # TODO for now have fixed batchsize to 1 , maybe change
-
+# TODO think about other input_oput sizes
 # TODO ask amar how to sensibly sample variance / uncertainty
 
 theano.config.optimizer = 'fast_compile'
@@ -99,12 +99,106 @@ def find_dim_theta(hWidths,input_size,output_size):
     return dim
     pass
 
+# TODO burnin WRT to gibbs
+# TODO posterior isnt moving
+def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales,shapes):
+    """
 
-# TODO edit to accept initial position
+    :param n_samples:
+    :param precisions:
+    :param vy:
+    :param hWidths:
+    :param X_train:
+    :param y_train:
+    :param scales: params for gibbs . len is one more than precisions to sample vy as well
+    :param shapes: params for gibbs
+    :return:
+    """
+
+    input_size=X_train.shape[1]
+    output_size=y_train.shape[1]
+
+    # pick precisions etc from prior
+    gamma_samples=[]
+    for i in range(len(scales)):
+        gamma_samples.append(np.random.gamma(shapes[i],scales[i]))
+        print 'prior gamma_samples {}'.format(gamma_samples)
+
+
+
+    train_err,test_err,samples,train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10, precisions=gamma_samples[0:(len(hWidths)+1)],
+                                 vy=gamma_samples[len(hWidths)+1],X_train=X_train, y_train=y_train,hWidths=hWidths) # initial samples with big burnin
+
+    num_sampled=10
+    fin_samples=samples
+
+    #  gibbs sampling
+    last_train_op_sampled=train_op_samples[(train_op_samples.shape[0]-1), :].reshape(train_op_samples.shape[1],1)
+    train_errs=[train_err]
+    test_errs=[test_err]
+#TODO study evolution of errors
+    while num_sampled < n_samples:
+        pass
+        # first update params of gamma
+        # then draw
+        # TODO use this to debug, samples shape (10, 5251), train_op_samples (10, 100)
+        # TODO Updates of gamma params is wrong debug
+
+
+        #find weights and biases of last sample
+        weights,biases=unpack_theta(samples,hWidths,input_size,output_size,index=(samples.shape[0]-1))
+
+        for i in range(len(weights)):
+            a=(np.sum(np.square(weights[i])) + np.sum(np.square(biases[i])))
+
+            b=weights[i].size + biases[i].size
+            scales[i]= 2.0/( (2.0/scales[i]) + a)
+            shapes[i]= shapes[i] + b/2.0
+
+            gamma_samples[i]=np.random.gamma(shapes[i],scales[i])
+
+            print 'a {} , b {}'.format(a,b)
+            print 'scales {}'.format(scales)
+            print 'shapes {}'.format(shapes)
+            print 'gamma {}'.format(gamma_samples)
+
+            # precisions on weights
+
+        b = len(train_op_samples[(train_op_samples.shape[0]-1), :]) # length of train set
+        a = np.sum(np.square(last_train_op_sampled-y_train))
+
+        i=len(hWidths)+1
+        scales[i]= 2.0/( (2.0/scales[i]) + a)
+        shapes[i]= shapes[i] + b/2.0
+        gamma_samples[i]=np.random.gamma(shapes[i],scales[i])
+
+        train_err,test_err,samples,train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10, precisions=gamma_samples[0:(len(hWidths)+1)],
+                                 vy=gamma_samples[len(hWidths)+1],X_train=X_train, y_train=y_train,hWidths=hWidths)
+
+        train_errs.append(train_err)
+        test_errs.append(test_err)
+
+        last_train_op_sampled=train_op_samples[(train_op_samples.shape[0]-1), :].reshape(train_op_samples.shape[1],1)
+
+        fin_samples=np.vstack((fin_samples,samples))
+        num_sampled+=10
+        # if num_sampled%30==0:
+        #     print num_sampled
+        #     print 'scales {}, shapes {}'.format(scales,shapes)
+        #     print 'precisions {}'.format(gamma_samples)
+        #     print 'train err {}, test err {}'.format(train_err,test_err)
+
+    return fin_samples,train_errs,test_errs
+
+
+
+# TODONE edit to accept initial position
 # TODO edit to output actual samples
 # TODO make func to do combined Gibbs sampling
 
-def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_train):
+# TODO when doing Gibbs which sample to initialize next HMC from
+
+def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_train,init_theta=None):
     """
 
     Test dataset is just linspace(-1,1,1000)
@@ -116,9 +210,12 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     :param hWidths: [h1,h2,h3]
     :param X_train: train data
     :param y_train: test data
+    :param init_theta: (batchszie,dim) array
     :type vy: float
-    :return: test and train error
+    :return: test and train error and samples
 
+     shape ofsamples is (nsamples,dim) where dim is the dimension
+    train_op_samples has the vals of f(x) for all the returned samples for all
 
     """
 
@@ -169,7 +266,10 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     output_size = 1
 
     dim = find_dim_theta(hWidths,input_size,output_size)
-    position = rng.randn(batchsize, dim).astype(theano.config.floatX)
+    if init_theta is None:
+        position = rng.randn(batchsize, dim).astype(theano.config.floatX)
+    else:
+        position=init_theta.astype(theano.config.floatX)
     position = theano.shared(position)
 
     # Create HMC sampler
@@ -182,21 +282,21 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     garbage = [sampler.draw() for r in range(burnin)]  # burn-in Draw
     # `n_samples`: result is a 3D tensor of dim [n_samples, batchsize,
     # dim]
-    a = sampler.draw()
+    # a = sampler.draw()
     # print type(a)
     # print type(garbage)
     # print len(garbage)
     _samples = numpy.asarray([sampler.draw() for r in range(n_samples)])
     # Flatten to [n_samples * batchsize, dim]
     # print len(_samples)
-    samples = _samples.T.reshape(dim, -1).T
+    samples = _samples.T.reshape(dim, -1).T  # nsamples,dim
     # _samples.T
     # print type(samples)
-    # print samples.shape
+    # print 'sample shape {}'.format(samples.shape)
 
     # print samples[0, :]
     # print samples[1, :]
-
+    # TODO this is what would need to change for o/put sizes other than one
     def make_predictions_from_NNsamples(X, samples):
         op_samples = []
         for i in range(len(samples)):
@@ -215,7 +315,7 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
         # print op_samples[1].shape
 
         op_samples = (np.asarray(op_samples))
-        print 'shape after transforming'
+        # print 'shape after transforming'
         op_samples = op_samples.reshape(n_samples, -1)
         # print op_samples.shape
         y_pred = np.average(op_samples, axis=0)  # averaged over all the NN's
@@ -231,7 +331,7 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
         return op_samples, y_pred, y_sd
 
     op_samples, y_pred, y_sd = make_predictions_from_NNsamples(X_train, samples)
-
+    train_op_samples=op_samples #shape is n_samples, num_test_pts
     # print 'printing op samples stuff'
     # print op_samples.shape
     # print (op_samples[1, :])
@@ -248,9 +348,9 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     # print y_sd_test[0:40]
 
-    print 'train error '
+    # print 'train error '
     train_err = MSE(y_train, y_pred)
-    print 'test error '
+    # print 'test error '
     # print y_test.shape
     # print y_pred_test.shape
     test_err= MSE(y_test, y_pred_test)
@@ -271,8 +371,9 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     # plt.clf()
     # plt.show()
 
-
-    return train_err,test_err
+    # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
+    # samples shape (10, 5251), train_op_samples (10, 100)
+    return train_err,test_err,samples,train_op_samples
 
     #
 
@@ -302,7 +403,7 @@ def test_hmc():
         temp1=[]
 
         for vy in vyVals:
-            train_err,test_err = sampler_on_BayesNN(burnin=1000, n_samples=1000, precisions=precisions,
+            train_err,test_err,samples,train_op_samp = sampler_on_BayesNN(burnin=1000, n_samples=1000, precisions=precisions,
                                  vy=vy,X_train=X_train, y_train=y_train,hWidths=[50,50,50])
             print precisions, vy
             print train_err,test_err
@@ -344,7 +445,25 @@ def test_hmc():
     plt.show()
 
 
+def test_combinedGibbs():
+    ntrain = 100
+    noise_var = 0.01
+    X_train = np.random.uniform(low=-1.0, high=1.0, size=ntrain).reshape(ntrain, 1)
+    # print X_train.shape
+    y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
+
+    f_samples,train_errs,test_errs=combinedGibbsHMC_BayesNN(50,[50,50,50],X_train,y_train,[10,10,10,10,10],[1,1,1,1,1])
+
+
+    plt.plot(train_errs,label='train')
+    plt.plot(test_errs,label='test')
+    plt.legend()
+    plt.show()
+    #TODO plot train and test errors
+
 
 if __name__=='__main__':
 
-    test_hmc()
+    # test_hmc()
+
+    test_combinedGibbs()
