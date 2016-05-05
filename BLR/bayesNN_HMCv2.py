@@ -149,11 +149,11 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales,shapes
         weights,biases=unpack_theta(samples,hWidths,input_size,output_size,index=(samples.shape[0]-1))
 
         for i in range(len(weights)):
-            a=(np.sum(np.square(weights[i])) + np.sum(np.square(biases[i])))
+            a = np.sum(np.square(weights[i])) + np.sum(np.square(biases[i]))
 
             b=weights[i].size + biases[i].size
-            scales[i]= 2.0/( (2.0/scales[i]) + a)
-            shapes[i]= shapes[i] + b/2.0
+            scales[i] = 2.0 / ((2.0 / scales[i]) + a)  # TODO possibly wrong
+            shapes[i] = shapes[i] + b / 2.0  # TODO  possibly wrong
 
             gamma_samples[i]=np.random.gamma(shapes[i],scales[i])
 
