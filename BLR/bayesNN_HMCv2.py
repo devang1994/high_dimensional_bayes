@@ -22,7 +22,6 @@ def objective(x):
 
 theano.config.optimizer = 'fast_compile'
 
-
 def unpack_theta(theta, hWidths , input_size, output_size, index=0):
     # w1 = theta[index, 0:hidden_width * input_size].reshape((input_size, hidden_width))
     # b1 = theta[index, hidden_width * input_size:hidden_width * input_size + hidden_width]
@@ -51,15 +50,6 @@ def unpack_theta(theta, hWidths , input_size, output_size, index=0):
 
 
     return weights,biases
-
-# w,b=unpack_theta(np.arange(5701).reshape(1,5701),[50,50,50],1,1)
-# # print w
-# print len(b)
-#
-# print w[0]
-# print w[1]
-# print w[2]
-# print w[3]
 
 def model(X, theta, hWidths, input_size, output_size):
     weights,biases = unpack_theta(theta, hWidths, input_size, output_size)
@@ -190,8 +180,6 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales,shapes
 
     return fin_samples,train_errs,test_errs
 
-
-
 # TODONE edit to accept initial position
 # TODO edit to output actual samples
 # TODO make func to do combined Gibbs sampling
@@ -219,8 +207,6 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     """
 
-
-
     batchsize = 1
 
     input_size=X_train.shape[1]
@@ -228,36 +214,19 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     rng = numpy.random.RandomState(123)
     # set hyper parameters for bayes NN
-
-
     #  energy function for a multi-variate Gaussian
     def NN_energy(theta):
         # theta is a configuration of the params of the neural network
 
-
-        # return 0.5 * (theano.tensor.dot((x - mu), cov_inv) *
-        #               (x - mu)).sum(axis=1)
-
-        # prior_comp = T.sum(T.sqr(theta)) * v1 / 2.0
         weights,biases=unpack_theta(theta,hWidths,input_size,output_size)
 
         prior_comp=(T.sum(T.sqr(weights[0]))+ T.sum(T.sqr(biases[0])))* precisions[0] /2.0
-        # print len(weights)
-        # print len(precisions)
         for i in range(1,len(weights)):
-            # temp=T.append(T.ravel(weights[i]),biases[i])
-            # print temp.shape
             prior_comp=prior_comp+(T.sum(T.sqr(weights[i]))+ T.sum(T.sqr(biases[i])))* precisions[i] /2.0
 
-
         prediction = model(X_train, theta, hWidths,input_size,output_size)
-        # print 'shape of ytrain '
-        # print y_train.shape
-        # print 'shape of pred '
-        # print prediction.shape.eval()
-        temp = T.sqr(y_train - prediction)  # TODO error is here need to fix prediction size
+        temp = T.sqr(y_train - prediction)
         data_comp = 0.5 * vy * T.sum(temp)
-        # just squaring
 
         return prior_comp + data_comp
 
@@ -276,19 +245,14 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     sampler = HMC_sampler.new_from_shared_positions(position, NN_energy,
                                                     initial_stepsize=1e-3, stepsize_max=0.5)
 
-
     # Start with a burn-in process
     print 'about to sample'
     garbage = [sampler.draw() for r in range(burnin)]  # burn-in Draw
     # `n_samples`: result is a 3D tensor of dim [n_samples, batchsize,
     # dim]
-    # a = sampler.draw()
-    # print type(a)
-    # print type(garbage)
-    # print len(garbage)
     _samples = numpy.asarray([sampler.draw() for r in range(n_samples)])
     # Flatten to [n_samples * batchsize, dim]
-    # print len(_samples)
+
     samples = _samples.T.reshape(dim, -1).T  # nsamples,dim
     # _samples.T
     # print type(samples)
@@ -304,26 +268,14 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
             op = model_np(X, weights,biases)
 
-            # if(i==1 or i==2):
-            #     print 'prinitng about op'
-            #     print op.shape
-            # print op # seems fine
-            # print op.shape
             op_samples.append(op)
 
-        # print op_samples[1]
-        # print op_samples[1].shape
-
         op_samples = (np.asarray(op_samples))
-        # print 'shape after transforming'
         op_samples = op_samples.reshape(n_samples, -1)
-        # print op_samples.shape
         y_pred = np.average(op_samples, axis=0)  # averaged over all the NN's
 
         y_sd = np.std(op_samples, axis=0)
 
-        # print 'shape of ypred {}'.format(y_pred.shape)
-        # print 'shape of y_sd {}'.format(y_sd.shape)
         y_pred = y_pred.reshape(len(y_pred), 1)
         y_sd = y_sd.reshape(len(y_pred), 1)
 
@@ -332,12 +284,6 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     op_samples, y_pred, y_sd = make_predictions_from_NNsamples(X_train, samples)
     train_op_samples=op_samples #shape is n_samples, num_test_pts
-    # print 'printing op samples stuff'
-    # print op_samples.shape
-    # print (op_samples[1, :])
-
-    # print 'many samples of pred y[2] , shape is {}'.format(op_samples[:, 2].shape)
-    # print op_samples[:, 2]
 
     ntest = 1000
     X_test = np.linspace(-1., 1., ntest)
@@ -374,9 +320,6 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
     # samples shape (10, 5251), train_op_samples (10, 100)
     return train_err,test_err,samples,train_op_samples
-
-    #
-
 
 def test_hmc():
     ntrain = 100

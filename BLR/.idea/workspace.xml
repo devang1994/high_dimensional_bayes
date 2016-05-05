@@ -4,9 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="implmented HMC, about to implement Gibbs for hypers&#10;">
+    <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="mostly finished Gibbs some bugs remain . about to clean up the code &#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../final_report/report_outline.pages" afterPath="$PROJECT_DIR$/../final_report/report_outline.pages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayesNN_HMCv2.py" afterPath="$PROJECT_DIR$/bayesNN_HMCv2.py" />
@@ -34,16 +33,16 @@
       <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4261365">
-              <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.11244019">
+              <caret line="322" column="0" selection-start-line="322" selection-start-column="0" selection-end-line="322" selection-end-column="0" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
-                <element signature="e#657#1642#0" expanded="false" />
-                <element signature="e#1852#2093#0" expanded="false" />
-                <element signature="e#2133#2376#0" expanded="false" />
-                <element signature="e#2436#2654#0" expanded="false" />
-                <element signature="e#6369#6919#1" expanded="false" />
-                <element signature="e#12320#14056#0" expanded="false" />
+                <element signature="e#656#1641#0" expanded="false" />
+                <element signature="e#1702#1943#0" expanded="false" />
+                <element signature="e#1983#2226#0" expanded="false" />
+                <element signature="e#2286#2504#0" expanded="false" />
+                <element signature="e#6226#6776#1" expanded="false" />
+                <element signature="e#10871#12607#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -516,7 +515,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459112964089</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="mostly finished Gibbs some bugs remain . about to clean up the code &#10;">
+      <created>1462465817674</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1462465817674</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -530,27 +535,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="23" width="1260" height="672" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34115523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23826715" sideWeight="0.49717513" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1614205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22921711" sideWeight="0.47122303" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22921711" sideWeight="0.47085202" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38447654" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22921711" sideWeight="0.528777" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19494584" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22921711" sideWeight="0.529148" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3051724" sideWeight="0.50605327" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267148" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3700361" sideWeight="0.49394673" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -586,11 +591,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="added thangs BNN code&#10;" />
     <MESSAGE value="chalo" />
     <MESSAGE value="implmented HMC, about to implement Gibbs for hypers&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="implmented HMC, about to implement Gibbs for hypers&#10;" />
+    <MESSAGE value="mostly finished Gibbs some bugs remain . about to clean up the code &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="mostly finished Gibbs some bugs remain . about to clean up the code &#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -952,16 +959,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4261365">
-          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.11244019">
+          <caret line="322" column="0" selection-start-line="322" selection-start-column="0" selection-end-line="322" selection-end-column="0" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
-            <element signature="e#657#1642#0" expanded="false" />
-            <element signature="e#1852#2093#0" expanded="false" />
-            <element signature="e#2133#2376#0" expanded="false" />
-            <element signature="e#2436#2654#0" expanded="false" />
-            <element signature="e#6369#6919#1" expanded="false" />
-            <element signature="e#12320#14056#0" expanded="false" />
+            <element signature="e#656#1641#0" expanded="false" />
+            <element signature="e#1702#1943#0" expanded="false" />
+            <element signature="e#1983#2226#0" expanded="false" />
+            <element signature="e#2286#2504#0" expanded="false" />
+            <element signature="e#6226#6776#1" expanded="false" />
+            <element signature="e#10871#12607#0" expanded="false" />
           </folding>
         </state>
       </provider>
