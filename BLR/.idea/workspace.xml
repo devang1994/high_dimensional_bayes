@@ -4,12 +4,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="Liitle bit of cleanup&#10;About to change Gibbs so instead of a running sum, it uses just original prior + sums of squares">
+    <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="mostly fixed Gibbs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayesNN_HMCv2.py" afterPath="$PROJECT_DIR$/bayesNN_HMCv2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamma_test.py" afterPath="$PROJECT_DIR$/gamma_test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BLR.iws" />
@@ -34,14 +33,14 @@
       <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6363636">
-              <caret line="456" column="0" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.36688313">
+              <caret line="493" column="77" selection-start-line="493" selection-start-column="77" selection-end-line="493" selection-end-column="77" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
                 <element signature="e#658#1684#0" expanded="false" />
                 <element signature="e#1746#2006#0" expanded="false" />
                 <element signature="e#2369#2608#0" expanded="false" />
-                <element signature="e#12294#14275#0" expanded="false" />
+                <element signature="e#12302#14283#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -532,7 +531,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462535600733</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="mostly fixed Gibbs">
+      <created>1462555290461</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1462555290461</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -589,7 +594,8 @@
     <MESSAGE value="mostly finished Gibbs some bugs remain . about to clean up the code &#10;" />
     <MESSAGE value="Liitle bit of cleanup" />
     <MESSAGE value="Liitle bit of cleanup&#10;About to change Gibbs so instead of a running sum, it uses just original prior + sums of squares" />
-    <option name="LAST_COMMIT_MESSAGE" value="Liitle bit of cleanup&#10;About to change Gibbs so instead of a running sum, it uses just original prior + sums of squares" />
+    <MESSAGE value="mostly fixed Gibbs" />
+    <option name="LAST_COMMIT_MESSAGE" value="mostly fixed Gibbs" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -934,14 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hmc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gamma_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -950,16 +948,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hmc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6363636">
-          <caret line="456" column="0" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.36688313">
+          <caret line="493" column="77" selection-start-line="493" selection-start-column="77" selection-end-line="493" selection-end-column="77" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
             <element signature="e#658#1684#0" expanded="false" />
             <element signature="e#1746#2006#0" expanded="false" />
             <element signature="e#2369#2608#0" expanded="false" />
-            <element signature="e#12294#14275#0" expanded="false" />
+            <element signature="e#12302#14283#0" expanded="false" />
           </folding>
         </state>
       </provider>

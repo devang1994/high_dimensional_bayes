@@ -433,23 +433,50 @@ def analyse_samples(samples, X_train, y_train, hWidths):
         op_samples = (np.asarray(op_samples))
 
         op_samples = op_samples.reshape(n_samples, -1)
-        return op_samples, errs
 
-    train_preds, train_errs = make_predictions_from_NNsamples(X_train, samples, y_train)
+        y_pred = np.average(op_samples, axis=0)  # averaged over all the NN's
+
+        y_sd = np.std(op_samples, axis=0)
+
+        y_pred = y_pred.reshape(len(y_pred), 1)
+        y_sd = y_sd.reshape(len(y_pred), 1)
+        return op_samples, errs, y_pred, y_sd
+
+    train_preds, train_errs, train_pred, train_sd = make_predictions_from_NNsamples(X_train, samples, y_train)
     ntest = 1000
-    X_test = np.linspace(-1., 1., ntest)
+    X_test = np.linspace(-1., 2., ntest)
     y_test = objective(X_test)
     X_test = X_test.reshape(ntest, 1)
     y_test = y_test.reshape(ntest, 1)
-    test_preds, test_errs = make_predictions_from_NNsamples(X_test, samples, y_test)
+    test_preds, test_errs, test_pred, test_sd = make_predictions_from_NNsamples(X_test, samples, y_test)
     # print train_errs
 
+    sample_plot(X_train, y_train, X_test, y_test, test_pred, test_sd)
     print len(train_errs)
+    #
+    # plt.plot(train_errs, label='train')
+    # plt.plot(test_errs, label='test')
+    # plt.legend()
+    # plt.show()
 
-    plt.plot(train_errs, label='train')
-    plt.plot(test_errs, label='test')
+
+def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
+    plt.plot(X_test, y_test, linewidth=2, color='black', label='Objective')
+    plt.plot(X_train, y_train, 'ro', label='Data')
+    plt.plot(X_test, y_pred_test + 2 * y_sd_test, label='Credible', color='blue')  # TODO Figure out how to find them
+    plt.plot(X_test, y_pred_test - 2 * y_sd_test, label='Interval', color='blue')
+    plt.plot(X_test, y_pred_test, label='Prediction', color='green')
+
+    # plt.plot(X_train,y_pred)
     plt.legend()
+
+    # plt.savefig('logs/BNN_logs/BNNv2{}vy{}hW{}.png'.format(precisions, vy, hWidths), dpi=300)
+
+    # plt.clf()
     plt.show()
+    #
+    # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
+    # samples shape (10, 5251), train_op_samples (10, 100)
 
 
 
@@ -460,7 +487,7 @@ def test_combinedGibbs():
     # print X_train.shape
     y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
 
-    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(2000, [50, 50, 50], X_train, y_train,
+    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
                                                                 scales=[2, 2, 2, 2, 2], shapes=[5, 5, 5, 5, 5])
     # scales and shapes chosen to have a normal like distribution with mean around 10
 
