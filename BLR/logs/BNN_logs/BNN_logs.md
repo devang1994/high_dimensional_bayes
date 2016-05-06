@@ -37,3 +37,5 @@ The noise var in the output was decreased
 More Complicated NN using 1->50->50->50->1
 
 ![abc](BNNv2[10, 7, 7, 10]vy100hW[50, 50, 50].png)
+precisions =[10,7,7,10]
+hWidth=[50,50,50]
