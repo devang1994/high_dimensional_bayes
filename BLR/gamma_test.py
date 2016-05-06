@@ -1,6 +1,6 @@
 import  numpy as np
 
-shape, scale = 5, 2.  # mean and dispersion
+shape, scale = 1280, 0.00083534803555336968  # mean and dispersion
 s = np.random.gamma(shape, scale, 10000)
 
 print np.mean(s)

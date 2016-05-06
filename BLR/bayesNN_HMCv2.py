@@ -112,6 +112,9 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
     output_size = y_train.shape[1]
 
     # pick precisions etc from prior
+    scales_prior = scales[:]
+    shapes_prior = shapes[:]
+
     gamma_samples = []
     for i in range(len(scales)):
         gamma_samples.append(np.random.gamma(shapes[i], scales[i]))
@@ -131,6 +134,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
     last_train_op_sampled = train_op_samples[(train_op_samples.shape[0] - 1), :].reshape(train_op_samples.shape[1], 1)
     train_errs = [train_err]
     test_errs = [test_err]
+    num_sampled_log = [num_sampled]
     # TODO study evolution of errors
     while num_sampled < n_samples:
         pass
@@ -147,15 +151,16 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
             a = np.sum(np.square(weights[i])) + np.sum(np.square(biases[i]))
 
             b = weights[i].size + biases[i].size
-            scales[i] = 2.0 / ((2.0 / scales[i]) + a)  # TODO possibly wrong
-            shapes[i] = shapes[i] + b / 2.0  # TODO  possibly wrong
+
+            shapes[i] = shapes_prior[i] + b / 2.0
+            scales[i] = 1.0 / (1.0 / scales_prior[i] + 0.5 * a)
+            # scales[i] = 2.0 / ((2.0 / scales[i]) + a)  # TODO possibly wrong
+            # shapes[i] = shapes[i] + b / 2.0  # TODO  possibly wrong
 
             gamma_samples[i] = np.random.gamma(shapes[i], scales[i])
 
             print 'a {} , b {}'.format(a, b)
-            print 'scales {}'.format(scales)
-            print 'shapes {}'.format(shapes)
-            print 'gamma {}'.format(gamma_samples)
+            print '-------'
 
             # precisions on weights
 
@@ -163,8 +168,8 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         a = np.sum(np.square(last_train_op_sampled - y_train))
 
         i = len(hWidths) + 1
-        scales[i] = 2.0 / ((2.0 / scales[i]) + a)
-        shapes[i] = shapes[i] + b / 2.0
+        scales[i] = 1.0 / (1.0 / scales_prior[i] + 0.5 * a)
+        shapes[i] = shapes_prior[i] + b / 2.0
         gamma_samples[i] = np.random.gamma(shapes[i], scales[i])
 
         train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10,
@@ -177,18 +182,26 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         train_errs.append(train_err)
         test_errs.append(test_err)
 
+        print 'num_sampled {}'.format(num_sampled)
+        print 'scales {}'.format(scales)
+        print 'shapes {}'.format(shapes)
+        print 'gamma samples{}'.format(gamma_samples)
+        print 'train err {}, test err {}'.format(train_err, test_err)
+        print '-------------------------------'
+
         last_train_op_sampled = train_op_samples[(train_op_samples.shape[0] - 1), :].reshape(train_op_samples.shape[1],
                                                                                              1)
 
         fin_samples = np.vstack((fin_samples, samples))
         num_sampled += 10
+        num_sampled_log.append(num_sampled)
         # if num_sampled%30==0:
         #     print num_sampled
         #     print 'scales {}, shapes {}'.format(scales,shapes)
         #     print 'precisions {}'.format(gamma_samples)
         #     print 'train err {}, test err {}'.format(train_err,test_err)
 
-    return fin_samples, train_errs, test_errs
+    return fin_samples, train_errs, test_errs, num_sampled_log
 
 
 # TODONE edit to accept initial position
@@ -257,7 +270,7 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
                                                     initial_stepsize=1e-3, stepsize_max=0.5)
 
     # Start with a burn-in process
-    print 'about to sample'
+    # print 'about to sample'
     garbage = [sampler.draw() for r in range(burnin)]  # burn-in Draw
     # `n_samples`: result is a 3D tensor of dim [n_samples, batchsize,
     # dim]
@@ -397,6 +410,49 @@ def test_hmc():
     plt.show()
 
 
+def analyse_samples(samples, X_train, y_train, hWidths):
+    input_size = X_train.shape[1]
+    output_size = y_train.shape[1]
+
+    n_samples = len(samples)
+
+    def make_predictions_from_NNsamples(X, samples, y):
+        op_samples = []
+        errs = []
+        for i in range(len(samples)):
+            weights, biases = unpack_theta(samples, hWidths, input_size, output_size, index=i)
+
+            op = model_np(X, weights, biases)
+
+            op_samples.append(op)
+
+            err = MSE(op, y)
+
+            errs.append(err)
+
+        op_samples = (np.asarray(op_samples))
+
+        op_samples = op_samples.reshape(n_samples, -1)
+        return op_samples, errs
+
+    train_preds, train_errs = make_predictions_from_NNsamples(X_train, samples, y_train)
+    ntest = 1000
+    X_test = np.linspace(-1., 1., ntest)
+    y_test = objective(X_test)
+    X_test = X_test.reshape(ntest, 1)
+    y_test = y_test.reshape(ntest, 1)
+    test_preds, test_errs = make_predictions_from_NNsamples(X_test, samples, y_test)
+    # print train_errs
+
+    print len(train_errs)
+
+    plt.plot(train_errs, label='train')
+    plt.plot(test_errs, label='test')
+    plt.legend()
+    plt.show()
+
+
+
 def test_combinedGibbs():
     ntrain = 100
     noise_var = 0.01
@@ -404,15 +460,14 @@ def test_combinedGibbs():
     # print X_train.shape
     y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
 
-    f_samples, train_errs, test_errs = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
+    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(2000, [50, 50, 50], X_train, y_train,
                                                                 scales=[2, 2, 2, 2, 2], shapes=[5, 5, 5, 5, 5])
     # scales and shapes chosen to have a normal like distribution with mean around 10
 
-    plt.plot(train_errs, label='train')
-    plt.plot(test_errs, label='test')
-    plt.legend()
-    plt.show()
-    # TODO plot train and test errors
+
+    analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50])
+
+
 
 
 if __name__ == '__main__':
