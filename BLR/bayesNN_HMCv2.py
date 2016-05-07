@@ -488,8 +488,8 @@ def test_combinedGibbs():
     y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
 
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
-                                                                               scales=([2, 2, 2, 2, 2] * 0.25),
-                                                                               shapes=([5, 5, 5, 5, 5] * 4))
+                                                                               scales=([2, 2, 2, 2, 2] * 0.125),
+                                                                               shapes=([5, 5, 5, 5, 5] * 8))
 
 
     # scales and shapes chosen to have a normal like distribution with mean around 10
