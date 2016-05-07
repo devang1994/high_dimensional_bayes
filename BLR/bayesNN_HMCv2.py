@@ -121,7 +121,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
     print 'prior gamma_samples {}'.format(gamma_samples)
 
-    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=50, n_samples=10,
+    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=10,
                                                                         precisions=gamma_samples[0:(len(hWidths) + 1)],
                                                                         vy=gamma_samples[len(hWidths) + 1],
                                                                         X_train=X_train, y_train=y_train,
@@ -411,7 +411,19 @@ def test_hmc():
     plt.show()
 
 
-def analyse_samples(samples, X_train, y_train, hWidths):
+def analyse_samples(samples, X_train, y_train, hWidths, burnin=0):
+    '''
+
+    :param samples:
+    :param X_train:
+    :param y_train:
+    :param hWidths:
+    :param burnin: discards the first few samples, makes sure the we start accepting after a few gibbs
+     sampling steps
+    :return:
+    '''
+
+    samples = samples[burnin:]
     input_size = X_train.shape[1]
     output_size = y_train.shape[1]
 
@@ -500,7 +512,7 @@ def test_combinedGibbs():
     # scales and shapes chosen to have a normal like distribution with mean around 10
 
 
-    analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50])
+    analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=50)
 
 
 
