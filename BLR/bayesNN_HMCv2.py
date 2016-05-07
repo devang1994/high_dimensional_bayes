@@ -172,7 +172,8 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         shapes[i] = shapes_prior[i] + b / 2.0
         gamma_samples[i] = np.random.gamma(shapes[i], scales[i])
 
-        train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=5, n_samples=10,
+        # can use the previous positions of theta to seed this sampler
+        train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=20,
                                                                             precisions=gamma_samples[
                                                                                        0:(len(hWidths) + 1)],
                                                                             vy=gamma_samples[len(hWidths) + 1],
@@ -182,7 +183,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         train_errs.append(train_err)
         test_errs.append(test_err)
 
-        if (num_sampled % 50 == 0):
+        if (num_sampled % 60 == 0):
             print 'num_sampled {}'.format(num_sampled)
             print 'scales {}'.format(scales)
             print 'shapes {}'.format(shapes)
@@ -194,7 +195,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
                                                                                              1)
 
         fin_samples = np.vstack((fin_samples, samples))
-        num_sampled += 10
+        num_sampled += 20
         num_sampled_log.append(num_sampled)
         # if num_sampled%30==0:
         #     print num_sampled
@@ -492,17 +493,16 @@ def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
     # samples shape (10, 5251), train_op_samples (10, 100)
 
 
-
 def test_combinedGibbs():
     ntrain = 100
     noise_var = 0.01
     X_train = np.random.uniform(low=-1.0, high=1.0, size=ntrain).reshape(ntrain, 1)
     # print X_train.shape
     y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
-    scales = [2., 2., 2., 2., 0.25]
-    c = 0.125
+    scales = [2., 2., 2., 2., 0.5]
+    c = 0.125 * 0.5
     scales = [c * x for x in scales]
-    shapes = [5., 5., 5., 5., 40.]
+    shapes = [5., 5., 5., 5., 20.]
     shapes = [x / c for x in shapes]
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
                                                                                scales=scales, shapes=shapes)
@@ -513,8 +513,6 @@ def test_combinedGibbs():
 
 
     analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=50)
-
-
 
 
 if __name__ == '__main__':
