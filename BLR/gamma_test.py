@@ -1,9 +1,11 @@
 import  numpy as np
 
-shape, scale = 1280, 0.00083534803555336968  # mean and dispersion
+a = 0.05
+shape, scale = 80 * a, 0.125 / a  # mean and dispersion
 s = np.random.gamma(shape, scale, 10000)
 
 print np.mean(s)
+print np.std(s)
 import matplotlib.pyplot as plt
 import scipy.special as sps
 
