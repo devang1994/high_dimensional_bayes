@@ -159,8 +159,8 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
             gamma_samples[i] = np.random.gamma(shapes[i], scales[i])
 
-            print 'a {} , b {}'.format(a, b)
-            print '-------'
+            # print 'a {} , b {}'.format(a, b)
+            # print '-------'
 
             # precisions on weights
 
@@ -182,12 +182,13 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         train_errs.append(train_err)
         test_errs.append(test_err)
 
-        print 'num_sampled {}'.format(num_sampled)
-        print 'scales {}'.format(scales)
-        print 'shapes {}'.format(shapes)
-        print 'gamma samples{}'.format(gamma_samples)
-        print 'train err {}, test err {}'.format(train_err, test_err)
-        print '-------------------------------'
+        if (num_sampled % 50 == 0):
+            print 'num_sampled {}'.format(num_sampled)
+            print 'scales {}'.format(scales)
+            print 'shapes {}'.format(shapes)
+            print 'gamma samples{}'.format(gamma_samples)
+            print 'train err {}, test err {}'.format(train_err, test_err)
+            print '-------------------------------'
 
         last_train_op_sampled = train_op_samples[(train_op_samples.shape[0] - 1), :].reshape(train_op_samples.shape[1],
                                                                                              1)
