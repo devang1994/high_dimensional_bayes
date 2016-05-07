@@ -486,10 +486,10 @@ def test_combinedGibbs():
     X_train = np.random.uniform(low=-1.0, high=1.0, size=ntrain).reshape(ntrain, 1)
     # print X_train.shape
     y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
-    scales = [2., 2., 2., 2., 2.]
+    scales = [2., 2., 2., 2., 0.25]
     c = 0.125
     scales = [c * x for x in scales]
-    shapes = [5., 5., 5., 5., 5.]
+    shapes = [5., 5., 5., 5., 40.]
     shapes = [x / c for x in shapes]
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
                                                                                scales=scales, shapes=shapes)
