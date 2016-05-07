@@ -1,7 +1,12 @@
 import  numpy as np
 
-a = 0.05
-shape, scale = 80 * a, 0.125 / a  # mean and dispersion
+scales = [2., 2., 2., 2., 2.]
+c = 0.125
+scales = [c * x for x in scales]
+shapes = [5., 5., 5., 5., 5.]
+shapes = [x / c for x in shapes]
+
+shape, scale = shapes[0], scales[0]  # mean and dispersion
 s = np.random.gamma(shape, scale, 10000)
 
 print np.mean(s)

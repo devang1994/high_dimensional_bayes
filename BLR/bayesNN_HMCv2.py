@@ -490,7 +490,7 @@ def test_combinedGibbs():
     c = 0.125
     scales = [c * x for x in scales]
     shapes = [5., 5., 5., 5., 5.]
-    shapes = [x / c for x in scales]
+    shapes = [x / c for x in shapes]
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
                                                                                scales=scales, shapes=shapes)
 
