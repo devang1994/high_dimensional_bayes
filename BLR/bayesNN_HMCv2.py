@@ -464,14 +464,15 @@ def analyse_samples(samples, X_train, y_train, hWidths, burnin=0):
     y_test = y_test.reshape(ntest, 1)
     test_preds, test_errs, test_pred, test_sd = make_predictions_from_NNsamples(X_test, samples, y_test)
     # print train_errs
-
+    plt.figure(1)
     sample_plot(X_train, y_train, X_test, y_test, test_pred, test_sd)
     print len(train_errs)
     #
-    # plt.plot(train_errs, label='train')
-    # plt.plot(test_errs, label='test')
-    # plt.legend()
-    # plt.show()
+    plt.figure(2)
+    plt.plot(train_errs, label='train')
+    plt.plot(test_errs, label='test')
+    plt.legend()
+    plt.show()
 
 
 def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
@@ -494,7 +495,7 @@ def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
 
 
 def test_combinedGibbs():
-    ntrain = 100
+    ntrain = 20
     noise_var = 0.01
     X_train = np.random.uniform(low=-1.0, high=1.0, size=ntrain).reshape(ntrain, 1)
     # print X_train.shape
@@ -510,8 +511,6 @@ def test_combinedGibbs():
 
 
     # scales and shapes chosen to have a normal like distribution with mean around 10
-
-
     analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=50)
 
 
