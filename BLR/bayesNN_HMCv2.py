@@ -18,9 +18,9 @@ def objective(x):
     return (np.sin(x * 7) + np.cos(x * 17))
 
 
-# TODO for now have fixed batchsize to 1 , maybe change
+# TODONE for now have fixed batchsize to 1 , maybe change
 # TODO think about other input_oput sizes
-# TODO ask amar how to sensibly sample variance / uncertainty
+# TODONE ask amar how to sensibly sample variance / uncertainty
 
 theano.config.optimizer = 'fast_compile'
 
@@ -93,7 +93,7 @@ def find_dim_theta(hWidths, input_size, output_size):
 
 
 # TODO burnin WRT to gibbs
-# TODO posterior isnt moving
+# TODONE posterior isnt moving
 def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shapes):
     """
 
@@ -121,7 +121,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
     print 'prior gamma_samples {}'.format(gamma_samples)
 
-    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10,
+    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=50, n_samples=10,
                                                                         precisions=gamma_samples[0:(len(hWidths) + 1)],
                                                                         vy=gamma_samples[len(hWidths) + 1],
                                                                         X_train=X_train, y_train=y_train,
@@ -135,13 +135,13 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
     train_errs = [train_err]
     test_errs = [test_err]
     num_sampled_log = [num_sampled]
-    # TODO study evolution of errors
+    # TODONE study evolution of errors
     while num_sampled < n_samples:
         pass
         # first update params of gamma
         # then draw
-        # TODO use this to debug, samples shape (10, 5251), train_op_samples (10, 100)
-        # TODO Updates of gamma params is wrong debug
+        # TODONE use this to debug, samples shape (10, 5251), train_op_samples (10, 100)
+        # TODONE Updates of gamma params is wrong debug
 
 
         # find weights and biases of last sample
@@ -154,8 +154,8 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
             shapes[i] = shapes_prior[i] + b / 2.0
             scales[i] = 1.0 / (1.0 / scales_prior[i] + 0.5 * a)
-            # scales[i] = 2.0 / ((2.0 / scales[i]) + a)  # TODO possibly wrong
-            # shapes[i] = shapes[i] + b / 2.0  # TODO  possibly wrong
+            # scales[i] = 2.0 / ((2.0 / scales[i]) + a)
+            # shapes[i] = shapes[i] + b / 2.0
 
             gamma_samples[i] = np.random.gamma(shapes[i], scales[i])
 
@@ -172,7 +172,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         shapes[i] = shapes_prior[i] + b / 2.0
         gamma_samples[i] = np.random.gamma(shapes[i], scales[i])
 
-        train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10,
+        train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=5, n_samples=10,
                                                                             precisions=gamma_samples[
                                                                                        0:(len(hWidths) + 1)],
                                                                             vy=gamma_samples[len(hWidths) + 1],
@@ -206,10 +206,10 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
 
 # TODONE edit to accept initial position
-# TODO edit to output actual samples
-# TODO make func to do combined Gibbs sampling
+# TODONE edit to output actual samples
+# TODONE make func to do combined Gibbs sampling
 
-# TODO when doing Gibbs which sample to initialize next HMC from
+# TODONE when doing Gibbs which sample to initialize next HMC from
 
 def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_train, init_theta=None):
     """
@@ -285,7 +285,7 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     # print samples[0, :]
     # print samples[1, :]
-    # TODO this is what would need to change for o/put sizes other than one
+    #  this is what would need to change for o/put sizes other than one
     def make_predictions_from_NNsamples(X, samples):
         op_samples = []
         for i in range(len(samples)):
@@ -464,7 +464,7 @@ def analyse_samples(samples, X_train, y_train, hWidths):
 def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
     plt.plot(X_test, y_test, linewidth=2, color='black', label='Objective')
     plt.plot(X_train, y_train, 'ro', label='Data')
-    plt.plot(X_test, y_pred_test + 2 * y_sd_test, label='Credible', color='blue')  # TODO Figure out how to find them
+    plt.plot(X_test, y_pred_test + 2 * y_sd_test, label='Credible', color='blue')
     plt.plot(X_test, y_pred_test - 2 * y_sd_test, label='Interval', color='blue')
     plt.plot(X_test, y_pred_test, label='Prediction', color='green')
 
