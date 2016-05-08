@@ -606,7 +606,7 @@ def bayes_opt(func, initial_random=2, k=0.2, num_it=20):
 
         xtrain = np.vstack((xtrain, next_query))
         ytrain = np.vstack((ytrain, next_y))
-        plt.show()
+    plt.show()
 
 
 
