@@ -4,16 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="about to try BayesOpt on BayesNet&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+    <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="implemented BayesOpt on BNN">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../final_report/report_outline.pages" afterPath="$PROJECT_DIR$/../final_report/report_outline.pages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BLR.py" afterPath="$PROJECT_DIR$/BLR.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayesNN_HMCv2.py" afterPath="$PROJECT_DIR$/bayesNN_HMCv2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sandbox.py" afterPath="$PROJECT_DIR$/sandbox.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BLR.iws" />
@@ -38,15 +32,15 @@
       <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4986522">
-              <caret line="541" column="0" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.84097034">
+              <caret line="575" column="45" selection-start-line="575" selection-start-column="45" selection-end-line="575" selection-end-column="45" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
-                <element signature="e#728#1754#0" expanded="false" />
-                <element signature="e#1816#2076#0" expanded="false" />
-                <element signature="e#2439#2678#0" expanded="false" />
-                <element signature="e#12524#14505#0" expanded="false" />
-                <element signature="e#16500#17197#0" expanded="false" />
+                <element signature="e#729#1755#0" expanded="false" />
+                <element signature="e#1817#2077#0" expanded="false" />
+                <element signature="e#2440#2679#0" expanded="false" />
+                <element signature="e#12529#14510#0" expanded="false" />
+                <element signature="e#16505#17202#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -66,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/sandbox.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="162" column="10" selection-start-line="162" selection-start-column="10" selection-end-line="162" selection-end-column="10" />
+              <caret line="163" column="10" selection-start-line="163" selection-start-column="10" selection-end-line="163" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -637,7 +631,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462701449163</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="implemented BayesOpt on BNN">
+      <created>1462716255307</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1462716255307</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -651,7 +651,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="23" width="1260" height="672" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34115523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -665,7 +665,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22921711" sideWeight="0.80701756" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38447654" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2797834" sideWeight="0.49071833" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2797834" sideWeight="0.49071833" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -700,7 +700,8 @@
     <MESSAGE value="changed burn ins for gibbs, discard first few gibbs samplings" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="about to try BayesOpt on BayesNet&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="about to try BayesOpt on BayesNet&#10;" />
+    <MESSAGE value="implemented BayesOpt on BNN" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented BayesOpt on BNN" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1050,7 +1051,7 @@
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="10" selection-start-line="162" selection-start-column="10" selection-end-line="162" selection-end-column="10" />
+          <caret line="163" column="10" selection-start-line="163" selection-start-column="10" selection-end-line="163" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1065,15 +1066,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4986522">
-          <caret line="541" column="0" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.84097034">
+          <caret line="575" column="45" selection-start-line="575" selection-start-column="45" selection-end-line="575" selection-end-column="45" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
-            <element signature="e#728#1754#0" expanded="false" />
-            <element signature="e#1816#2076#0" expanded="false" />
-            <element signature="e#2439#2678#0" expanded="false" />
-            <element signature="e#12524#14505#0" expanded="false" />
-            <element signature="e#16500#17197#0" expanded="false" />
+            <element signature="e#729#1755#0" expanded="false" />
+            <element signature="e#1817#2077#0" expanded="false" />
+            <element signature="e#2440#2679#0" expanded="false" />
+            <element signature="e#12529#14510#0" expanded="false" />
+            <element signature="e#16505#17202#0" expanded="false" />
           </folding>
         </state>
       </provider>
