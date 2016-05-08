@@ -537,7 +537,7 @@ def produce_mu_and_sd(n_samples, hWidths, xtrain, ytrain, scales, shapes, burnin
     return test_pred, test_sd
 
 
-def bayes_opt(func, initial_random=2, k=0.2):
+def bayes_opt(func, initial_random=2, k=0.2, num_it=20):
     '''function to do bayesOpt on and number of initial random evals
     noise is artificially added to objective function calls when training
     '''
@@ -556,7 +556,7 @@ def bayes_opt(func, initial_random=2, k=0.2):
     plt.plot(xtest, func(xtest), color='black')
     plt.plot(xtrain, ytrain, 'ro')
 
-    for i in range(50):
+    for i in range(num_it):
         print 'it:{}'.format(i)
 
         scales = [2., 2., 2., 2., 0.5]
@@ -573,7 +573,6 @@ def bayes_opt(func, initial_random=2, k=0.2):
         next_query = xtest[index]
         next_y = func(next_query) + np.random.randn(1, 1) * noise
 
-        plt.figure(i + 2)  # the first figure
         s = sd  # standard deviations
 
 
@@ -589,8 +588,8 @@ def bayes_opt(func, initial_random=2, k=0.2):
         # xtrain=np.vstack((xtrain,next_query))
         # ytrain=np.vstack((ytrain,next_y))
 
-        if (i % 5 == 0):
-            plt.figure(i)
+        if (i % 2 == 0):
+            plt.figure()
             plt.plot(xtest, func(xtest), color='black', label='objective', linewidth=2.0)
             plt.plot(xtrain, ytrain, 'ro')
             plt.plot(xtest, mu, color='r', label='posterior')
@@ -617,4 +616,4 @@ if __name__ == '__main__':
 
     func = objective
 
-    bayes_opt(func, initial_random=10)
+    bayes_opt(func, initial_random=10, num_it=20)
