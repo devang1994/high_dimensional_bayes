@@ -619,4 +619,4 @@ if __name__ == '__main__':
 
     func = objective
 
-    bayes_opt(func, initial_random=10, num_it=20)
+    bayes_opt(func, initial_random=10, num_it=20, k=1)
