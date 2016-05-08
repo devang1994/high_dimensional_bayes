@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="minor changes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../final_report/report_outline.pages" afterPath="$PROJECT_DIR$/../final_report/report_outline.pages" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayesNN_HMCv2.py" afterPath="$PROJECT_DIR$/bayesNN_HMCv2.py" />
@@ -34,15 +33,14 @@
       <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.4326425">
-              <caret line="470" column="14" selection-start-line="470" selection-start-column="14" selection-end-line="470" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.7668394">
+              <caret line="520" column="0" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
                 <element signature="e#662#1688#0" expanded="false" />
                 <element signature="e#1750#2010#0" expanded="false" />
                 <element signature="e#2373#2612#0" expanded="false" />
                 <element signature="e#12404#14385#0" expanded="false" />
-                <element signature="e#16291#16986#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -599,7 +597,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462636779639</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="minor changes">
+      <created>1462653344326</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1462653344326</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1025,15 +1029,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4326425">
-          <caret line="470" column="14" selection-start-line="470" selection-start-column="14" selection-end-line="470" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.7668394">
+          <caret line="520" column="0" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
             <element signature="e#662#1688#0" expanded="false" />
             <element signature="e#1750#2010#0" expanded="false" />
             <element signature="e#2373#2612#0" expanded="false" />
             <element signature="e#12404#14385#0" expanded="false" />
-            <element signature="e#16291#16986#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -488,7 +488,7 @@ def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
     # plt.savefig('logs/BNN_logs/BNNv2{}vy{}hW{}.png'.format(precisions, vy, hWidths), dpi=300)
 
     # plt.clf()
-    plt.show()
+    # plt.show()
     #
     # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
     # samples shape (10, 5251), train_op_samples (10, 100)
@@ -505,7 +505,7 @@ def test_combinedGibbs():
     scales = [c * x for x in scales]
     shapes = [5., 5., 5., 5., 20.]
     shapes = [x / c for x in shapes]
-    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
+    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(100, [50, 50, 50], X_train, y_train,
                                                                                scales=scales, shapes=shapes)
 
 
