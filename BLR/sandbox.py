@@ -5,6 +5,8 @@ import theano
 from math import sqrt
 from sklearn import gaussian_process
 
+theano.config.device = 'gpu'
+
 
 import GPy
 from theano.misc.pkl_utils import StripPickler
@@ -163,7 +165,7 @@ if __name__== '__main__':
 
     print funcP1(func, 2)
 
-
+    print theano.config.device
 
     # X = T.fmatrix(name='X')
     #

@@ -28,7 +28,7 @@ def acquisition_UCB(m, s, k=0.2):
 # TODONE ask amar how to sensibly sample variance / uncertainty
 
 theano.config.optimizer = 'fast_compile'
-
+theano.config.device = 'cpu'
 
 def unpack_theta(theta, hWidths, input_size, output_size, index=0):
     # w1 = theta[index, 0:hidden_width * input_size].reshape((input_size, hidden_width))
@@ -474,7 +474,7 @@ def analyse_samples(samples, X_train, y_train, hWidths, burnin=0, display=False)
     test_preds, test_errs, test_pred, test_sd = make_predictions_from_NNsamples(X_test, samples, y_test)
     # print train_errs
 
-    print len(train_errs)
+    # print len(train_errs)
 
     if (display):
         plt.figure(1)
@@ -613,6 +613,7 @@ if __name__ == '__main__':
     # test_hmc()
 
     # test_combinedGibbs()
+
 
     func = objective
 
