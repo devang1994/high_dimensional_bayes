@@ -346,7 +346,7 @@ def diag_test():
     plt.show()
 
 
-def diag_uncert(func, initial_random=20, BLR_alpha=0.2,BLR_beta=4):
+def diagnose_uncert(func, initial_random=20, BLR_alpha=0.2, BLR_beta=4):
     '''Comparing uncertainties from the 2 methods
     diagnosing uncertianity values
     k doesnt matter, it is the parameter for the GP-UCB acquisition func'''
@@ -488,4 +488,4 @@ if __name__ == '__main__':
     # diag_test()
 
     for i in [0.001,0.003,0.01,0.03,0.1]:
-        diag_uncert(objective, initial_random=10,BLR_alpha=i,BLR_beta=4)
+        diagnose_uncert(objective, initial_random=10, BLR_alpha=i, BLR_beta=4)

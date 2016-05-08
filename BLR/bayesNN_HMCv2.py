@@ -18,6 +18,11 @@ def objective(x):
     return (np.sin(x * 7) + np.cos(x * 17))
 
 
+def acquisition_UCB(m, s, k=0.2):
+    a = m - k * s
+    return a
+
+
 # TODONE for now have fixed batchsize to 1 , maybe change
 # TODO think about other input_oput sizes
 # TODONE ask amar how to sensibly sample variance / uncertainty
@@ -121,7 +126,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
     print 'prior gamma_samples {}'.format(gamma_samples)
 
-    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=10,
+    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=10, n_samples=10,
                                                                         precisions=gamma_samples[0:(len(hWidths) + 1)],
                                                                         vy=gamma_samples[len(hWidths) + 1],
                                                                         X_train=X_train, y_train=y_train,
@@ -309,23 +314,27 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     op_samples, y_pred, y_sd = make_predictions_from_NNsamples(X_train, samples)
     train_op_samples = op_samples  # shape is n_samples, num_test_pts
-
-    ntest = 1000
-    X_test = np.linspace(-1., 1., ntest)
-    y_test = objective(X_test)
-    X_test = X_test.reshape(ntest, 1)
-    y_test = y_test.reshape(ntest, 1)
-    op_samples, y_pred_test, y_sd_test = make_predictions_from_NNsamples(X_test, samples)
+    #
+    # ntest = 1000
+    # X_test = np.linspace(-1., 1., ntest)
+    # y_test = objective(X_test)
+    # X_test = X_test.reshape(ntest, 1)
+    # y_test = y_test.reshape(ntest, 1)
+    # op_samples, y_pred_test, y_sd_test = make_predictions_from_NNsamples(X_test, samples)
 
     # print y_sd_test[0:40]
 
     # print 'train error '
+
     train_err = MSE(y_train, y_pred)
+    train_err = -1
+
     # print 'test error '
     # print y_test.shape
     # print y_pred_test.shape
-    test_err = MSE(y_test, y_pred_test)
+    # test_err = MSE(y_test, y_pred_test)
 
+    test_err = -1
     # print y_pred_test[0:40]
 
     # plt.plot(X_test, y_test, linewidth=2, color='black', label='Objective')
@@ -412,7 +421,7 @@ def test_hmc():
     plt.show()
 
 
-def analyse_samples(samples, X_train, y_train, hWidths, burnin=0):
+def analyse_samples(samples, X_train, y_train, hWidths, burnin=0, display=False):
     '''
 
     :param samples:
@@ -464,15 +473,20 @@ def analyse_samples(samples, X_train, y_train, hWidths, burnin=0):
     y_test = y_test.reshape(ntest, 1)
     test_preds, test_errs, test_pred, test_sd = make_predictions_from_NNsamples(X_test, samples, y_test)
     # print train_errs
-    plt.figure(1)
-    sample_plot(X_train, y_train, X_test, y_test, test_pred, test_sd)
+
     print len(train_errs)
-    #
-    plt.figure(2)
-    plt.plot(train_errs, label='train')
-    plt.plot(test_errs, label='test')
-    plt.legend()
-    plt.show()
+
+    if (display):
+        plt.figure(1)
+        sample_plot(X_train, y_train, X_test, y_test, test_pred, test_sd)
+
+        plt.figure(2)
+        plt.plot(train_errs, label='train')
+        plt.plot(test_errs, label='test')
+        plt.legend()
+        plt.show()
+
+    return test_pred, test_sd
 
 
 def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
@@ -514,7 +528,93 @@ def test_combinedGibbs():
     analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=50)
 
 
+def produce_mu_and_sd(n_samples, hWidths, xtrain, ytrain, scales, shapes, burnin=0):
+    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(100, [50, 50, 50], xtrain, ytrain,
+                                                                               scales=scales, shapes=shapes)
+
+    test_pred, test_sd = analyse_samples(f_samples, xtrain, ytrain, hWidths=[50, 50, 50], burnin=burnin)
+
+    return test_pred, test_sd
+
+
+def bayes_opt(func, initial_random=2, k=0.2):
+    '''function to do bayesOpt on and number of initial random evals
+    noise is artificially added to objective function calls when training
+    '''
+    noise = 0.2
+    ntest = 1000
+    ntrain = initial_random  # number of initial random function evals
+    xtrain = np.random.uniform(low=-1.0, high=1.0, size=(ntrain, 1))
+    print xtrain.shape
+    ytrain = func(xtrain) + np.random.randn(ntrain, 1) * noise
+    print ytrain.shape
+    xtest = np.linspace(-1., 2., ntest)
+    xtest = xtest.reshape(ntest, 1)
+    ytest = func(xtest)
+    plt.figure(1)  # the first figure
+
+    plt.plot(xtest, func(xtest), color='black')
+    plt.plot(xtrain, ytrain, 'ro')
+
+    for i in range(50):
+        print 'it:{}'.format(i)
+
+        scales = [2., 2., 2., 2., 0.5]
+        c = 0.125 * 0.5
+        scales = [c * x for x in scales]
+        shapes = [5., 5., 5., 5., 20.]
+        shapes = [x / c for x in shapes]
+
+        mu, sd = produce_mu_and_sd(100, [50, 50, 50], xtrain, ytrain, scales=scales, shapes=shapes, burnin=40)
+
+        alpha = acquisition_UCB(mu, sd, k=k)
+
+        index = np.argmin(alpha)
+        next_query = xtest[index]
+        next_y = func(next_query) + np.random.randn(1, 1) * noise
+
+        plt.figure(i + 2)  # the first figure
+        s = sd  # standard deviations
+
+
+        # plt.plot(xtest, objective(xtest), color='black',label='objective')
+        # plt.plot(xtrain, ytrain, 'ro')
+        # plt.plot(xtest, mu, color='r', label='posterior')
+        # plt.plot(xtest, mu - s, color='blue', label='credible')
+        # plt.plot(xtest, mu + s, color='blue', label='interval')
+        # plt.plot(xtest,alpha,label='acquistion func',color='green')
+        # plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
+        # plt.legend()
+        # plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0],k,ntrain),dpi=300)
+        # xtrain=np.vstack((xtrain,next_query))
+        # ytrain=np.vstack((ytrain,next_y))
+
+        if (i % 5 == 0):
+            plt.figure(i)
+            plt.plot(xtest, func(xtest), color='black', label='objective', linewidth=2.0)
+            plt.plot(xtrain, ytrain, 'ro')
+            plt.plot(xtest, mu, color='r', label='posterior')
+            # plt.plot(xtest, mu - s, color='blue', label='credible')
+            # plt.plot(xtest, mu + s, color='blue', label='interval')
+            plt.plot(xtest, alpha, label='acquistion func', color='green')
+            # plt.plot(xtest,np.zeros(ntest),color='black')
+            plt.plot(xtest, s + 2, label='sigma+2', color='blue')
+            plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
+            plt.legend(fontsize='x-small')
+            # plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0], k, ntrain), dpi=300)
+
+        xtrain = np.vstack((xtrain, next_query))
+        ytrain = np.vstack((ytrain, next_y))
+        plt.show()
+
+
+
+
 if __name__ == '__main__':
     # test_hmc()
 
-    test_combinedGibbs()
+    # test_combinedGibbs()
+
+    func = objective
+
+    bayes_opt(func, initial_random=10)

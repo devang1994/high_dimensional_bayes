@@ -146,22 +146,23 @@ def objective(x):
     return (np.sin(x * 7) + np.cos(x * 17))
 
 
+def sqr(x):
+    return np.square(x)
+
+
+def funcP1(func, x):
+    return func(x) + 1
+
+
 
 if __name__== '__main__':
     # play_gpy()
 
 
-    shape, scale = 5., 2.  # mean and dispersion
-    s = np.random.gamma(shape, scale, 100000)
+    func = sqr
 
-    import matplotlib.pyplot as plt
-    import scipy.special as sps
+    print funcP1(func, 2)
 
-    count, bins, ignored = plt.hist(s, 500, normed=True)
-    y = bins ** (shape - 1) * (np.exp(-bins / scale) /
-                               (sps.gamma(shape) * scale ** shape))
-    plt.plot(bins, y, linewidth=2, color='r')
-    plt.show()
 
 
     # X = T.fmatrix(name='X')
