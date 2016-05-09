@@ -34,7 +34,7 @@ def mixing():
     plt.xlabel('Num Iterations')
     plt.ylabel('Value')
 
-    plt.savefig('logs/BNN_logs/mixingWeightsPrec10L', dpi=300)
+    # plt.savefig('logs/BNN_logs/mixingWeightsPrec10L', dpi=300)
 
     print samples.shape
 
@@ -48,22 +48,23 @@ def mixing():
     N = samples.shape[0]
     n = N / 10
 
-    p, x = np.histogram(w1, bins=n)  # bin it into n = N/10 bins
-    x = x[:-1] + (x[1] - x[0]) / 2  # convert bin edges to centers
-    f = UnivariateSpline(x, p, s=n)
-    plt.plot(x, f(x))
+    plt.hist(w1, bins=n)  # bin it into n = N/10 bins
+    # x = x[:-1] + (x[1] - x[0]) / 2  # convert bin edges to centers
+    # f = UnivariateSpline(x, p, s=n)
+    # plt.plot(x, f(x))
     plt.figure()
 
-    p, x = np.histogram(w2, bins=n)  # bin it into n = N/10 bins
-    x = x[:-1] + (x[1] - x[0]) / 2  # convert bin edges to centers
-    f = UnivariateSpline(x, p, s=n)
-    plt.plot(x, f(x))
+    plt.hist(w2, bins=n)  # bin it into n = N/10 bins
+    # x = x[:-1] + (x[1] - x[0]) / 2  # convert bin edges to centers
+    # f = UnivariateSpline(x, p, s=n)
+    # plt.plot(x, f(x))
     plt.figure()
 
-    p, x = np.histogram(w3, bins=n)  # bin it into n = N/10 bins
-    x = x[:-1] + (x[1] - x[0]) / 2  # convert bin edges to centers
-    f = UnivariateSpline(x, p, s=n)
-    plt.plot(x, f(x))
+    plt.hist(w3, bins=n)  # bin it into n = N/10 bins
+    # x = x[:-1] + (x[1] - x[0]) / 2  # convert bin edges to centers
+    # f = UnivariateSpline(x, p, s=n)
+    # plt.plot(x, f(x))
+    plt.figure()
 
     plt.show()
 
