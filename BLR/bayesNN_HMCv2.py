@@ -422,7 +422,6 @@ def test_hmc():
     pickle.dump(trains, open("logs/BNN_logs/trains.p", "wb"))
     plt.show()
 
-
 def analyse_samples(samples, X_train, y_train, hWidths, burnin=0, display=False):
     '''
 
@@ -490,7 +489,6 @@ def analyse_samples(samples, X_train, y_train, hWidths, burnin=0, display=False)
 
     return test_pred, test_sd
 
-
 def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
     plt.plot(X_test, y_test, linewidth=2, color='black', label='Objective')
     plt.plot(X_train, y_train, 'ro', label='Data')
@@ -509,7 +507,6 @@ def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
     # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
     # samples shape (10, 5251), train_op_samples (10, 100)
 
-
 def test_combinedGibbs():
     ntrain = 20
     noise_var = 0.01
@@ -524,11 +521,8 @@ def test_combinedGibbs():
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(100, [50, 50, 50], X_train, y_train,
                                                                                scales=scales, shapes=shapes)
 
-
-
     # scales and shapes chosen to have a normal like distribution with mean around 10
     analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=50)
-
 
 def produce_mu_and_sd(n_samples, hWidths, xtrain, ytrain, scales, shapes, burnin=0):
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(100, [50, 50, 50], xtrain, ytrain,
@@ -537,7 +531,6 @@ def produce_mu_and_sd(n_samples, hWidths, xtrain, ytrain, scales, shapes, burnin
     test_pred, test_sd = analyse_samples(f_samples, xtrain, ytrain, hWidths=[50, 50, 50], burnin=burnin)
 
     return test_pred, test_sd
-
 
 def bayes_opt(func, initial_random=2, k=0.2, num_it=20):
     '''function to do bayesOpt on and number of initial random evals
@@ -592,15 +585,18 @@ def bayes_opt(func, initial_random=2, k=0.2, num_it=20):
 
         if (i % 2 == 0):
             plt.figure()
-            plt.plot(xtest, func(xtest), color='black', label='objective', linewidth=2.0)
-            plt.plot(xtrain, ytrain, 'ro')
-            plt.plot(xtest, mu, color='r', label='posterior')
+            f, axarr = plt.subplots(2, sharex=True)
+
+            # .scatter(x, y)
+            axarr[1].plot(xtest, func(xtest), color='black', label='objective', linewidth=2.0)
+            axarr[1].plot(xtrain, ytrain, 'ro')
+            axarr[1].plot(xtest, mu, color='r', label='posterior')
             # plt.plot(xtest, mu - s, color='blue', label='credible')
             # plt.plot(xtest, mu + s, color='blue', label='interval')
-            plt.plot(xtest, alpha, label='acquistion func', color='green')
+            axarr[1].plot(xtest, alpha, label='acquistion func', color='green')
             # plt.plot(xtest,np.zeros(ntest),color='black')
-            plt.plot(xtest, s + 2, label='sigma+2', color='blue')
-            plt.title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
+            axarr[0].plot(xtest, s, label='sigma', color='blue')
+            axarr[0].set_title('BLR with learned features ,ntrain:{}'.format(xtrain.shape[0]))
             plt.legend(fontsize='x-small')
             # plt.savefig('bayesOptNtrain{}k{}init{}.png'.format(xtrain.shape[0], k, ntrain), dpi=300)
 
@@ -619,4 +615,4 @@ if __name__ == '__main__':
 
     func = objective
 
-    bayes_opt(func, initial_random=10, num_it=20, k=5)
+    bayes_opt(func, initial_random=10, num_it=6, k=5)

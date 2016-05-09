@@ -14,7 +14,7 @@ Unsure about how the uncertainty estimates should be obtained. Following code fr
 
     y_sd = np.std(op_samples,axis=0)
     
-    
+    I
 With more hidden_width
 hwidth=50
 ![abc](BNNv110vy100hW50.png)
