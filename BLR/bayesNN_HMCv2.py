@@ -219,7 +219,8 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
 # TODONE when doing Gibbs which sample to initialize next HMC from
 
-def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_train, init_theta=None):
+def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_train, init_theta=None,
+                       target_acceptance_rate=0.9):
     """
 
     Test dataset is just linspace(-1,1,1000)
@@ -276,7 +277,8 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     # Create HMC sampler
     sampler = HMC_sampler.new_from_shared_positions(position, NN_energy,
-                                                    initial_stepsize=1e-3, stepsize_max=0.5)
+                                                    initial_stepsize=1e-3, stepsize_max=0.5,
+                                                    target_acceptance_rate=target_acceptance_rate)
 
     # Start with a burn-in process
     # print 'about to sample'
