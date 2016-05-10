@@ -1,9 +1,9 @@
 import  numpy as np
 
-scales = [2., 2., 2., 2., 2.]
-c = 0.125
+scales = [25., 1., 1., 1., 1.]
+c = 1.0
 scales = [c * x for x in scales]
-shapes = [5., 5., 5., 5., 5.]
+shapes = [4., 1., 1., 1., 1.]
 shapes = [x / c for x in shapes]
 
 shape, scale = shapes[0], scales[0]  # mean and dispersion

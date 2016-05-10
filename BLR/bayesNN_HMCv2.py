@@ -9,9 +9,9 @@ import numpy as np
 from math import sqrt
 from sklearn.metrics import mean_squared_error as MSE
 import matplotlib.pyplot as plt
-
-np.random.seed(42)
 import cPickle as pickle
+import bayesNNexplorePostfromIp
+np.random.seed(42)
 
 
 def objective(x):
@@ -128,7 +128,7 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
 
     print 'prior gamma_samples {}'.format(gamma_samples)
 
-    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=50,
+    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=20,
                                                                         precisions=gamma_samples[0:(len(hWidths) + 1)],
                                                                         vy=gamma_samples[len(hWidths) + 1],
                                                                         X_train=X_train, y_train=y_train,
@@ -139,20 +139,20 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
     num_sampled = fin_samples.shape[0]
     #  gibbs sampling
     last_train_op_sampled = train_op_samples[(train_op_samples.shape[0] - 1), :].reshape(train_op_samples.shape[1], 1)
+    # has the outputs at all the train points for the last sample drawn
     train_errs = [train_err]
     test_errs = [test_err]
     num_sampled_log = [num_sampled]
     # TODONE study evolution of errors
     while num_sampled < n_samples:
-        pass
+
         # first update params of gamma
         # then draw
         # TODONE use this to debug, samples shape (10, 5251), train_op_samples (10, 100)
         # TODONE Updates of gamma params is wrong debug
 
-
         # find weights and biases of last sample
-        weights, biases = unpack_theta(samples, hWidths, input_size, output_size, index=(samples.shape[0] - 1))
+        weights, biases = unpack_theta(fin_samples, hWidths, input_size, output_size, index=(fin_samples.shape[0] - 1))
 
         for i in range(len(weights)):
             a = np.sum(np.square(weights[i])) + np.sum(np.square(biases[i]))
@@ -181,36 +181,32 @@ def combinedGibbsHMC_BayesNN(n_samples, hWidths, X_train, y_train, scales, shape
         last_sample = fin_samples[-1, :]
         last_sample = last_sample.reshape(1, -1)
         # can use the previous positions of theta to seed this sampler
-        train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=50,
+        train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=20, n_samples=20,
                                                                             precisions=gamma_samples[
                                                                                        0:(len(hWidths) + 1)],
                                                                             vy=gamma_samples[len(hWidths) + 1],
                                                                             X_train=X_train, y_train=y_train,
-                                                                            hWidths=hWidths, init_theta=last_sample)
-
-
-        train_errs.append(train_err)
-        test_errs.append(test_err)
-
-        if (num_sampled % 200 == 0):
-            print 'num_sampled {}'.format(num_sampled)
-            print 'scales {}'.format(scales)
-            print 'shapes {}'.format(shapes)
-            print 'gamma samples{}'.format(gamma_samples)
-            print 'train err {}, test err {}'.format(train_err, test_err)
-            print '-------------------------------'
+                                                                            hWidths=hWidths, init_theta=last_sample,
+                                                                            target_acceptance_rate=target_acceptance_rate)
 
         last_train_op_sampled = train_op_samples[(train_op_samples.shape[0] - 1), :].reshape(train_op_samples.shape[1],
                                                                                              1)
 
+        train_errs.append(train_err)
+        test_errs.append(test_err)
+
+        if (num_sampled % 40 == 0):
+            print 'num_sampled {}'.format(num_sampled)
+            print 'scales {}'.format(scales)
+            print 'shapes {}'.format(shapes)
+            print 'gamma samples{}'.format(gamma_samples)
+            # print 'train err {}, test err {}'.format(train_err, test_err)
+            print '-------------------------------'
+
+
         fin_samples = np.vstack((fin_samples, samples))
         num_sampled = fin_samples.shape[0]
         num_sampled_log.append(num_sampled)
-        # if num_sampled%30==0:
-        #     print num_sampled
-        #     print 'scales {}, shapes {}'.format(scales,shapes)
-        #     print 'precisions {}'.format(gamma_samples)
-        #     print 'train err {}, test err {}'.format(train_err,test_err)
 
     return fin_samples, train_errs, test_errs, num_sampled_log
 
@@ -279,7 +275,7 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
 
     # Create HMC sampler
     sampler = HMC_sampler.new_from_shared_positions(position, NN_energy,
-                                                    initial_stepsize=1e-3, stepsize_max=0.5,
+                                                    initial_stepsize=0.01, stepsize_max=0.5,
                                                     target_acceptance_rate=target_acceptance_rate)
 
     # Start with a burn-in process
@@ -360,7 +356,6 @@ def sampler_on_BayesNN(burnin, n_samples, precisions, vy, hWidths, X_train, y_tr
     # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
     # samples shape (10, 5251), train_op_samples (10, 100)
     return train_err, test_err, samples, train_op_samples
-
 
 def test_hmc():
     ntrain = 100
@@ -472,7 +467,7 @@ def analyse_samples(samples, X_train, y_train, hWidths, burnin=0, display=False)
 
     train_preds, train_errs, train_pred, train_sd = make_predictions_from_NNsamples(X_train, samples, y_train)
     ntest = 1000
-    X_test = np.linspace(-1., 2., ntest)
+    X_test = np.linspace(-1., 1., ntest)
     y_test = objective(X_test)
     X_test = X_test.reshape(ntest, 1)
     y_test = y_test.reshape(ntest, 1)
@@ -482,14 +477,13 @@ def analyse_samples(samples, X_train, y_train, hWidths, burnin=0, display=False)
     # print len(train_errs)
 
     if (display):
-        plt.figure(1)
+        plt.figure()
         sample_plot(X_train, y_train, X_test, y_test, test_pred, test_sd)
 
-        plt.figure(2)
+        plt.figure()
         plt.plot(train_errs, label='train')
         plt.plot(test_errs, label='test')
         plt.legend()
-        plt.show()
 
     return test_pred, test_sd
 
@@ -511,23 +505,6 @@ def sample_plot(X_train, y_train, X_test, y_test, y_pred_test, y_sd_test):
     # print 'samples shape {}, train_op_samples {}'.format(samples.shape,train_op_samples.shape)
     # samples shape (10, 5251), train_op_samples (10, 100)
 
-def test_combinedGibbs():
-    ntrain = 40
-    noise_var = 0.01
-    X_train = np.random.uniform(low=-1.0, high=1.0, size=ntrain).reshape(ntrain, 1)
-    # print X_train.shape
-    y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
-    scales = [2., 2., 2., 2., 0.5]
-    c = 0.125 * 0.5
-    scales = [c * x for x in scales]
-    shapes = [5., 5., 5., 5., 20.]
-    shapes = [x / c for x in shapes]
-    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(1000, [50, 50, 50], X_train, y_train,
-                                                                               scales=scales, shapes=shapes,
-                                                                               target_acceptance_rate=0.6)
-
-    # scales and shapes chosen to have a normal like distribution with mean around 10
-    analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=50, display=True)
 
 def produce_mu_and_sd(n_samples, hWidths, xtrain, ytrain, scales, shapes, burnin=0):
     f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(100, [50, 50, 50], xtrain, ytrain,
@@ -561,7 +538,7 @@ def bayes_opt(func, initial_random=2, k=0.2, num_it=20):
 
         scales = [2., 2., 2., 2., 0.5]
         c = 0.125 * 0.5
-        scales = [c * x for x in scales]
+        scales = [c * x for x in scales]  # TODO check
         shapes = [5., 5., 5., 5., 20.]
         shapes = [x / c for x in shapes]
 
@@ -610,7 +587,28 @@ def bayes_opt(func, initial_random=2, k=0.2, num_it=20):
     plt.show()
 
 
+def test_combinedGibbs():
+    ntrain = 20
+    noise_var = 0.01
+    X_train = np.random.uniform(low=-1.0, high=1.0, size=ntrain).reshape(ntrain, 1)
+    # print X_train.shape
+    y_train = objective(X_train) + np.random.randn(ntrain, 1) * sqrt(noise_var)
+    scales = [0.25, 0.25, 0.25, 0.25, 25.]
+    c = 1.0  # less than one for stronger prior with same mean
+    scales = [c * x for x in scales]
+    shapes = [4., 4., 4., 4., 4.]
+    shapes = [x / c for x in shapes]
+    f_samples, train_errs, test_errs, numSampledLog = combinedGibbsHMC_BayesNN(500, [50, 50, 50], X_train, y_train,
+                                                                               scales=scales, shapes=shapes,
+                                                                               target_acceptance_rate=0.9)
 
+    # scales and shapes chosen to have a normal like distribution with mean around 10
+
+    pickle.dump(f_samples, open("logs/BNN_logs/samples_gibbs_acc0.6_2000_sh10.p", "wb"))  # TODO remove
+
+    analyse_samples(f_samples, X_train, y_train, hWidths=[50, 50, 50], burnin=100, display=True)
+    bayesNNexplorePostfromIp.mixing_from_input(f_samples)
+    # plt.show()
 
 if __name__ == '__main__':
     # test_hmc()
