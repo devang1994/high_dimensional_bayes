@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="exploring mixing, distribution&#10;&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bayesNNexplorePostfromIp.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSimplerNN.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/nayesNNexplorePosteriors.py" afterPath="$PROJECT_DIR$/bayesNNexplorePosteriors.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" afterPath="$PROJECT_DIR$/../downloaded_tutorials/Theano-Tutorials" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../final_report/report_outline.pages" afterPath="$PROJECT_DIR$/../final_report/report_outline.pages" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" afterPath="$PROJECT_DIR$/../downloaded_tutorials/starter _code" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" afterPath="$PROJECT_DIR$/../downloaded_tutorials/theano-tutorial" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/BNN_logs/BNN_logs.md" afterPath="$PROJECT_DIR$/logs/BNN_logs/BNN_logs.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bayesNN_HMCv2.py" afterPath="$PROJECT_DIR$/bayesNN_HMCv2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamma_test.py" afterPath="$PROJECT_DIR$/gamma_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/BLR.iml" afterPath="$PROJECT_DIR$/.idea/BLR.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BLR.iws" />
@@ -35,19 +27,15 @@
     <favorites_list name="BLR" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="bayesNN_HMCv2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="486" column="0" selection-start-line="486" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="609" column="57" selection-start-line="609" selection-start-column="57" selection-end-line="609" selection-end-column="57" />
               <folding>
                 <element signature="e#21#33#0" expanded="true" />
                 <element signature="e#2503#2742#0" expanded="false" />
-                <element signature="e#12876#14857#0" expanded="false" />
-                <element signature="e#17620#17975#0" expanded="false" />
-                <element signature="e#18038#20993#0" expanded="false" />
-                <element signature="e#18038#18184#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,11 +44,10 @@
       <file leaf-file-name="bayesNNexplorePosteriors.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bayesNNexplorePosteriors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="147" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+            <state relative-caret-position="269">
+              <caret line="143" column="14" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
               <folding>
                 <element signature="e#0#72#0" expanded="true" />
-                <element signature="e#2184#3424#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,8 +56,8 @@
       <file leaf-file-name="testSimplerNN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testSimplerNN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6883117">
-              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+            <state relative-caret-position="126">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="e#0#72#0" expanded="true" />
               </folding>
@@ -81,7 +68,7 @@
       <file leaf-file-name="gamma_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gamma_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state relative-caret-position="72">
               <caret line="4" column="32" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
@@ -132,12 +119,9 @@
       </list>
     </option>
   </component>
-  <component name="NamedScopeManager">
-    <order />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="23" />
+    <option name="x" value="497" />
+    <option name="y" value="411" />
     <option name="width" value="1260" />
     <option name="height" value="672" />
   </component>
@@ -171,7 +155,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -181,37 +165,15 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BLR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BLR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BLR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="101" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -229,33 +191,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="900" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="last_opened_file_path" value="$USER_HOME$/octo-dubstep/BNN_copied/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../anaconda2/bin/python" />
   </component>
-  <component name="RunManager" selected="Python.nayesNNexplorePosteriors">
-    <configuration default="false" name="bayesNN_HMC_simple" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="BLR" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bayesNN_HMC_simple.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.testSimplerNN">
     <configuration default="false" name="bayesNN_HMCv2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib/" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -273,7 +217,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib/" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -291,7 +235,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib/" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -309,7 +253,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib/" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -322,15 +266,22 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
+    <configuration default="false" name="testSimplerNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="WORKING_DIRECTORY" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib/" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BLR" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSimplerNN.py" />
       <option name="PARAMETERS" value="" />
-      <module name="" />
-      <envs />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -338,7 +289,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib/" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib/" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -349,6 +300,18 @@
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BLR" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -461,7 +424,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="$USER_HOME$/anaconda/lib" />
+        <env name="DYLD_FALLBACK_LIBRARY_PATH" value="/home/da368/anaconda/lib" />
       </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -512,23 +475,25 @@
       <item index="0" class="java.lang.String" itemvalue="Python.BLR" />
       <item index="1" class="java.lang.String" itemvalue="Python.Unnamed" />
       <item index="2" class="java.lang.String" itemvalue="Python.sandbox" />
-      <item index="3" class="java.lang.String" itemvalue="Python.bayesNN_HMC_simple" />
-      <item index="4" class="java.lang.String" itemvalue="Python.bayesNN_HMCv2" />
-      <item index="5" class="java.lang.String" itemvalue="Python.sand2" />
-      <item index="6" class="java.lang.String" itemvalue="Python.gamma_test" />
-      <item index="7" class="java.lang.String" itemvalue="Python.nayesNNexplorePosteriors" />
+      <item index="3" class="java.lang.String" itemvalue="Python.bayesNN_HMCv2" />
+      <item index="4" class="java.lang.String" itemvalue="Python.sand2" />
+      <item index="5" class="java.lang.String" itemvalue="Python.gamma_test" />
+      <item index="6" class="java.lang.String" itemvalue="Python.nayesNNexplorePosteriors" />
+      <item index="7" class="java.lang.String" itemvalue="Python.testSimplerNN" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.nayesNNexplorePosteriors" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gamma_test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bayesNN_HMCv2" />
-        <item index="3" class="java.lang.String" itemvalue="Python.sand2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.bayesNN_HMC_simple" />
+        <item index="0" class="java.lang.String" itemvalue="Python.testSimplerNN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.nayesNNexplorePosteriors" />
+        <item index="2" class="java.lang.String" itemvalue="Python.gamma_test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.bayesNN_HMCv2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.sand2" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -537,197 +502,230 @@
       <changelist id="774bd01e-df6a-4a2c-95df-45f274b61996" name="Default" comment="" />
       <created>1454167507584</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1454167507584</updated>
     </task>
     <task id="LOCAL-00001" summary="added thangs BNN code&#10;">
       <created>1458566873260</created>
       <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1458566873260</updated>
     </task>
     <task id="LOCAL-00002" summary="added thangs BNN code&#10;">
       <created>1458927174758</created>
       <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1458927174758</updated>
     </task>
     <task id="LOCAL-00003" summary="chalo">
       <created>1458932935489</created>
       <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1458932935489</updated>
     </task>
     <task id="LOCAL-00004" summary="implmented HMC, about to implement Gibbs for hypers&#10;">
       <created>1459112964089</created>
       <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1459112964089</updated>
     </task>
     <task id="LOCAL-00005" summary="mostly finished Gibbs some bugs remain . about to clean up the code &#10;">
       <created>1462465817674</created>
       <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1462465817674</updated>
     </task>
     <task id="LOCAL-00006" summary="Liitle bit of cleanup">
       <created>1462466120949</created>
       <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1462466120949</updated>
     </task>
     <task id="LOCAL-00007" summary="Liitle bit of cleanup&#10;About to change Gibbs so instead of a running sum, it uses just original prior + sums of squares">
       <created>1462535600733</created>
       <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1462535600733</updated>
     </task>
     <task id="LOCAL-00008" summary="mostly fixed Gibbs">
       <created>1462555290461</created>
       <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1462555290461</updated>
     </task>
     <task id="LOCAL-00009" summary="display fit graph">
       <created>1462568974569</created>
       <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1462568974569</updated>
     </task>
     <task id="LOCAL-00010" summary="display fit graph">
       <created>1462629287900</created>
       <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1462629287900</updated>
     </task>
     <task id="LOCAL-00011" summary="display fit graph">
       <created>1462629518457</created>
       <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1462629518457</updated>
     </task>
     <task id="LOCAL-00012" summary="display fit graph">
       <created>1462629869150</created>
       <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1462629869150</updated>
     </task>
     <task id="LOCAL-00013" summary="display fit graph">
       <created>1462630012598</created>
       <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1462630012598</updated>
     </task>
     <task id="LOCAL-00014" summary="display fit graph">
       <created>1462630278800</created>
       <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1462630278800</updated>
     </task>
     <task id="LOCAL-00015" summary="display fit graph">
       <created>1462630492846</created>
       <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
       <updated>1462630492846</updated>
     </task>
     <task id="LOCAL-00016" summary="changed burn ins for gibbs">
       <created>1462634253348</created>
       <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1462634253348</updated>
     </task>
     <task id="LOCAL-00017" summary="changed burn ins for gibbs, discard first few gibbs samplings">
       <created>1462634504914</created>
       <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1462634504914</updated>
     </task>
     <task id="LOCAL-00018" summary="minor changes">
       <created>1462636779639</created>
       <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1462636779639</updated>
     </task>
     <task id="LOCAL-00019" summary="minor changes">
       <created>1462653344326</created>
       <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
       <updated>1462653344326</updated>
     </task>
     <task id="LOCAL-00020" summary="about to try BayesOpt on BayesNet&#10;">
       <created>1462701449163</created>
       <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
       <updated>1462701449163</updated>
     </task>
     <task id="LOCAL-00021" summary="implemented BayesOpt on BNN">
       <created>1462716255307</created>
       <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
       <updated>1462716255307</updated>
     </task>
     <task id="LOCAL-00022" summary="implemented BayesOpt on BNN">
       <created>1462716494411</created>
       <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
       <updated>1462716494411</updated>
     </task>
     <task id="LOCAL-00023" summary="implemented BayesOpt on BNN">
       <created>1462720850702</created>
       <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
       <updated>1462720850702</updated>
     </task>
     <task id="LOCAL-00024" summary="issue with config">
       <created>1462721905921</created>
       <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
       <updated>1462721905921</updated>
     </task>
     <task id="LOCAL-00025" summary="issue with config">
       <created>1462721997506</created>
       <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
       <updated>1462721997506</updated>
     </task>
     <task id="LOCAL-00026" summary="issue with config">
       <created>1462723242208</created>
       <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
       <updated>1462723242208</updated>
     </task>
     <task id="LOCAL-00027" summary="issue with config">
       <created>1462733443900</created>
       <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
       <updated>1462733443900</updated>
     </task>
     <task id="LOCAL-00028" summary="issue with config">
       <created>1462734437835</created>
       <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
       <updated>1462734437835</updated>
     </task>
     <task id="LOCAL-00029" summary="exploring mixing&#10;">
       <created>1462806228292</created>
       <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
       <updated>1462806228293</updated>
     </task>
     <task id="LOCAL-00030" summary="exploring mixing, distribution&#10;&#10;">
       <created>1462807718776</created>
       <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
       <updated>1462807718776</updated>
     </task>
     <task id="LOCAL-00031" summary="exploring mixing, distribution&#10;&#10;">
       <created>1462812222286</created>
       <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
       <updated>1462812222287</updated>
     </task>
     <task id="LOCAL-00032" summary="exploring mixing, distribution&#10;&#10;">
       <created>1462813907751</created>
       <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
       <updated>1462813907751</updated>
     </task>
@@ -744,28 +742,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="23" width="1260" height="672" extended-state="0" />
+    <frame x="497" y="411" width="1260" height="672" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34115523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32851985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25270757" sideWeight="0.5092817" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20984665" sideWeight="0.32687652" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267148" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23826715" sideWeight="0.49717513" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20984665" sideWeight="0.6731235" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22921711" sideWeight="0.70674485" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38447654" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25451264" sideWeight="0.49071833" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22921711" sideWeight="0.70674485" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23826715" sideWeight="0.49717513" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25270757" sideWeight="0.5092817" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38447654" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267148" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25438598" sideWeight="0.49071833" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20906201" sideWeight="0.6517647" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34115523" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20906201" sideWeight="0.34823528" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32851985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -813,77 +811,77 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/sandbox1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="37" column="10" selection-start-line="27" selection-start-column="0" selection-end-line="37" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="125" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="334" column="16" selection-start-line="334" selection-start-column="16" selection-end-line="334" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="125" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="334" column="16" selection-start-line="334" selection-start-column="16" selection-end-line="334" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="125" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="125" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="125" selection-end-column="15" />
         </state>
       </provider>
@@ -893,21 +891,8 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/core/multiarray.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33241758">
-          <caret line="4301" column="8" selection-start-line="4301" selection-start-column="8" selection-end-line="4301" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/shape_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41483516">
-          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/core/multiarray.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/shape_base.py" />
     <entry file="file://$PROJECT_DIR$/basic_gp.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -915,245 +900,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/function_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/util/multioutput.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/function_base.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/util/multioutput.py" />
     <entry file="file://$PROJECT_DIR$/sandbox1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9404332">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/gp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="264" column="11" selection-start-line="264" selection-start-column="11" selection-end-line="264" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/model.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/GPy/core/gp.py" />
     <entry file="file://$PROJECT_DIR$/bnn_map.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="139" column="37" selection-start-line="139" selection-start-column="37" selection-end-line="139" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/var.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="358" column="0" selection-start-line="358" selection-start-column="0" selection-end-line="358" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/var.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="2357" column="0" selection-start-line="2357" selection-start-column="0" selection-end-line="2357" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rec_bin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/try_hmc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27108434">
+        <state relative-caret-position="0">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2880" column="4" selection-start-line="2880" selection-start-column="4" selection-end-line="2880" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/numeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9147286">
-          <caret line="399" column="0" selection-start-line="399" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/lxml/etree/__init__/_Element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4108527">
-          <caret line="207" column="8" selection-start-line="207" selection-start-column="8" selection-end-line="207" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/basic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/elemwise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="526" column="0" selection-start-line="526" selection-start-column="0" selection-end-line="526" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/fromnumeric.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/numpy/core/numeric.py" />
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/lxml/etree/__init__/_Element.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/basic.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/tensor/elemwise.py" />
     <entry file="file://$PROJECT_DIR$/bayesNN_HMC_simple.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.9094205">
+        <state relative-caret-position="0">
           <caret line="150" column="31" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/metrics/regression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/metrics/regression.py" />
     <entry file="file://$PROJECT_DIR$/sand2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625">
+        <state relative-caret-position="0">
           <caret line="31" column="63" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_bayesNNv2Paraller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bnn_mfsvi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.148148">
+        <state relative-caret-position="0">
           <caret line="167" column="13" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="489" column="38" selection-start-line="489" selection-start-column="38" selection-end-line="489" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm40/python_stubs/-2122531877/numpy/random/mtrand.py" />
     <entry file="file://$PROJECT_DIR$/dd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7196262">
+        <state relative-caret-position="0">
           <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="440" column="51" selection-start-line="440" selection-start-column="51" selection-end-line="440" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="419" column="4" selection-start-line="419" selection-start-column="4" selection-end-line="419" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/configdefaults.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/configparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="45" selection-start-line="165" selection-start-column="45" selection-end-line="165" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/matplotlib/pyplot.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/configdefaults.py" />
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/theano/configparser.py" />
     <entry file="file://$PROJECT_DIR$/sandbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesOptGP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8812665">
+        <state relative-caret-position="0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-          <folding>
-            <element signature="e#22#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/matplotlib/backends/backend_agg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="531" column="0" selection-start-line="531" selection-start-column="0" selection-end-line="531" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/matplotlib/backends/backend_agg.py" />
     <entry file="file://$PROJECT_DIR$/hmc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.102828">
+        <state relative-caret-position="0">
           <caret line="387" column="35" selection-start-line="387" selection-start-column="35" selection-end-line="387" selection-end-column="35" />
-          <folding>
-            <element signature="e#14#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/d.py" />
     <entry file="file://$PROJECT_DIR$/gamma_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="72">
           <caret line="4" column="32" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
@@ -1161,44 +1025,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNNexplorePostfromIp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNN_HMCv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="486" column="0" selection-start-line="486" selection-start-column="0" selection-end-line="486" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="609" column="57" selection-start-line="609" selection-start-column="57" selection-end-line="609" selection-end-column="57" />
           <folding>
             <element signature="e#21#33#0" expanded="true" />
             <element signature="e#2503#2742#0" expanded="false" />
-            <element signature="e#12876#14857#0" expanded="false" />
-            <element signature="e#17620#17975#0" expanded="false" />
-            <element signature="e#18038#20993#0" expanded="false" />
-            <element signature="e#18038#18184#1" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bayesNNexplorePosteriors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="147" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        <state relative-caret-position="269">
+          <caret line="143" column="14" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
           <folding>
             <element signature="e#0#72#0" expanded="true" />
-            <element signature="e#2184#3424#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testSimplerNN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6883117">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        <state relative-caret-position="126">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#0#72#0" expanded="true" />
           </folding>
