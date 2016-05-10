@@ -28,7 +28,7 @@ def mixing(sf, vy, show_fit=False):
 
     hWidths = [100]
 
-    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=0, n_samples=1000, precisions=precisions,
+    train_err, test_err, samples, train_op_samples = sampler_on_BayesNN(burnin=0, n_samples=2000, precisions=precisions,
                                                                         vy=vy,
                                                                         X_train=X_train, y_train=y_train,
                                                                         hWidths=hWidths, target_acceptance_rate=0.9)
@@ -57,8 +57,8 @@ def mixing(sf, vy, show_fit=False):
     samples = samples[200:, :]  # burning in
 
     w1 = samples[:, 1]
-    w2 = samples[:, 5200]
-    w3 = samples[:, 1200]
+    w2 = samples[:, 3]
+    w3 = samples[:, 9]
     plt.figure()
 
     N = samples.shape[0]
@@ -83,6 +83,6 @@ if __name__ == '__main__':
     #
     # mixing(1,1,show_fit=True)
     # mixing(1,10,show_fit=True)
-    mixing(1, 100, show_fit=True)
+    mixing(10, 100, show_fit=True)
     # mixing(10,1,show_fit=True)
     plt.show()
